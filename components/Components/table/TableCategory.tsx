@@ -84,7 +84,7 @@ export const TableCategory: FC<Props> = ({ categories }) => {
                     <th className="w-1/10" >
                       <div className="flex items-center pl-5">
                         <p className="text-base font-medium leading-none text-gray-900 mr-2">
-                          Descripcion de la imagen
+                          Descripción de la imagen
                         </p>
                       </div>
                     </th>

@@ -70,7 +70,7 @@ export const TableSite: FC<Props> = ({ site }) => {
                     <th className="w-1/10" >
                       <div className="flex items-center pl-5">
                         <p className="text-base font-medium leading-none text-gray-900 mr-2">
-                          Descripcion
+                          Descripción
                         </p>
                       </div>
                     </th>
