@@ -34,7 +34,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
 			item: '',
 			price: 0,
 			oldPrice: 0,
-			tags: [],
+			tags: ['producto'],
 
 			color: 'como se ve en la imagen',
 			// sizes:[]

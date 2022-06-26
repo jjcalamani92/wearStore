@@ -39,7 +39,7 @@ interface Props {
 export const Form: FC<Props> = ({ product }) => {
 
   const { register, handleSubmit, formState: { errors }, getValues, setValue, watch } = useForm<FormData>({
-    defaultValues: { ...product, tags: ['producto'] }
+    defaultValues: { ...product }
   })
 
   const [brand, setBrand] = useState([]);
@@ -549,6 +549,7 @@ export const Form: FC<Props> = ({ product }) => {
                         {errors.color && <span className="text-sm text-rose-500">{errors.color.message}</span>}
                       </div>
                     </div> */}
+{/*                     
                     <div className="col-span-6 sm:col-span-3">
                       <label htmlFor="glasses" className="block text-sm font-medium text-gray-700">
                         Glasses
@@ -612,7 +613,7 @@ export const Form: FC<Props> = ({ product }) => {
                       <div>
                         {errors.rod && <span className="text-sm text-rose-500">{errors.rod.message}</span>}
                       </div>
-                    </div> 
+                    </div>  */}
                   </div>
                   <div className="grid grid-cols-6 gap-6">
                     <div className="col-span-6 sm:col-span-6">

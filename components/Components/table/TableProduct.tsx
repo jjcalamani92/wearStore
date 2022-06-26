@@ -78,7 +78,7 @@ export const TableProduct: FC<Props> = ({ products }) => {
                     <th className="w-3/10" >
                       <div className="flex items-center pl-5">
                         <p className="text-base font-medium leading-none text-gray-900 mr-2">
-                          Categoria
+                          Categoría
                         </p>
                       </div>
                     </th>
