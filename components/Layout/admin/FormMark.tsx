@@ -28,8 +28,7 @@ export const FormMark: FC<Props> = ({ mark }) => {
   })
   const onSubmit = async (form: FormData) => {
     let { _id, href, ...data } = form
-    const dat = { ...data, site: process.env.API_SITE}
-    
+    const dat = { ...data, name:form.name.trim(), site: process.env.API_SITE}
     if (router.query.href === 'new') {
       Swal.fire({
         position: 'center',

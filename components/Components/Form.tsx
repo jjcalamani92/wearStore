@@ -168,7 +168,7 @@ export const Form: FC<Props> = ({ product }) => {
   }
 
   const onSubmit = async (form: FormData) => {
-    const data = { ...form, price: Number(form.price), oldPrice: Number(form.oldPrice), inStock: Number(form.inStock), site: process.env.API_SITE }
+    const data = { ...form, name:form.name.trim(), price: Number(form.price), oldPrice: Number(form.oldPrice), inStock: Number(form.inStock), site: process.env.API_SITE }
     if (form._id) {
       Swal.fire({
         position: 'center',

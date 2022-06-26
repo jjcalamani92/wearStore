@@ -32,7 +32,7 @@ export const FormCategory: FC<Props> = ({ category }) => {
   })
   const onSubmit = async (form: FormData) => {
     let { featured, sections, _id, href, category, ...data } = form
-    const dat = { ...data, category: form._id }
+    const dat = { ...data, name:form.name.trim(), category: form._id }
     
     if (router.query.category === 'new') {
       Swal.fire({

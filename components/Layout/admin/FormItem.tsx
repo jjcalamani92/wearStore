@@ -30,7 +30,7 @@ export const FormItem: FC<Props> = ({ item, category, section }) => {
   })
   const onSubmit = async (form: FormData) => {
     let { _id, href, ...data } = form
-    const dat = { ...data, category: category, section: section }
+    const dat = { ...data, name:form.name.trim(), category: category, section: section }
     const da = { ...dat, item: form._id }
 
     if (router.query.item === 'new') {
