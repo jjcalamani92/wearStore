@@ -108,7 +108,7 @@ export const FormSite: FC<Props> = ({ site }) => {
                       </div>
                       <div>
                         <label htmlFor="address" className="block text-sm font-medium text-gray-700">
-                          Dirreccón
+                          Dirección
                         </label>
                         <input
                           className="my-2 focus:ring-rose-500 focus:border-rose-500 block w-full shadow-sm sm:text-sm  rounded-md p-1 border border-gray-300"
