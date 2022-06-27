@@ -16,7 +16,7 @@ const UI_INITIAL_STATE: UiState = {
 	isCartOpen: false,
 	site: {
 		_id: "",
-		title: "piccoletti",
+		title: "Piccoletti",
 		domain: "",
 		logo: "https://res.cloudinary.com/dvcyhn0lj/image/upload/v1647095547/piccoletti-logo_j6hxbw.jpg",
 		numberPhone: "",
