@@ -61,7 +61,7 @@ export const TableProduct: FC<Props> = ({ products }) => {
           <div className="my-6 container mx-auto flex flex-row lg:flex-row items-center lg:items-center justify-between ">
             <h4 className="text-2xl font-bold leading-tight text-gray-800">Productos</h4>
             <Link href="/admin/products/new">
-              <a  className="transition duration-150 ease-in-out hover:bg-rose-600 focus:outline-none border bg-rose-500 rounded text-white px-8 py-2 text-sm">Nuevo Producto</a>
+              <a  className="transition duration-150 ease-in-out hover:bg-red-600 focus:outline-none border bg-red-500 rounded text-white px-8 py-2 text-sm">Nuevo Producto</a>
             </Link>
           </div>
             <div className="hidden lg:flex">
