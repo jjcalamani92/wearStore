@@ -42,7 +42,7 @@ export const FormCategory: FC<Props> = ({ category }) => {
         showConfirmButton: false,
         timer: 1500
       })
-      await axios.put(`${process.env.APIS_URL}/api/site/addcategory/${process.env.API_SITE}`, data)
+      await axios.put(`${process.env.APIS_URL}/api/site/addcategory/${process.env.API_SITE}`, dat)
       router.replace('/admin/sites')
     } else {
       Swal.fire({
