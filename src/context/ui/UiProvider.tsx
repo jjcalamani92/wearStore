@@ -16,9 +16,9 @@ const UI_INITIAL_STATE: UiState = {
 	isCartOpen: false,
 	site: {
 		_id: "",
-		title: "",
+		title: "piccoletti",
 		domain: "",
-		logo: "https://res.cloudinary.com/dvcyhn0lj/image/upload/v1655836738/glass/zarla-ojo-de-aviador-1x1-2400x2400-20220209-6xt34wyktxdkg8xt9y6x_m6rbbm_d9v11u.png",
+		logo: "https://res.cloudinary.com/dvcyhn0lj/image/upload/v1647095547/piccoletti-logo_j6hxbw.jpg",
 		numberPhone: "",
 		address: "",
 		location: "",

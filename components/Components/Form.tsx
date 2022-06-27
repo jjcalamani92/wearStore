@@ -24,17 +24,14 @@ interface FormData {
   oldPrice: number;
   tags: string[];
 
-  glasses: string;
-  form: string;
-  bridge: string;
-  rod: string;
-  // sizes: string[];
+  color: string;
+  sizes: string[];
 }
 interface Props {
   product: FormData
 }
 
-// const validSizes = ['XS', 'S', 'M', 'L', 'XL', 'XXL', 'XXXL']
+const validSizes = ['XS', 'S', 'M', 'L', 'XL', 'XXL', 'XXXL']
 
 export const Form: FC<Props> = ({ product }) => {
 
@@ -177,7 +174,7 @@ export const Form: FC<Props> = ({ product }) => {
         showConfirmButton: false,
         timer: 1500
       })
-      await axios.put(`${process.env.APIP_URL}/api/glasses/${product._id}`, data)
+      await axios.put(`${process.env.APIP_URL}/api/clothing/${product._id}`, data)
       router.replace('/admin')
 
     } else {
@@ -189,7 +186,7 @@ export const Form: FC<Props> = ({ product }) => {
         timer: 1500
       })
       await axios.post(
-        `${process.env.APIP_URL}/api/glasses`, data);
+        `${process.env.APIP_URL}/api/clothing`, data);
       router.replace(`/admin`)
     }
   }
@@ -500,7 +497,7 @@ export const Form: FC<Props> = ({ product }) => {
 
                   <div className="grid grid-cols-6 gap-6">
 
-                    {/* <div className="col-span-6 sm:col-span-3">
+                    <div className="col-span-6 sm:col-span-3">
                       <fieldset
 
                       >
@@ -531,7 +528,7 @@ export const Form: FC<Props> = ({ product }) => {
                       <div>
                         {errors.sizes?.length === 0 && <span className="text-sm text-rose-500">seleccione al menos una talla</span>}
                       </div>
-                    </div> */}
+                    </div>
 
                     {/* <div className="col-span-6 sm:col-span-6">
                       <label htmlFor="color" className="block text-sm font-medium text-gray-700">
@@ -551,19 +548,19 @@ export const Form: FC<Props> = ({ product }) => {
                     </div> */}
 {/*                     
                     <div className="col-span-6 sm:col-span-3">
-                      <label htmlFor="glasses" className="block text-sm font-medium text-gray-700">
-                        Glasses
+                      <label htmlFor="clothing" className="block text-sm font-medium text-gray-700">
+                        Clothing
                       </label>
                       <input
                         defaultValue={'como se ve en la imagen'}
                         className="mt-2 focus:ring-rose-500 focus:border-rose-500 block w-full shadow-sm sm:text-sm border border-gray-300 rounded-md p-1"
-                        {...register('glasses', {
+                        {...register('clothing', {
                           required: 'Este campo es requerido',
                           minLength: { value: 2, message: 'Mínimo 2 caracteres' }
                         })}
                       />
                       <div>
-                        {errors.glasses && <span className="text-sm text-rose-500">{errors.glasses.message}</span>}
+                        {errors.clothing && <span className="text-sm text-rose-500">{errors.clothing.message}</span>}
                       </div>
                     </div> 
                     <div className="col-span-6 sm:col-span-3">
