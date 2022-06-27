@@ -42,7 +42,7 @@ export const LayoutProductlist01: FC<Props> = ({ products }) => {
 					<div className="grid grid-cols-1 gap-y-6 gap-x-6 sm:grid-cols-2 lg:grid-cols-4">
 						{products.map((product, i) => (
 							<div key={i} className="group relative">
-								<div className="w-full min-h-80 bg-white aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
+								<div className="w-full  bg-white aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:aspect-none">
 									<Image
                     src={product.image[0]}
                     alt={product.name}
