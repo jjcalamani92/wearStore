@@ -63,7 +63,7 @@ export const TableItem: FC<Props> = ({ items, category, section }) => {
                     <th className="w-3/10" >
                       <div className="flex items-center pl-5">
                         <p className="text-base font-medium leading-none text-gray-900 mr-2">
-                          Nombre de la Categoría
+                          Nombre del Item
                         </p>
                       </div>
                     </th>
