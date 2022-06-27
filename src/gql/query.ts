@@ -10,6 +10,7 @@ export const PBS = gql`
 export const PRODUCTS = gql`
 	query ClothingAll($site: String!) {
 		clothingAll(site: $site) {
+			_id
 			name
 			image
 			price

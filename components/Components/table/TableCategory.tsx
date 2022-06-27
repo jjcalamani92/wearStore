@@ -37,7 +37,7 @@ export const TableCategory: FC<Props> = ({ categories }) => {
 
 					}),
 				await axios.put(`${process.env.APIS_URL}/api/site/removecategory/${process.env.API_SITE}`, {category: id})
-				router.reload()
+				router.push('/admin/sites')
 			}
 		})
     //  await axios.put(`${process.env.APIS_URL}/api/site/removecategory/${process.env.API_SITE}`, {category: id})

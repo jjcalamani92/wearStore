@@ -208,14 +208,7 @@ export const Header = () => {
         <nav aria-label="Top" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="border-b border-gray-200">
             <div className="h-16 flex items-center">
-              <button
-                type="button"
-                className="bg-white p-2 rounded-md text-gray-400 lg:hidden"
-                onClick={() => setOpen(true)}
-              >
-                <span className="sr-only">Open menu</span>
-                <MenuIcon className="h-6 w-6" aria-hidden="true" />
-              </button>
+              
 
               {/* Logo */}
               <div className="ml-4 flex lg:ml-0">
@@ -406,18 +399,22 @@ export const Header = () => {
                         </a>
                       </div>
                     </Link>
-
-
                 }
-
-
                 {/* Search */}
-                <div className="flex lg:ml-3 items-center">
+                {/* <div className="flex lg:ml-3 items-center">
                   <div onClick={toggleSideSearch} className="p-2 text-gray-400 hover:text-gray-500">
                     <span className="sr-only">Search</span>
                     <SearchIcon className="w-6 h-6" aria-hidden="true" />
                   </div>
-                </div>
+                </div> */}
+                <button
+                type="button"
+                className="bg-white p-2 rounded-md text-gray-400 lg:hidden"
+                onClick={() => setOpen(true)}
+              >
+                <span className="sr-only">Open menu</span>
+                <MenuIcon className="h-6 w-6" aria-hidden="true" />
+              </button>
 
                 {/* Cart */}
                 {/* <div className="ml-4 flow-root lg:ml-3">

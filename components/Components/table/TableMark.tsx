@@ -43,7 +43,8 @@ export const TableMark: FC<Props> = ({ markAll }) => {
 				// await axios.put(`${process.env.APIS_URL}/api/site/removecategory/${process.env.API_SITE}`, {category: id})
 				// await axios.put(`${process.env.APIS_URL}/api/site/removesection/${process.env.API_SITE}`, data)
         await axios.delete(`${process.env.APIP_URL}/api/marks/${id}`)
-				router.reload()
+				router.push(`/admin/marks`)
+				// router.reload()
 			}
 		})
     // router.reload()

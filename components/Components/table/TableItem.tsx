@@ -17,7 +17,6 @@ interface Props {
 
 export const TableItem: FC<Props> = ({ items, category, section }) => {
   const router = useRouter()
-
   const [show, setShow] = useState(null);
 
   const onDeleteData = async (id: string) => {
@@ -41,7 +40,8 @@ export const TableItem: FC<Props> = ({ items, category, section }) => {
 					}),
 				// await axios.put(`${process.env.APIS_URL}/api/site/removecategory/${process.env.API_SITE}`, {category: id})
 				await axios.put(`${process.env.APIS_URL}/api/site/removeitem/${process.env.API_SITE}`, data)
-				router.reload()
+        router.push(`/admin/sites/${router.query.category}/${router.query.section}`)
+
 			}
 		})
   }

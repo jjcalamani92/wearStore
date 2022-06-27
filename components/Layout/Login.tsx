@@ -14,23 +14,17 @@ export const Login = () => {
 	const [showError, setShowError] = useState(false)
 	const [providers, setProviders] = useState<any>({})
 	const { register, handleSubmit, watch, formState: { errors } } = useForm<FormData>();
-	
 	useEffect(() => {
 		getProviders().then(prov => {
 			setProviders(prov)
 		})
 	}, [])
-	
-
 	const onLoginSubmit = async ({ email, password }: FormData) => {
 		// setShowError(false)
 		await signIn('credentials', { email, password })
 	};
-
 	return (
-
 		<div
-			
 			className="h-screen flex bg-gray-100 from-green-400 to-red-900 w-full "
 		>
 			<div className="flex flex-col items-center justify-center w-full">

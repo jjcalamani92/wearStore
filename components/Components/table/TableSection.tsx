@@ -40,7 +40,8 @@ export const TableSection: FC<Props> = ({ sections, category }) => {
 					}),
 				// await axios.put(`${process.env.APIS_URL}/api/site/removecategory/${process.env.API_SITE}`, {category: id})
 				await axios.put(`${process.env.APIS_URL}/api/site/removesection/${process.env.API_SITE}`, data)
-				router.reload()
+        router.push(`/admin/sites/${router.query.category}`)
+
 			}
 		})
     

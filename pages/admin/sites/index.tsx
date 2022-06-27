@@ -2,7 +2,7 @@ import { FC, useState } from "react";
 import { LayoutAdmin } from "../../../components/Layout";
 import { graphQLClientS } from "../../../src/graphQLClient";
 import { S } from "../../../src/gql/siteQuery";
-import { GetStaticProps } from "next";
+import { GetStaticProps, GetServerSideProps } from 'next';
 import { Category, ISeo, Item, Section, Site } from "../../../src/interfaces";
 import { FormSite } from "../../../components/Layout/admin/FormSite";
 import { LayoutCategoryListAdmin } from "../../../components/Components";
@@ -25,14 +25,22 @@ const AdminPages:FC<Props> = ({seo, site}) => {
 	);
 };
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getServerSideProps:GetServerSideProps = async() => {
   const { site } = await graphQLClientS.request(S, {id: process.env.API_SITE})
-  return {
-    props: {
-      site
-    },
-    revalidate: 3
-  };
-};
+	return {
+		props: {
+			site
+		},
+	};
+}
+// export const getStaticProps: GetStaticProps = async ({ params }) => {
+//   const { site } = await graphQLClientS.request(S, {id: process.env.API_SITE})
+//   return {
+//     props: {
+//       site
+//     },
+//     revalidate: 3
+//   };
+// };
 
 export default AdminPages;

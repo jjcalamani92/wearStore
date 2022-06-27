@@ -107,10 +107,10 @@ export const LayoutItemListAdmin: FC<Props> = ({ products }) => {
 						icon: 'success',
 						timer: 1000,
 						showConfirmButton: false,
-
 					}),
 				// await axios.put(`${process.env.APIS_URL}/api/site/removecategory/${process.env.API_SITE}`, {category: id})
 				await axios.delete(`${process.env.APIP_URL}/api/clothing/${id}`)
+				// router.push(`/admin`)
 				router.reload()
 			}
 		})
@@ -160,7 +160,7 @@ export const LayoutItemListAdmin: FC<Props> = ({ products }) => {
 								
 							</div>
 							</Link>
-							<div onClick={() => onDeleteData(product._id)}  className="mt-4 transition text-center duration-150 ease-in-out hover:bg-red-600 focus:outline-none border bg-white border-1 border-red-500 rounded text-white px-8 py-2 text-sm text-red-600  hover:text-white hover:border-0">Eliminar</div>
+							<div onClick={() => onDeleteData(product._id)}  className="mt-4 transition text-center duration-150 ease-in-out hover:bg-red-600 focus:outline-none border bg-white border-1 border-red-500 rounded px-8 py-2 text-sm text-red-600  hover:text-white hover:border-0">Eliminar</div>
 							</div>
 						))}
 					</div>
@@ -193,7 +193,7 @@ export const LayoutMarkListAdmin: FC<LayoutMarkListAdmin> = ({ marks }) => {
 					}),
 				// await axios.put(`${process.env.APIS_URL}/api/site/removecategory/${process.env.API_SITE}`, {category: id})
 				await axios.delete(`${process.env.APIP_URL}/api/marks/${id}`)
-				router.reload()
+				router.push(`/admin/marks`)
 			}
 		})
 		// router.reload()
@@ -242,7 +242,7 @@ export const LayoutMarkListAdmin: FC<LayoutMarkListAdmin> = ({ marks }) => {
 								
 							</div>
 							</Link>
-							<div onClick={() => onDeleteData(product._id)}  className="mt-4 transition text-center duration-150 ease-in-out hover:bg-red-600 focus:outline-none border bg-white border-1 border-red-500 rounded text-white px-8 py-2 text-sm text-red-600  hover:text-white hover:border-0">Eliminar</div>
+							<div onClick={() => onDeleteData(product._id)}  className="mt-4 transition text-center duration-150 ease-in-out hover:bg-red-600 focus:outline-none border bg-white border-1 border-red-500 rounded  px-8 py-2 text-sm text-red-600  hover:text-white hover:border-0">Eliminar</div>
 							</div>
 						))}
 					</div>
@@ -275,7 +275,7 @@ export const LayoutCategoryListAdmin: FC<LayoutCategoryListAdmin> = ({ data }) =
 
 					}),
 				await axios.put(`${process.env.APIS_URL}/api/site/removecategory/${process.env.API_SITE}`, {category: id})
-				router.reload()
+				router.push('/admin/sites')
 			}
 		})
   }
@@ -317,7 +317,7 @@ export const LayoutCategoryListAdmin: FC<LayoutCategoryListAdmin> = ({ data }) =
 								</div>
 								</a>
 							</Link>
-							<div onClick={() => onDeleteData(d._id)}  className="mt-4 transition text-center duration-150 ease-in-out hover:bg-red-600 focus:outline-none border bg-white border-1 border-red-500 rounded text-white px-8 py-2 text-sm text-red-600  hover:text-white hover:border-0">Eliminar</div>
+							<div onClick={() => onDeleteData(d._id)}  className="mt-4 transition text-center duration-150 ease-in-out hover:bg-red-600 focus:outline-none border bg-white border-1 border-red-500 rounded  px-8 py-2 text-sm text-red-600  hover:text-white hover:border-0">Eliminar</div>
 							</div>
 						))}
 					</div>
@@ -350,7 +350,7 @@ export const LayoutSectionListAdmin: FC<LayoutSectionListAdmin> = ({ data, categ
 					}),
 				// await axios.put(`${process.env.APIS_URL}/api/site/removecategory/${process.env.API_SITE}`, {category: id})
 				await axios.put(`${process.env.APIS_URL}/api/site/removesection/${process.env.API_SITE}`, data)
-				router.reload()
+				router.push(`/admin/sites/${router.query.category}`)
 			}
 		})
     // router.reload()
@@ -393,7 +393,7 @@ export const LayoutSectionListAdmin: FC<LayoutSectionListAdmin> = ({ data, categ
 								</div>
 								</a>
 							</Link>
-							<div onClick={() => onDeleteData(d._id)}  className="mt-4 transition text-center duration-150 ease-in-out hover:bg-red-600 focus:outline-none border bg-white border-1 border-red-500 rounded text-white px-8 py-2 text-sm text-red-600  hover:text-white hover:border-0">Eliminar</div>
+							<div onClick={() => onDeleteData(d._id)}  className="mt-4 transition text-center duration-150 ease-in-out hover:bg-red-600 focus:outline-none border bg-white border-1 border-red-500 rounded  px-8 py-2 text-sm text-red-600  hover:text-white hover:border-0">Eliminar</div>
 							</div>
 						))}
 					</div>
@@ -427,7 +427,7 @@ export const LayoutFeaturedListAdmin: FC<LayoutFeaturedListAdmin> = ({ data, cat
 				// await axios.put(`${process.env.APIS_URL}/api/site/removecategory/${process.env.API_SITE}`, {category: id})
 				// await axios.put(`${process.env.APIS_URL}/api/site/removesection/${process.env.API_SITE}`, data)
 				await axios.put(`${process.env.APIS_URL}/api/site/removefeatured/${process.env.API_SITE}`, data)
-				router.reload()
+				router.push(`/admin/sites/${router.query.category}`)
 			}
 		})
     // router.reload()
@@ -470,7 +470,7 @@ export const LayoutFeaturedListAdmin: FC<LayoutFeaturedListAdmin> = ({ data, cat
 								
 								</a>
 								</Link>
-								<div onClick={() => onDeleteData(d._id)}  className="mt-4 transition text-center duration-150 ease-in-out hover:bg-red-600 focus:outline-none border bg-white border-1 border-red-500 rounded text-white px-8 py-2 text-sm text-red-600  hover:text-white hover:border-0">Eliminar</div>
+								<div onClick={() => onDeleteData(d._id)}  className="mt-4 transition text-center duration-150 ease-in-out hover:bg-red-600 focus:outline-none border bg-white border-1 border-red-500 rounded  px-8 py-2 text-sm text-red-600  hover:text-white hover:border-0">Eliminar</div>
 							</div>
 							
 						))}
@@ -506,7 +506,7 @@ export const LayoutItemsListAdmin: FC<LayoutItemsListAdmin> = ({ data, category,
 				// await axios.put(`${process.env.APIS_URL}/api/site/removesection/${process.env.API_SITE}`, data)
 				// await axios.put(`${process.env.APIS_URL}/api/site/removefeatured/${process.env.API_SITE}`, data)
 				await axios.put(`${process.env.APIS_URL}/api/site/removeitem/${process.env.API_SITE}`, data)
-				router.reload()
+				router.push(`/admin/sites/${router.query.category}/${router.query.section}`)
 			}
 		})
     // router.reload()
@@ -548,7 +548,7 @@ export const LayoutItemsListAdmin: FC<LayoutItemsListAdmin> = ({ data, category,
 									</a>
 									
 								</Link>
-								<div onClick={() => onDeleteData(d._id)}  className="mt-4 transition text-center duration-150 ease-in-out hover:bg-red-600 focus:outline-none border bg-white border-1 border-red-500 rounded text-white px-8 py-2 text-sm text-red-600  hover:text-white hover:border-0">Eliminar</div>
+								<div onClick={() => onDeleteData(d._id)}  className="mt-4 transition text-center duration-150 ease-in-out hover:bg-red-600 focus:outline-none border bg-white border-1 border-red-500 rounded  px-8 py-2 text-sm text-red-600  hover:text-white hover:border-0">Eliminar</div>
 							</div>
 
 						))}
