@@ -2,6 +2,7 @@ import { FC } from "react";
 import { Item } from "../../src/interfaces";
 import Link from "next/link";
 import { useRouter } from 'next/router';
+import Image from "next/image";
 
 interface LayoutSectionList {
 	products: Item[];
@@ -24,10 +25,12 @@ export const LayoutSectionList:FC<LayoutSectionList> = ({ products }) => {
             <Link href={`/${category}/${section}/${product.href}`} key={i}>
               <a  className="group">
                 <div className="w-full min-h-80 bg-white aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
-                  <img
+                  <Image
                     src={product.imageSrc}
                     alt={product.name}
-                    className="w-full h-full object-contain"
+                    width={500}
+                    height={400}
+                    objectFit='cover'
                   />
                 </div>
                 <div className="mt-4 flex justify-between">

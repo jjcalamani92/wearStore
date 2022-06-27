@@ -43,11 +43,18 @@ export const LayoutProductlist01: FC<Props> = ({ products }) => {
 						{products.map((product, i) => (
 							<div key={i} className="group relative">
 								<div className="w-full min-h-80 bg-white aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
-									<img
+									<Image
+                    src={product.image[0]}
+                    alt={product.name}
+                    width={500}
+                    height={500}
+                    objectFit='cover'
+                  />
+									{/* <img
 										src={product.image[0]}
 										alt={product.name}
 										className="w-full h-full object-contain"
-									/>
+									/> */}
 								</div>
 								<div className="mt-4 flex justify-between">
 									<div>

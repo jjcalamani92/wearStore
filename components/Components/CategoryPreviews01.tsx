@@ -1,3 +1,4 @@
+import Image from "next/image"
 import { FC } from "react"
 import { Section } from "../../src/interfaces"
 
@@ -21,10 +22,12 @@ export const CategoryPreviews01: FC<CategoryPreviews01> = ({section, category}) 
             {section.map((data,i) => (
               <div key={i} className="group relative">
                 <div className="relative w-full h-80 bg-white rounded-lg overflow-hidden group-hover:opacity-75 sm:aspect-w-2 sm:aspect-h-1 sm:h-64 lg:aspect-w-1 lg:aspect-h-1">
-                  <img
+                  <Image
                     src={data.imageSrc}
-                    alt={data.imageAlt}
-                    className="w-full h-full object-center object-cover"
+                    alt={data.name}
+                    width={500}
+                    height={400}
+                    objectFit='cover'
                   />
                 </div>
                 <h3 className="mt-6 text-sm text-gray-500 capitalize">
