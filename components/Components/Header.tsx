@@ -87,7 +87,7 @@ export const Header = () => {
                             <div className="grid grid-cols-2 gap-x-4">
                               {category.featured.slice(-2).map((item) => (
                                 <div key={item.name} className="group relative text-sm">
-                                  <div className="aspect-w-1 aspect-h-1 rounded-lg bg-gray-100 overflow-hidden group-hover:opacity-75">
+                                  <div className="aspect-w-1 aspect-h-1 rounded-lg bg-white overflow-hidden group-hover:opacity-75">
                                     <Image
                                       src={item.imageSrc}
                                       alt={item.imageAlt}
@@ -337,7 +337,7 @@ export const Header = () => {
                                         <div className="col-start-5 grid grid-cols-1 gap-x-8">
                                           {category.featured.slice(-1).map((item, i) => (
                                             <div key={i} className="group relative text-base sm:text-sm">
-                                              <div className="aspect-w-1 aspect-h-1 rounded-lg bg-gray-100 overflow-hidden group-hover:opacity-75">
+                                              <div className="aspect-w-1 aspect-h-1 rounded-lg bg-white overflow-hidden group-hover:opacity-75">
                                                 <Image
                                                   src={item.imageSrc}
                                                   alt={item.imageAlt}
