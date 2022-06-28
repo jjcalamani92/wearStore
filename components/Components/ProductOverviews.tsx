@@ -1,11 +1,12 @@
 import { faFacebookF, faInstagram, faLinkedin, faPinterest, faTelegram, faTwitter, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
-import { FC, useContext, } from "react";
+import { FC, useContext, useState, } from "react";
 import { UiContext } from "../../src/context";
 import { IClothing } from "../../src/interfaces";
 import { SwiperDetail } from "./Swiper";
 import { useRouter } from 'next/router';
+import { RadioGroup } from '@headlessui/react';
 
 function classNames(...classes: string[]) {
 	return classes.filter(Boolean).join(" ");
@@ -17,6 +18,7 @@ interface Props {
 
 export const ProductOverviews: FC<Props> = ({ product }) => {
 	const { site } = useContext(UiContext)
+  const [selectedSize, setSelectedSize] = useState(product.sizes[2])
 	const router = useRouter()
 	return (
 		<>
@@ -36,6 +38,75 @@ export const ProductOverviews: FC<Props> = ({ product }) => {
 							<p className="text-3xl text-gray-900 ">{product.price}.00 Bs </p>
 						</div>
 						<div className="mb-4">
+						<form >
+							<div className="mt-6">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-sm text-gray-900 font-medium">Tallas</h3>
+                  <a href="#" className="text-sm font-medium text-red-600 hover:text-red-500">
+                    Guia de tallas
+                  </a>
+                </div>
+
+                <RadioGroup value={selectedSize} onChange={setSelectedSize} className="mt-4">
+                  <RadioGroup.Label className="sr-only">Choose a size</RadioGroup.Label>
+                  <div className="grid grid-cols-4 gap-4 sm:grid-cols-8 lg:grid-cols-4">
+                    {product.sizes.map((size, i) => (
+                      <RadioGroup.Option
+                        key={i}
+                        value={size}
+                        // disabled={!size.inStock}
+                        className={({ active }) =>
+                          classNames(
+                            size
+                            // size.inStock
+                              ? 'bg-white shadow-sm text-gray-900 cursor-pointer'
+                              : 'bg-gray-50 text-gray-200 cursor-not-allowed',
+                            active ? 'ring-2 ring-red-500' : '',
+                            'group relative border rounded-md py-3 px-4 flex items-center justify-center text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6'
+                          )
+                        }
+                      >
+                        {({ active, checked }) => (
+                          <>
+                            <RadioGroup.Label as="span">{size}</RadioGroup.Label>
+                            {/* {size.inStock ? (
+                              <span
+                                className={classNames(
+                                  active ? 'border' : 'border-2',
+                                  checked ? 'border-red-500' : 'border-transparent',
+                                  'absolute -inset-px rounded-md pointer-events-none'
+                                )}
+                                aria-hidden="true"
+                              />
+                            ) : (
+                              <span
+                                aria-hidden="true"
+                                className="absolute -inset-px rounded-md border-2 border-gray-200 pointer-events-none"
+                              >
+                                <svg
+                                  className="absolute inset-0 w-full h-full text-gray-200 stroke-2"
+                                  viewBox="0 0 100 100"
+                                  preserveAspectRatio="none"
+                                  stroke="currentColor"
+                                >
+                                  <line x1={0} y1={100} x2={100} y2={0} vectorEffect="non-scaling-stroke" />
+                                </svg>
+                              </span>
+                            )} */}
+                          </>
+                        )}
+                      </RadioGroup.Option>
+                    ))}
+                  </div>
+                </RadioGroup>
+              </div>
+								{/* <button
+									type="submit"
+									className="mt-10 w-full bg-red-500 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-400"
+								>
+									Agregar al carrito
+								</button> */}
+							</form>
 							{/* <form className="mt-5">
 								<button
 									type="submit"
@@ -47,7 +118,7 @@ export const ProductOverviews: FC<Props> = ({ product }) => {
 							<a
 								href={`https://wa.me/591${site.numberPhone}?text=Hola%20me%20interesa%20este%20producto:%20https://${site.domain}/detalles/${product.slug}`}
 								target={'blank'}
-								className=" w-full bg-red-500 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-400"
+								className="mt-3 w-full bg-red-500 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-400"
 							>
 								Preguntar por WhatsApp
 							</a>
