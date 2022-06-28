@@ -17,7 +17,7 @@ export async function middleware(req: NextRequest | any, ev: NextFetchEvent) {
     });
   }
 
-  const validUser = ["jesuscalamani92@gmail.com", process.env.EMAIL];
+  const validUser = ["jesuscalamani92@gmail.com", "temuergu@gmail.com", process.env.EMAIL];
   
   if (!validUser.includes(session.user.email)) {
     
