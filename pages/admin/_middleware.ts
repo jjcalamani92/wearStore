@@ -17,10 +17,9 @@ export async function middleware(req: NextRequest | any, ev: NextFetchEvent) {
     });
   }
 
-  const validRoles = ["ADMIN_ROL", "SUPER_ROL", "SEO"];
   const validUser = ["jesuscalamani92@gmail.com", process.env.EMAIL];
-
-  if (!validRoles.includes(session.user.role) && !validUser.includes(session.user.email)) {
+  
+  if (!validUser.includes(session.user.email)) {
     
     return new Response(JSON.stringify({ message: "No autorizado" }), {
       status: 401,
@@ -29,6 +28,18 @@ export async function middleware(req: NextRequest | any, ev: NextFetchEvent) {
       },
     });
   }
+  const validRoles = ["ADMIN_ROL", "SUPER_ROL", "SEO"];
+
+  if (!validRoles.includes(session.user.role) ) {
+    
+    return new Response(JSON.stringify({ message: "No autorizado" }), {
+      status: 401,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  }
+
 
   return NextResponse.next();
 }
