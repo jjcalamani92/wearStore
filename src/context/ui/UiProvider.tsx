@@ -18,7 +18,7 @@ const UI_INITIAL_STATE: UiState = {
 		_id: "",
 		title: "Piccoletti",
 		domain: "",
-		logo: "https://res.cloudinary.com/dvcyhn0lj/image/upload/v1647095547/piccoletti-logo_j6hxbw.jpg",
+		logo: "https://res.cloudinary.com/dvcyhn0lj/image/upload/v1656384574/React-jj/blogs/Screenshot_2_m0jqqs.png",
 		numberPhone: "",
 		address: "",
 		location: "",

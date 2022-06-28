@@ -8,7 +8,6 @@ import { useQuery } from "@apollo/client";
 import { GetServerSideProps } from "next";
 import { graphQLClientP } from "../../src/graphQLClient";
 import { IClothing } from "../../src/interfaces";
-import { useRouter } from "next/router";
 import { UiContext } from "../../src/context";
 
 interface Props {
