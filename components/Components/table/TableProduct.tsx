@@ -169,7 +169,7 @@ export const TableProduct: FC<Props> = ({ products }) => {
                       <td className="pl-5">
                         <div className="flex items-center">
                           <p className="text-sm leading-none text-gray-600 ml-2">
-                            23
+                            {product.inStock}
                           </p>
                         </div>
                       </td>
