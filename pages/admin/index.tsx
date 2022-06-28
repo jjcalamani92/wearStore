@@ -21,7 +21,7 @@ const PAGE_SIZE = 6;
 const AdminPage:FC<Props> = ({clothingAll, clothingsAll}) => {
 	const { site, toggleSideSearch, toggleSideCart } = useContext(UiContext)
 
-  const [page, setPage] = useState(1)
+  const [page, setPage] = useState(0)
 
 	const { loading, error, data, fetchMore } = useQuery(PRODUCT_ALL, {
 		variables: { limit: PAGE_SIZE, offset: page*PAGE_SIZE, site: process.env.API_SITE },  
