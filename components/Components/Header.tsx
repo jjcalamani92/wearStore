@@ -234,7 +234,9 @@ export const Header = () => {
                     <span className="sr-only">, change currency</span>
                   </a>
                 </div> */}
-                <div className="border-t border-gray-200">
+                {p[0] === 'admin'
+                  ? <>
+                  <div className="border-t border-gray-200">
                   <div className="w-full flex items-center justify-between px-6 pt-1 mb-1">
                     <div className="flex items-center">
                       <img alt="profile-pic" src={user?.image} className="w-8 h-8 rounded-md" />
@@ -254,6 +256,11 @@ export const Header = () => {
                     </ul>
                   </div>
                 </div>
+                  </>
+                  : null
+                  
+                }
+                
               </Dialog.Panel>
             </Transition.Child>
           </div>
