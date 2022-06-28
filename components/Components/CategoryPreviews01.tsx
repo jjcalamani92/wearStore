@@ -26,7 +26,7 @@ export const CategoryPreviews01: FC<CategoryPreviews01> = ({section, category}) 
                     src={data.imageSrc}
                     alt={data.name}
                     width={500}
-                    height={400}
+                    height={600}
                     objectFit='cover'
                   />
                 </div>

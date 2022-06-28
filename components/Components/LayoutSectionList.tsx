@@ -29,7 +29,7 @@ export const LayoutSectionList:FC<LayoutSectionList> = ({ products }) => {
                     src={product.imageSrc}
                     alt={product.name}
                     width={500}
-                    height={400}
+                    height={600}
                     objectFit='cover'
                   />
                 </div>

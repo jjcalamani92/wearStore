@@ -47,7 +47,7 @@ export const LayoutProductlist01: FC<Props> = ({ products }) => {
                     src={product.image[0]}
                     alt={product.name}
                     width={500}
-                    height={500}
+                    height={600}
                     objectFit='cover'
                   />
 									{/* <img
