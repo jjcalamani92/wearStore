@@ -1,6 +1,6 @@
 import { NextPage, GetServerSideProps } from 'next';
 import { Category, IClothing } from "../../../../src/interfaces";
-import { LayoutAdmin } from '../../../../components/Layout';
+import { Layout, LayoutAdmin } from '../../../../components/Layout';
 import { graphQLClientS } from '../../../../src/graphQLClient';
 import { SBS } from '../../../../src/gql/siteQuery';
 import Link from 'next/link';
@@ -10,14 +10,22 @@ import { LayoutFeaturedListAdmin, LayoutSectionListAdmin, LayoutCategoryListAdmi
 import { TableFeatured } from '../../../../components/Components/table/TableFeatured';
 import { TableSection } from '../../../../components/Components/table/TableSection';
 import { HeadingAdmin } from '../../../../components/Components/HeadingAdmin';
+import { UiContext } from '../../../../src/context';
+import { useContext } from 'react';
 interface Props {
 	category: Category;
 }
 const ProductPage: NextPage<Props> = ({ category }) => {
+	const { site } = useContext(UiContext)
+
 	const router = useRouter()
 	return (
 		<>
-			<LayoutAdmin>
+			<Layout
+			title={site.title}
+			pageDescription={site.description}
+			imageFullUrl={site.logo}
+		>
 				<HeadingAdmin category={`${router.query.category}`}/>
 				{
 					router.query.category==='new'
@@ -40,7 +48,7 @@ const ProductPage: NextPage<Props> = ({ category }) => {
 				</div> */}
 				<FormCategory category={category} />
 				
-			</LayoutAdmin>
+			</Layout>
 		</>
 	);
 };

@@ -1,19 +1,27 @@
 import { NextPage, GetServerSideProps } from 'next';
 import { IClothing, IMark } from "../../../src/interfaces";
 import { GraphQLClient } from 'graphql-request';
-import { LayoutAdmin } from '../../../components/Layout';
+import { Layout, LayoutAdmin } from '../../../components/Layout';
 import { MARK_BY_HREF } from '../../../src/gql/markQuery';
 import { FormMark } from '../../../components/Layout/admin/FormMark';
+import { useContext } from 'react';
+import { UiContext } from '../../../src/context';
 interface Props {
 	mark: IMark;
 }
 const client = new GraphQLClient(`${process.env.APIP_URL}/graphql`)
 const ProductPage: NextPage<Props> = ({ mark }) => {
+	const { site, toggleSideSearch, toggleSideCart } = useContext(UiContext)
+
 	return (
 		<>
-			<LayoutAdmin>
+			<Layout
+			title={site.title}
+			pageDescription={site.description}
+			imageFullUrl={site.logo}
+			>
 				<FormMark mark={mark} />
-			</LayoutAdmin>
+			</Layout>
 		</>
 	);
 };

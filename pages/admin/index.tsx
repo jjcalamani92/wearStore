@@ -1,14 +1,15 @@
-import { FC, useState } from "react";
+import { FC, useContext, useState } from "react";
 import { PRODUCTS, PRODUCT_ALL } from '../../src/gql/query';
 import request, { RequestDocument } from "graphql-request";
 import Link from 'next/link';
 import { Spinner04, TableProduct, Pagination01, LayoutItemListAdmin, Pagination } from "../../components/Components";
-import { LayoutAdmin } from "../../components/Layout";
+import { Layout, LayoutAdmin } from "../../components/Layout";
 import { useQuery } from "@apollo/client";
 import { GetServerSideProps } from "next";
 import { graphQLClientP } from "../../src/graphQLClient";
 import { IClothing } from "../../src/interfaces";
 import { useRouter } from "next/router";
+import { UiContext } from "../../src/context";
 
 interface Props {
 	clothingAll: IClothing[]
@@ -18,6 +19,8 @@ interface Props {
 const PAGE_SIZE = 6;
 
 const AdminPage:FC<Props> = ({clothingAll, clothingsAll}) => {
+	const { site, toggleSideSearch, toggleSideCart } = useContext(UiContext)
+
   const [page, setPage] = useState(1)
 
 	const { loading, error, data, fetchMore } = useQuery(PRODUCT_ALL, {
@@ -28,12 +31,18 @@ const AdminPage:FC<Props> = ({clothingAll, clothingsAll}) => {
 	if (loading) return <Spinner04 />;
 	return (
 		<>
-			<LayoutAdmin>
+		<Layout
+			title={site.title}
+			pageDescription={site.description}
+			imageFullUrl={site.logo}
+		>
 				<TableProduct products={data.clothingsAll} />
 				<LayoutItemListAdmin products={data.clothingsAll}/>
 				<Pagination01 setPage={setPage} page={page} length={data.clothingsAll.length} all={PAGE_SIZE} />
+			{/* <LayoutAdmin>
 				{/* <Pagination  /> */}
-			</LayoutAdmin>
+			{/* </LayoutAdmin> */} 
+		</Layout>
 		</>
 
 	);

@@ -3,17 +3,25 @@ import { PRODUCT_BY_SLUG } from '../../../src/gql/query';
 import { IClothing } from "../../../src/interfaces";
 import { GraphQLClient } from 'graphql-request';
 import { Form } from '../../../components/Components';
-import { LayoutAdmin } from '../../../components/Layout';
+import { Layout, LayoutAdmin } from '../../../components/Layout';
+import { useContext } from 'react';
+import { UiContext } from '../../../src/context';
 interface Props {
 	product: IClothing;
 }
 const client = new GraphQLClient(`${process.env.APIP_URL}/graphql`)
 const ProductPage: NextPage<Props> = ({ product }) => {
+	const { site, toggleSideSearch, toggleSideCart } = useContext(UiContext)
+
 	return (
 		<>
-			<LayoutAdmin>
+			<Layout
+			title={site.title}
+			pageDescription={site.description}
+			imageFullUrl={site.logo}
+		>
 				<Form product={product} />
-			</LayoutAdmin>
+			</Layout>
 		</>
 	);
 };

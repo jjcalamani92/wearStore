@@ -1,6 +1,6 @@
-import { FC, useState } from "react";
+import { FC, useContext, useState } from "react";
 import Link from 'next/link';
-import { LayoutAdmin } from "../../../components/Layout";
+import { Layout, LayoutAdmin } from "../../../components/Layout";
 import { graphQLClientP, graphQLClientS } from "../../../src/graphQLClient";
 import { S } from "../../../src/gql/siteQuery";
 import { GetServerSideProps, GetStaticProps } from "next";
@@ -11,6 +11,7 @@ import { TableCategory } from "../../../components/Components/table/TableCategor
 import { MARKS } from "../../../src/gql/markQuery";
 import { TableMark } from "../../../components/Components/table/TableMark";
 import { useQuery } from "@apollo/client";
+import { UiContext } from "../../../src/context";
 
 
 interface Props {
@@ -18,6 +19,8 @@ interface Props {
 	markAll: IMark[]
 }
 const AdminPages:FC<Props> = ({seo, markAll}) => {
+	const { site, toggleSideSearch, toggleSideCart } = useContext(UiContext)
+
   // console.log(markAll)
 //   const { loading, error, data, fetchMore } = useQuery(MARKS, {
 // 		variables: { site: process.env.API_SITE },  
@@ -28,10 +31,14 @@ const AdminPages:FC<Props> = ({seo, markAll}) => {
   // console.log(data)
 	return (
 		<>
-			<LayoutAdmin>
-        <TableMark markAll={markAll} />
+		<Layout
+			title={site.title}
+			pageDescription={site.description}
+			imageFullUrl={site.logo}
+		>
+			<TableMark markAll={markAll} />
         <LayoutMarkListAdmin marks={markAll} /> 
-			</LayoutAdmin>
+		</Layout>
 		</>
 	);
 };

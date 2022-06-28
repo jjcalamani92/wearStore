@@ -1,5 +1,5 @@
 import { FC, useState } from "react";
-import { LayoutAdmin } from "../../../components/Layout";
+import { Layout, LayoutAdmin } from "../../../components/Layout";
 import { graphQLClientS } from "../../../src/graphQLClient";
 import { S } from "../../../src/gql/siteQuery";
 import { GetStaticProps, GetServerSideProps } from 'next';
@@ -16,11 +16,15 @@ interface Props {
 const AdminPages:FC<Props> = ({seo, site}) => {
 	return (
 		<>
-			<LayoutAdmin>
+			<Layout
+			title={site.title}
+			pageDescription={site.description}
+			imageFullUrl={site.logo}
+		>
 				<TableCategory categories={site.categories} />
 				<LayoutCategoryListAdmin data={site.categories}/>
 				<FormSite site={site} />
-			</LayoutAdmin>
+				</Layout>
 		</>
 	);
 };

@@ -1,24 +1,31 @@
 import { NextPage, GetServerSideProps } from 'next';
 import { Category, Featured, IClothing, Section } from "../../../../../src/interfaces";
-import { LayoutAdmin } from '../../../../../components/Layout';
+import { Layout, LayoutAdmin } from '../../../../../components/Layout';
 import { graphQLClientS } from '../../../../../src/graphQLClient';
 import { SBS } from '../../../../../src/gql/siteQuery';
 import { FormFeatured } from '../../../../../components/Layout/admin/FormFeatured';
 import { HeadingAdmin } from '../../../../../components/Components/HeadingAdmin';
 import { useRouter } from 'next/router';
+import { UiContext } from '../../../../../src/context';
+import { useContext } from 'react';
 interface Props {
 	featured: Featured;
 	category: string
 }
 const ProductPage: NextPage<Props> = ({ featured, category }) => {
+	const { site, toggleSideSearch, toggleSideCart } = useContext(UiContext)
+
 	const router = useRouter()
 	return (
 		<>
-			<LayoutAdmin>
+			<Layout
+			title={site.title}
+			pageDescription={site.description}
+		>
 				<HeadingAdmin category={`${router.query.category}`}/>
 
 				<FormFeatured featured={featured} category={category}/>
-			</LayoutAdmin>
+			</Layout>
 		</>
 	);
 };

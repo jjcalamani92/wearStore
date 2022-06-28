@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { useRouter } from "next/router";
 import { FC } from "react";
 import { Footer01, Header, Search01 } from "../Components";
 
@@ -14,6 +15,9 @@ export const Layout: FC<Props> = ({
 	pageDescription,
 	imageFullUrl
 }) => {
+	const router = useRouter()
+  const { pathname } = router
+  const p = pathname.substring(1).split('/')
 	return (
 		<>
 			<Head>
@@ -31,7 +35,10 @@ export const Layout: FC<Props> = ({
 			<Header />
 			<Search01 />
 			<main>{children}</main>
-      <Footer01 />
-		</>
+			{ p[0] === 'admin'
+        ? null
+				: <Footer01 />
+			}
+			</>
 	);
 };

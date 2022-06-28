@@ -1,24 +1,31 @@
 import { NextPage, GetServerSideProps } from 'next';
 import { Category, Item, Section } from "../../../../../../src/interfaces";
-import { LayoutAdmin } from '../../../../../../components/Layout';
+import { Layout, LayoutAdmin } from '../../../../../../components/Layout';
 import { graphQLClientS } from '../../../../../../src/graphQLClient';
 import { SBS } from '../../../../../../src/gql/siteQuery';
 import { FormItem } from '../../../../../../components/Layout/admin/FormItem';
 import { HeadingAdmin } from '../../../../../../components/Components/HeadingAdmin';
 import { useRouter } from 'next/router';
+import { useContext } from 'react';
+import { UiContext } from '../../../../../../src/context';
 interface Props {
 	item: Item;
 	category: string
 	section: string
 }
 const ProductPage: NextPage<Props> = ({ item, category, section }) => {
+	const { site, toggleSideSearch, toggleSideCart } = useContext(UiContext)
 	const router = useRouter()
 	return (
 		<>
-			<LayoutAdmin>
+			<Layout
+			title={site.title}
+			pageDescription={site.description}
+			imageFullUrl={site.logo}
+		>
 				<HeadingAdmin category={`${router.query.category}`} section={`${router.query.section}`}/>
 				<FormItem item={item} category={category} section={section} />
-			</LayoutAdmin>
+			</Layout>
 		</>
 	);
 };

@@ -21,7 +21,7 @@ const AUTH_INITIAL_STATE: AuthState = {
 
 
 export const AuthProvider: FC = ({ children }) => {
-  // const router = useRouter()
+  const router = useRouter()
   const [state, dispatch] = useReducer(authReducer, AUTH_INITIAL_STATE);
 	const { data, status } = useSession()
 
@@ -73,7 +73,7 @@ export const AuthProvider: FC = ({ children }) => {
   }
   const logout = () => {
     signOut();
-    // router.push('/')
+    router.push('/')
   }
 
 
