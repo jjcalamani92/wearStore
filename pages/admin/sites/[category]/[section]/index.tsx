@@ -4,10 +4,9 @@ import { Layout, LayoutAdmin } from '../../../../../components/Layout';
 import { graphQLClientS } from '../../../../../src/graphQLClient';
 import { SBS } from '../../../../../src/gql/siteQuery';
 import Link from 'next/link';
-import { FormSection } from '../../../../../components/Layout/admin/FormSection';
-import { TableItem } from '../../../../../components/Components/table/TableItem';
+import { TableItem, FormSection } from '../../../../../components/Components';
 import { useRouter } from 'next/router';
-import { LayoutItemsListAdmin } from '../../../../../components/Components';
+import { HeadingTable, LayoutItemsListAdmin } from '../../../../../components/Components';
 import { HeadingAdmin } from '../../../../../components/Components/HeadingAdmin';
 import { useContext } from 'react';
 import { UiContext } from '../../../../../src/context';
@@ -30,10 +29,19 @@ const ProductPage: NextPage<Props> = ({ section, category }) => {
 					? null
 					:
 					<>
+							<HeadingTable
+								title='Items' 
+								href={`/admin/sites/${router.query.category}/${router.query.section}/new`}
+							/>
 							<TableItem items={section.items} category={category} section={section._id}/>
 							<LayoutItemsListAdmin data={section.items} category={category} section={section._id}/>
 						</>
 				}
+				<HeadingTable 
+						title={
+							section._id ? `Actualizar Sección` : `Crear Sección`
+						} 
+					/>
 				<FormSection section={section} category={category} />
 
 			</Layout>

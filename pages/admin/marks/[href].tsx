@@ -3,7 +3,7 @@ import { IClothing, IMark } from "../../../src/interfaces";
 import { GraphQLClient } from 'graphql-request';
 import { Layout, LayoutAdmin } from '../../../components/Layout';
 import { MARK_BY_HREF } from '../../../src/gql/markQuery';
-import { FormMark } from '../../../components/Layout/admin/FormMark';
+import { FormMark, HeadingTable } from '../../../components/Components';
 import { useContext } from 'react';
 import { UiContext } from '../../../src/context';
 interface Props {
@@ -20,6 +20,11 @@ const ProductPage: NextPage<Props> = ({ mark }) => {
 			pageDescription={site.description}
 			imageFullUrl={site.logo}
 			>
+				<HeadingTable
+						title={
+							mark._id ? `Actualizar Marca` : `Crear Marca`
+						} 
+					/>
 				<FormMark mark={mark} />
 			</Layout>
 		</>

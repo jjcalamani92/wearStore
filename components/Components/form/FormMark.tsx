@@ -1,12 +1,11 @@
-import { faCircleMinus } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { ChangeEvent, FC, useState } from 'react';
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
-import { Category, Featured, Item, Section, Site } from "../../../src/interfaces";
+import { Category, Featured, IMark, Site } from "../../../src/interfaces";
+
 
 interface FormData {
   _id?: string;
@@ -17,44 +16,41 @@ interface FormData {
   imageAlt: string;
 }
 interface Props {
-  item: Item
-  category: string
-  section: string
+  mark: IMark
 }
 
-
-export const FormItem: FC<Props> = ({ item, category, section }) => {
+export const FormMark: FC<Props> = ({ mark }) => {
   const router = useRouter()
   const { register, handleSubmit, formState: { errors }, getValues, setValue, watch } = useForm<FormData>({
-    defaultValues: item,
+    defaultValues: mark,
   })
   const onSubmit = async (form: FormData) => {
     let { _id, href, ...data } = form
-    const dat = { ...data, name:form.name.trim(), category: category, section: section }
-    const da = { ...dat, item: form._id }
-
-    if (router.query.item === 'new') {
+    const dat = { ...data, name:form.name.trim(), site: process.env.API_SITE}
+    if (router.query.href === 'new') {
       Swal.fire({
         position: 'center',
         icon: 'success',
-        title: 'Item Creado',
+        title: 'Marca Creada',
         showConfirmButton: false,
         timer: 1500
       })
-      await axios.put(`${process.env.APIS_URL}/api/site/additem/${process.env.API_SITE}`, dat)
-      router.replace(`/admin/sites/${router.query.category}/${router.query.section}`)
+      await axios.post(
+        `${process.env.APIP_URL}/api/marks`, dat);
+      router.replace(`/admin/marks`)
     } else {
       Swal.fire({
         position: 'center',
         icon: 'success',
-        title: 'Item Actualizado',
+        title: 'Marca Actualizada',
         showConfirmButton: false,
         timer: 1500
       })
-      await axios.put(`${process.env.APIS_URL}/api/site/updateitem/${process.env.API_SITE}`, da)
-      router.replace(`/admin/sites/${router.query.category}/${router.query.section}`)
+      await axios.put(`${process.env.APIP_URL}/api/marks/${mark._id}`, dat)
+      router.replace('/admin/marks')
     }
   }
+
   const onFileSelected = async ({ target }: ChangeEvent<HTMLInputElement>) => {
     if (!target.files || target.files.length === 0) {
       return;
@@ -77,15 +73,10 @@ export const FormItem: FC<Props> = ({ item, category, section }) => {
       <div className="bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mx-auto py-2 sm:py-2 lg:py-2 lg:max-w-none">
-
-          <div className="my-6 container px-2 mx-auto flex flex-row lg:flex-row items-center lg:items-center justify-between ">
-              <h4 className="text-2xl font-bold leading-tight text-gray-800">{
-                item._id ? `Actualizar Item` : `Crear Item`
-              }</h4>
-            </div>
+            
             <form onSubmit={handleSubmit(onSubmit)}>
-              <div className="shadow sm:rounded-md sm:overflow-hidden">
-                <div className="px-4 py-5 bg-white space-y-6 sm:p-6">
+              <div className="sm:shadow sm:rounded-md sm:overflow-hidden">
+                <div className="sm:p-6">
 
                   <div className="grid grid-cols-1 lg:grid-cols-3 lg:gap-6">
                     <div className="col-span-2">
@@ -107,6 +98,8 @@ export const FormItem: FC<Props> = ({ item, category, section }) => {
                           {errors.name && <span className="text-sm text-red-500">{errors.name.message}</span>}
                         </div>
                       </div>
+                      
+
                       <div>
                         <label htmlFor="description" className="block text-sm font-medium text-gray-700">
                           Descripción
@@ -143,8 +136,6 @@ export const FormItem: FC<Props> = ({ item, category, section }) => {
                           {errors.imageAlt && <span className="text-sm text-red-500">{errors.imageAlt.message}</span>}
                         </div>
                       </div>
-
-                      
 
                     </div>
 
@@ -187,7 +178,7 @@ export const FormItem: FC<Props> = ({ item, category, section }) => {
                                 alt="image"
                                 height={300}
                                 width={300}
-                                objectFit="cover"
+                                objectFit="contain"
                               />
                             </div>
                           </div>
@@ -200,8 +191,8 @@ export const FormItem: FC<Props> = ({ item, category, section }) => {
                       className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-500 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
                     >
                       {
-                        item._id ? `Actualizar` : `Crear`
-                      }
+                          mark._id ? `Actualizar` : `Crear`
+                        }
                     </button>
                   </div>
                 </div>
@@ -210,6 +201,7 @@ export const FormItem: FC<Props> = ({ item, category, section }) => {
           </div>
         </div>
       </div>
+      
     </>
   )
 }

@@ -515,9 +515,7 @@ export const LayoutItemsListAdmin: FC<LayoutItemsListAdmin> = ({ data, category,
 		<div className="bg-white lg:hidden">
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 				<div className="max-w-2xl mx-auto py-2 sm:py-2 lg:py-2 lg:max-w-none">
-					{/* <h2 className="text-2xl font-extrabold tracking-tight text-gray-900">
-					Customers also purchased
-				</h2> */}
+					
 
 					<div className="grid grid-cols-2 gap-y-6 gap-x-6 md:grid-cols-4 lg:grid-cols-4">
 						{data.map((d, i) => (

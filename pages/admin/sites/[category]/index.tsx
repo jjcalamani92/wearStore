@@ -3,10 +3,9 @@ import { Category, IClothing } from "../../../../src/interfaces";
 import { Layout, LayoutAdmin } from '../../../../components/Layout';
 import { graphQLClientS } from '../../../../src/graphQLClient';
 import { SBS } from '../../../../src/gql/siteQuery';
-import Link from 'next/link';
-import { FormCategory } from '../../../../components/Layout/admin/FormCategory';
+import { FormCategory } from '../../../../components/Components/form/FormCategory';
 import { useRouter } from 'next/router';
-import { LayoutFeaturedListAdmin, LayoutSectionListAdmin, LayoutCategoryListAdmin } from '../../../../components/Components';
+import { LayoutFeaturedListAdmin, LayoutSectionListAdmin, LayoutCategoryListAdmin, HeadingTable } from '../../../../components/Components';
 import { TableFeatured } from '../../../../components/Components/table/TableFeatured';
 import { TableSection } from '../../../../components/Components/table/TableSection';
 import { HeadingAdmin } from '../../../../components/Components/HeadingAdmin';
@@ -26,6 +25,7 @@ const ProductPage: NextPage<Props> = ({ category }) => {
 			pageDescription={site.description}
 			imageFullUrl={site.logo}
 		>
+
 				<HeadingAdmin category={`${router.query.category}`}/>
 				{
 					router.query.category==='new'
@@ -33,19 +33,32 @@ const ProductPage: NextPage<Props> = ({ category }) => {
 						null
 					:
 					<>
+					<HeadingTable 
+						title='Secciones' 
+						href={`/admin/sites/${router.query.category}/new`}
+					/>
 					
 					<TableSection sections={category.sections} category={category._id}/>
 					<LayoutSectionListAdmin data={category.sections} category={category._id}/>
 					
+					<HeadingTable 
+						title='Destacados' 
+						href={`/admin/sites/${router.query.category}/f/new`}
+					/>
 					
-				<TableFeatured featured={category.featured} category={category._id}/>
-				<LayoutFeaturedListAdmin data={category.featured} category={category._id}/>
+					<TableFeatured featured={category.featured} category={category._id}/>
+					<LayoutFeaturedListAdmin data={category.featured} category={category._id}/>
 
 					</>
 				}
 				{/* <div className="my-6 container px-2 mx-auto flex flex-row lg:flex-row items-center lg:items-center justify-between ">
 					<h4 className="text-2xl font-bold leading-tight text-gray-800">Categorias</h4>
 				</div> */}
+				<HeadingTable 
+						title={
+							category._id ? `Actualizar Categoría` : `Crear Categoría`
+						} 
+					/>
 				<FormCategory category={category} />
 				
 			</Layout>

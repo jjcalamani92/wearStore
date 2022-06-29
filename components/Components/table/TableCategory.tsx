@@ -45,27 +45,12 @@ export const TableCategory: FC<Props> = ({ categories }) => {
   }
   return (
     <>
-      <div className="bg-white">
+      <div className="bg-white hidden lg:block ">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mx-auto py-2 sm:py-2 lg:py-2 lg:max-w-none">
 
-            <div className="my-6 container mx-auto flex flex-row lg:flex-row items-center lg:items-center justify-between ">
-              <h4 className="text-2xl font-bold leading-tight text-gray-800">Categorias</h4>
-              <Link href="/admin/sites/new">
-                <a className="transition duration-150 ease-in-out hover:bg-red-600 focus:outline-none border bg-red-500 rounded text-white px-8 
-                py-1 sm:py-2 text-md sm:text-sm">
-                  <div className="hidden sm:flex">
-                    Nueva Categoría
-                  </div>
-                  <FontAwesomeIcon
-                  className="sm:hidden"
-                  icon={faCirclePlus} 
-                  />
-                </a>
-              </Link>
-            </div>
-            <div className="hidden lg:block container ">
-              <div className="grid grid-cols-11 gap-2  border border-gray-100 rounded content-center px-2 py-5">
+            <div className="sm:shadow sm:rounded-md  sm:overflow-hidden">
+              <div className="grid grid-cols-11 gap-2 content-center px-2 py-5">
                 <div className="col-span-1 items-center ">
                   <p className="text-base font-medium leading-none text-gray-900 mr-2 ">
                     Nombre
@@ -111,7 +96,6 @@ export const TableCategory: FC<Props> = ({ categories }) => {
                             height={100}
                             width={100}
                             objectFit='cover'
-                            // className="object-center object-cover"
                           />
                         </div>
                     </div>
@@ -142,119 +126,7 @@ export const TableCategory: FC<Props> = ({ categories }) => {
                 ))
               }
             </div>
-            {/* <div className="hidden lg:block container ">
-            <table className="table-auto w-full">
-              <thead>
-                <tr className="h-16 border border-gray-100 rounded">
-                  <th className="w-10" >
-                    <div className="flex items-center pl-5">
-                      <p className="text-base  leading-none text-gray-600 mr-2 ">
-                        Nombre
-                      </p>
-                    </div>
-                  </th>
-                  <th className="w-40" >
-                    <div className="flex items-center pl-5">
-                      <p className="text-base  leading-none text-gray-600 mr-2">
-                        Descripción
-                      </p>
-                    </div>
-                  </th>
-
-                  <th className="w-5" >
-                    <div className="flex items-center pl-5">
-                      <p className="text-base font-medium leading-none text-gray-900 mr-2">
-                        Imagen
-                      </p>
-                    </div>
-                  </th>
-                  <th className="w-35" >
-                    <div className="flex items-center pl-5">
-                      <p className="text-base  leading-none text-gray-600 mr-2">
-                        Descripción de la imagen
-                      </p>
-                    </div>
-                  </th>
-                  {/* <th className="w-1/10" >
-                      <div className="flex items-center pl-5">
-                        <p className="text-base font-medium leading-none text-gray-900 mr-2">
-                          Fecha de publicación
-                        </p>
-                      </div>
-                    </th> 
-                  <th className="w-1" ></th>
-                </tr>
-              </thead>
-              <tbody>
-                {categories.map((category, i) => (
-                  <tr className="h-16  border border-gray-100 rounded" key={i}>
-                    <td className="">
-                      <div className="flex items-center pl-5">
-                        <p className="text-sm leading-none text-gray-600 mr-2">
-                          {category.name}
-                        </p>
-                      </div>
-                    </td>
-                    <td className="">
-                      <div className="flex items-center">
-                        <p className=" text-sm leading-relaxed  text-gray-600 ml-2">
-                          {category.description}
-                        </p>
-                      </div>
-                    </td>
-
-                    <td className="">
-                      <div className="flex items-center">
-                        <div className="aspect-w-1 h-30 space-te aspect-h-1 rounded-lg bg-white overflow-hidden group-hover:opacity-75">
-                          <Image
-                            src={category.imageSrc}
-                            alt={category.name}
-                            height={100}
-                            width={100}
-                            className="object-center object-cover"
-                          />
-                        </div>
-                      </div>
-                    </td>
-                    <td className="">
-                      <div className="flex items-center">
-                        <p className="text-sm leading-none text-gray-600 ml-2">
-                          {category.imageAlt}
-                        </p>
-                      </div>
-                    </td>
-                    {/* <td className="pl-5">
-                        <div className="flex items-center">
-                          <p className="text-sm leading-none text-gray-600 ml-2">
-                            04/07
-                          </p>
-                        </div>
-                      </td> 
-                    <td className="">
-                      <div className="flex items-center gap-2">
-                        <Link href={`/admin/sites/${category.href}`} >
-                          <a>
-                            <FontAwesomeIcon
-                              className="text-sm leading-none mx-1 text-gray-600 hover:text-gray-900 rounded focus:outline-none h-5 w-5"
-                              icon={faPenToSquare}
-                            />
-                          </a>
-                        </Link>
-                        <div onClick={() => onDeleteData(category._id)} >
-                          <a>
-                            <FontAwesomeIcon
-                              className="text-sm leading-none mx-1 text-gray-600 hover:text-gray-900 rounded focus:outline-none h-5 w-5"
-                              icon={faCircleMinus}
-                            />
-                          </a>
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-            </div> */}
+            
           </div>
         </div>
       </div>

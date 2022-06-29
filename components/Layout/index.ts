@@ -6,4 +6,3 @@ export * from './LayoutError'
 export * from './Login'
 export * from './Register'
 
-export * from './admin'

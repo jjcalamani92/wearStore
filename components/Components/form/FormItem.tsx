@@ -6,8 +6,7 @@ import { useRouter } from "next/router";
 import { ChangeEvent, FC, useState } from 'react';
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
-import { Category, Featured, IMark, Site } from "../../../src/interfaces";
-
+import { Category, Featured, Item, Section, Site } from "../../../src/interfaces";
 
 interface FormData {
   _id?: string;
@@ -18,42 +17,44 @@ interface FormData {
   imageAlt: string;
 }
 interface Props {
-  mark: IMark
+  item: Item
+  category: string
+  section: string
 }
 
 
-export const FormMark: FC<Props> = ({ mark }) => {
+export const FormItem: FC<Props> = ({ item, category, section }) => {
   const router = useRouter()
   const { register, handleSubmit, formState: { errors }, getValues, setValue, watch } = useForm<FormData>({
-    defaultValues: mark,
+    defaultValues: item,
   })
   const onSubmit = async (form: FormData) => {
     let { _id, href, ...data } = form
-    const dat = { ...data, name:form.name.trim(), site: process.env.API_SITE}
-    if (router.query.href === 'new') {
+    const dat = { ...data, name:form.name.trim(), category: category, section: section }
+    const da = { ...dat, item: form._id }
+
+    if (router.query.item === 'new') {
       Swal.fire({
         position: 'center',
         icon: 'success',
-        title: 'Marca Creada',
+        title: 'Item Creado',
         showConfirmButton: false,
         timer: 1500
       })
-      await axios.post(
-        `${process.env.APIP_URL}/api/marks`, dat);
-      router.replace(`/admin/marks`)
+      await axios.put(`${process.env.APIS_URL}/api/site/additem/${process.env.API_SITE}`, dat)
+      router.replace(`/admin/sites/${router.query.category}/${router.query.section}`)
     } else {
       Swal.fire({
         position: 'center',
         icon: 'success',
-        title: 'Marca Actualizada',
+        title: 'Item Actualizado',
         showConfirmButton: false,
         timer: 1500
       })
-      await axios.put(`${process.env.APIP_URL}/api/marks/${mark._id}`, dat)
-      router.replace('/admin/marks')
+      await axios.put(`${process.env.APIS_URL}/api/site/updateitem/${process.env.API_SITE}`, da)
+      router.replace(`/admin/sites/${router.query.category}/${router.query.section}`)
     }
   }
-
   const onFileSelected = async ({ target }: ChangeEvent<HTMLInputElement>) => {
     if (!target.files || target.files.length === 0) {
       return;
@@ -76,14 +77,11 @@ export const FormMark: FC<Props> = ({ mark }) => {
       <div className="bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mx-auto py-2 sm:py-2 lg:py-2 lg:max-w-none">
-            <div className="my-6 container px-2 mx-auto flex flex-row lg:flex-row items-center lg:items-center justify-between ">
-                <h4 className="text-2xl font-bold leading-tight text-gray-800">{
-                  mark._id ? `Actualizar Marca` : `Crear Marca`
-                }</h4>
-              </div>
+
+          
             <form onSubmit={handleSubmit(onSubmit)}>
-              <div className="shadow sm:rounded-md sm:overflow-hidden">
-                <div className="px-4 py-5 bg-white space-y-6 sm:p-6">
+              <div className="sm:shadow sm:rounded-md sm:overflow-hidden">
+                <div className="sm:p-6">
 
                   <div className="grid grid-cols-1 lg:grid-cols-3 lg:gap-6">
                     <div className="col-span-2">
@@ -105,8 +103,6 @@ export const FormMark: FC<Props> = ({ mark }) => {
                           {errors.name && <span className="text-sm text-red-500">{errors.name.message}</span>}
                         </div>
                       </div>
-                      
-
                       <div>
                         <label htmlFor="description" className="block text-sm font-medium text-gray-700">
                           Descripción
@@ -143,6 +139,8 @@ export const FormMark: FC<Props> = ({ mark }) => {
                           {errors.imageAlt && <span className="text-sm text-red-500">{errors.imageAlt.message}</span>}
                         </div>
                       </div>
+
+                      
 
                     </div>
 
@@ -185,21 +183,21 @@ export const FormMark: FC<Props> = ({ mark }) => {
                                 alt="image"
                                 height={300}
                                 width={300}
-                                objectFit="contain"
+                                objectFit="cover"
                               />
                             </div>
                           </div>
                       </div>
                     </div>
                   </div>
-                  <div className=" bg-white text-right ">
+                  <div className=" bg-white text-right mt-3">
                     <button
                       type="submit"
                       className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-500 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
                     >
                       {
-                          mark._id ? `Actualizar` : `Crear`
-                        }
+                        item._id ? `Actualizar` : `Crear`
+                      }
                     </button>
                   </div>
                 </div>
@@ -208,7 +206,6 @@ export const FormMark: FC<Props> = ({ mark }) => {
           </div>
         </div>
       </div>
-      
     </>
   )
 }

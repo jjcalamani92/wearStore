@@ -3,7 +3,7 @@ import { Category, Featured, IClothing, Section } from "../../../../../src/inter
 import { Layout, LayoutAdmin } from '../../../../../components/Layout';
 import { graphQLClientS } from '../../../../../src/graphQLClient';
 import { SBS } from '../../../../../src/gql/siteQuery';
-import { FormFeatured } from '../../../../../components/Layout/admin/FormFeatured';
+import { FormFeatured, HeadingTable } from '../../../../../components/Components/';
 import { HeadingAdmin } from '../../../../../components/Components/HeadingAdmin';
 import { useRouter } from 'next/router';
 import { UiContext } from '../../../../../src/context';
@@ -23,7 +23,11 @@ const ProductPage: NextPage<Props> = ({ featured, category }) => {
 			pageDescription={site.description}
 		>
 				<HeadingAdmin category={`${router.query.category}`}/>
-
+				<HeadingTable 
+						title={
+							featured._id ? `Actualizar Destacado` : `Crear Destacado`
+						} 
+					/>
 				<FormFeatured featured={featured} category={category}/>
 			</Layout>
 		</>

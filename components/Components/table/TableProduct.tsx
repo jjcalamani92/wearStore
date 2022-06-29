@@ -55,17 +55,12 @@ export const TableProduct: FC<Props> = ({ products }) => {
   }
   return (
     <>
-    <div className="bg-white">
+    <div className="bg-white hidden lg:block">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mx-auto py-2 sm:py-2 lg:py-2 lg:max-w-none">
-          <div className="my-6 container mx-auto flex flex-row lg:flex-row items-center lg:items-center justify-between ">
-            <h4 className="text-2xl font-bold leading-tight text-gray-800">Productos</h4>
-            <Link href="/admin/products/new">
-              <a  className="transition duration-150 ease-in-out hover:bg-red-600 focus:outline-none border bg-red-500 rounded text-white px-8 py-2 text-sm">Nuevo Producto</a>
-            </Link>
-          </div>
-          <div className="hidden lg:block container ">
-              <div className="grid grid-cols-12 gap-2  border border-gray-100 rounded content-center px-2 py-5">
+         
+          <div className="sm:shadow sm:rounded-md  sm:overflow-hidden">
+              <div className="grid grid-cols-12 gap-2 content-center px-2 py-5">
                 <div className="col-span-2 items-center ">
                   <p className="text-base font-medium leading-none text-gray-900 mr-2 ">
                     Nombre

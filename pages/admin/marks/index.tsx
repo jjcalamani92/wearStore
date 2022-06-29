@@ -5,8 +5,7 @@ import { graphQLClientP, graphQLClientS } from "../../../src/graphQLClient";
 import { S } from "../../../src/gql/siteQuery";
 import { GetServerSideProps, GetStaticProps } from "next";
 import { Category, IMark, ISeo, Item, Section, Site } from "../../../src/interfaces";
-import { FormSite } from "../../../components/Layout/admin/FormSite";
-import { LayoutCategoryListAdmin, LayoutMarkListAdmin, Spinner04 } from "../../../components/Components";
+import { HeadingTable, LayoutCategoryListAdmin, LayoutMarkListAdmin, Spinner04 } from "../../../components/Components";
 import { TableCategory } from "../../../components/Components/table/TableCategory";
 import { MARKS } from "../../../src/gql/markQuery";
 import { TableMark } from "../../../components/Components/table/TableMark";
@@ -28,8 +27,10 @@ const AdminPages:FC<Props> = ({seo, markAll}) => {
 			pageDescription={site.description}
 			imageFullUrl={site.logo}
 		>
+			<HeadingTable title='Marcas' href="/admin/marks/new"/>
+			
 			<TableMark markAll={markAll} />
-        <LayoutMarkListAdmin marks={markAll} /> 
+      <LayoutMarkListAdmin marks={markAll} /> 
 		</Layout>
 		</>
 	);

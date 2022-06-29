@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import { ChangeEvent, FC, useEffect, useState } from 'react';
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
-import { Category, IMark, Item, Section } from "../../src/interfaces";
+import { Category, IMark, Item, Section } from "../../../src/interfaces";
 
 
 
@@ -222,13 +222,13 @@ export const Form: FC<Props> = ({ product }) => {
           </div>
           <div className="mt-5 md:mt-0 md:col-span-2">
             <form onSubmit={handleSubmit(onSubmit)}>
-              <div className="shadow sm:rounded-md sm:overflow-hidden">
+              <div className="sm:shadow sm:rounded-md sm:overflow-hidden">
                 <div className="px-4 py-5 bg-white space-y-6 sm:p-6">
 
                   <div className="grid grid-cols-6 gap-6">
                     <div className="col-span-6 sm:col-span-4">
                       <label htmlFor="title" className="block text-sm font-medium text-gray-700">
-                        Nombre del Producto
+                        Nombre
                       </label>
                       <input
                         className="mt-2 focus:ring-red-500 focus:border-red-500 block w-full shadow-sm sm:text-sm  rounded-md p-1 border border-gray-300"
@@ -422,7 +422,7 @@ export const Form: FC<Props> = ({ product }) => {
 
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700">Imagenes del Producto</label>
+                    <label className="block text-sm font-medium text-gray-700">Imagenes</label>
                     <div className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
                       <div className="space-y-1 text-center">
                         <svg
@@ -477,7 +477,7 @@ export const Form: FC<Props> = ({ product }) => {
 
                   <div>
                     <label htmlFor="description" className="block text-sm font-medium text-gray-700">
-                      Descripción del producto
+                      Descripción
                     </label>
                     <div className="mt-1">
                       <textarea
@@ -651,7 +651,7 @@ export const Form: FC<Props> = ({ product }) => {
                     className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-500 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
                   >
                     {
-                      product._id ? `Actualizar Producto` : `Crear Producto`
+                      product._id ? `Actualizar` : `Crear`
                     }
                   </button>
                 </div>

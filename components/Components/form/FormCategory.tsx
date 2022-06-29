@@ -79,14 +79,10 @@ export const FormCategory: FC<Props> = ({ category }) => {
       <div className="bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mx-auto py-2 sm:py-2 lg:py-2 lg:max-w-none">
-            <div className="my-6 container px-2 mx-auto flex flex-row lg:flex-row items-center lg:items-center justify-between ">
-                <h4 className="text-2xl font-bold leading-tight text-gray-800">{
-                  category._id ? `Actualizar Categoría` : `Crear Categoría`
-                }</h4>
-              </div>
+            
             <form onSubmit={handleSubmit(onSubmit)}>
-              <div className="shadow sm:rounded-md sm:overflow-hidden">
-                <div className="px-4 py-5 bg-white space-y-6 sm:p-6">
+              <div className="sm:shadow sm:rounded-md sm:overflow-hidden">
+                <div className=" bg-white sm:p-6">
 
                   <div className="grid grid-cols-1 lg:grid-cols-3 lg:gap-6">
                     <div className="col-span-2">
@@ -195,7 +191,7 @@ export const FormCategory: FC<Props> = ({ category }) => {
                       </div>
                     </div>
                   </div>
-                  <div className=" bg-white text-right ">
+                  <div className=" bg-white text-right mt-3">
                     <button
                       type="submit"
                       className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-500 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"

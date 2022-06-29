@@ -225,7 +225,12 @@ export const HeadingAdmin:FC<Props> = ({category, section, item}) => {
   const router = useRouter()
   // const {slug, item} = router.query
   // console.log(router.query, slug)
-  return (<nav aria-label="Breadcrumb" className=" pt-4 sm:pt-6">
+  return (
+    <div className="bg-white">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-2xl mx-auto py-2 sm:py-2 lg:py-2 lg:max-w-none">
+
+  <nav aria-label="Breadcrumb" className=" pt-2 sm:pt-3">
   <ol
     role="list"
     className="max-w-2xl mx-auto px-4 flex items-center space-x-0 sm:px-0 lg:max-w-7xl lg:px-8"
@@ -301,5 +306,9 @@ export const HeadingAdmin:FC<Props> = ({category, section, item}) => {
    
 
   </ol>
-</nav>);
+</nav>
+      </div>
+      </div>
+      </div>
+);
 }

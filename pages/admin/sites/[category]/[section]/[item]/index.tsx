@@ -3,11 +3,11 @@ import { Category, Item, Section } from "../../../../../../src/interfaces";
 import { Layout, LayoutAdmin } from '../../../../../../components/Layout';
 import { graphQLClientS } from '../../../../../../src/graphQLClient';
 import { SBS } from '../../../../../../src/gql/siteQuery';
-import { FormItem } from '../../../../../../components/Layout/admin/FormItem';
 import { HeadingAdmin } from '../../../../../../components/Components/HeadingAdmin';
 import { useRouter } from 'next/router';
 import { useContext } from 'react';
 import { UiContext } from '../../../../../../src/context';
+import { HeadingTable, FormItem } from '../../../../../../components/Components';
 interface Props {
 	item: Item;
 	category: string
@@ -24,6 +24,11 @@ const ProductPage: NextPage<Props> = ({ item, category, section }) => {
 			imageFullUrl={site.logo}
 		>
 				<HeadingAdmin category={`${router.query.category}`} section={`${router.query.section}`}/>
+				<HeadingTable
+						title={
+							item._id ? `Actualizar Item` : `Crear Item`
+						} 
+					/>
 				<FormItem item={item} category={category} section={section} />
 			</Layout>
 		</>
