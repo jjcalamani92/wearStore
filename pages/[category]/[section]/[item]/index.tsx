@@ -3,7 +3,7 @@ import { Category, IClothing, ISeo, Item, Section } from "../../../../src/interf
 import React, { FC, useContext } from "react";
 import { ITEM, PRODUCTS_BY_ITEM } from "../../../../src/gql/query";
 import { Layout } from "../../../../components/Layout";
-import { LayoutProductlist01, HeadingPrimary } from "../../../../components/Components";
+import { LayoutProductlist01, HeadingPrimary, HeadingTable } from "../../../../components/Components";
 import { graphQLClientP, graphQLClientS } from "../../../../src/graphQLClient";
 import { SBI } from "../../../../src/gql/siteQuery";
 import { useRouter } from "next/router";
