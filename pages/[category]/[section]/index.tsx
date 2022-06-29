@@ -4,9 +4,10 @@ import React, { FC, useContext } from "react";
 import { SECTION } from "../../../src/gql/query";
 import { SBI } from "../../../src/gql/siteQuery";
 import { Layout } from "../../../components/Layout";
-import { HeadingPrimary, LayoutSectionList } from "../../../components/Components";
+import { CategoryPreviews01, HeadingPrimary, LayoutSectionList } from "../../../components/Components";
 import { graphQLClientP, graphQLClientS } from '../../../src/graphQLClient';
 import { UiContext } from "../../../src/context";
+import { GridCard } from "../../../components/Components/GridCard";
 
 interface Props {
   seo: ISeo
@@ -23,6 +24,8 @@ const SectionPage:FC<Props> = ({seo, section}) => {
         imageFullUrl={seo.section.imageSrc}
       >
         <HeadingPrimary seo={seo} />
+        <GridCard data={section.items} />
+        {/* <CategoryPreviews01 section={section.items} category={`${section.href}`}/> */}
 			  <LayoutSectionList products={section.items} />
       </Layout>
     </>

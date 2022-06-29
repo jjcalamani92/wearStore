@@ -25,10 +25,10 @@ export const CardComponent: FC<CardComponent> = ({name, imageSrc, imageAlt, desc
                     objectFit={objectFit}
                   />
                 </div>
-                <h3 className="mt-1 text-base text-gray-900 capitalize">
+                <h3 className="mt-1 text-base font-semibold text-gray-900 capitalize">
                     {name}
                 </h3>
-                <p className="mt-1 text-sm font-semibold text-gray-500">{description}</p>
+                <p className="mt-1 text-sm  text-gray-500">{description}</p>
                 </a>
               </Link>
   )

@@ -8,6 +8,7 @@ import { Layout } from "../../components/Layout/Layout";
 import { graphQLClientS, graphQLClientP } from '../../src/graphQLClient';
 import { FC, useContext } from 'react';
 import { UiContext } from "../../src/context";
+import { GridCard } from '../../components/Components/GridCard';
 
 interface Props {
 	category: Category
@@ -23,7 +24,8 @@ const CategoryPage:FC<Props>= ({seo, category}) => {
 			imageFullUrl={`${seo.category.imageSrc}`}
 		>
 			<HeadingPrimary seo={seo} />
-			<CategoryPreviews01 section={category.sections} category={`${category.href}`}/>
+			<GridCard  data={category.sections}/>
+			{/* <CategoryPreviews01 section={category.sections} category={`${category.href}`}/> */}
 			{/* {
 				category.featured.length === 0
 				? null

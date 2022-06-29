@@ -35,9 +35,9 @@ export interface Category {
   _id: string;
   name: string;
   href?: string;
-  description?: string;
+  description: string;
   imageSrc: string;
-  imageAlt?: string;
+  imageAlt: string;
   featured: Featured[];
   sections: Section[];
 }
@@ -68,11 +68,11 @@ export interface Item {
   _id: string;
   category?: string;
   section?: string;
-  description?: string;
+  description: string;
   name: string;
   href: string;
   imageSrc: string;
-  imageAlt?: string;
+  imageAlt: string;
 }
 
 export interface Page {

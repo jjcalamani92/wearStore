@@ -11,6 +11,9 @@ interface LayoutSectionList {
 export const LayoutSectionList:FC<LayoutSectionList> = ({ products }) => {
   const router = useRouter();
   const { category, section } = router.query
+  console.log(router.query.category)
+  console.log(router.query.section)
+
 	return (
 		<div className="bg-white">
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
