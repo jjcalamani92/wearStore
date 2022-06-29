@@ -11,8 +11,10 @@ interface CardComponent {
   width:number;
   height: number;
   objectFit: any;
+
+  price?: number;
 }
-export const CardComponent: FC<CardComponent> = ({name, imageSrc, imageAlt, description, width ,height , objectFit, href}) => {
+export const CardComponent: FC<CardComponent> = ({name, imageSrc, imageAlt, description, width ,height , objectFit, href, price}) => {
   return (
               <Link href={href} className="group-hover:opacity-75">
                 <a>
@@ -25,8 +27,14 @@ export const CardComponent: FC<CardComponent> = ({name, imageSrc, imageAlt, desc
                     objectFit={objectFit}
                   />
                 </div>
-                <h3 className="mt-1 text-base font-semibold text-gray-900 capitalize">
+                <h3 className="mt-1 text-base font-semibold text-gray-900">
                     {name}
+                    {
+                      price 
+                      ?
+                      <p className="mt-1 text-sm  text-gray-500">{price}.00 Bs</p>
+                      : null
+                    }
                 </h3>
                 <p className="mt-1 text-sm  text-gray-500">{description}</p>
                 </a>

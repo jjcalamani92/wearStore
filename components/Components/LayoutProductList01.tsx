@@ -29,63 +29,64 @@ interface LayoutItemsListAdmin {
 	section: string;
 }
 
-export const LayoutProductlist01: FC<Props> = ({ products }) => {
+// export const LayoutProductlist01: FC<Props> = ({ products }) => {
+// 	const router = useRouter();
+// 	console.log(router.query)
+// 	return (
+// 		<div className="bg-white">
+// 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+// 				<div className="max-w-2xl mx-auto py-2 sm:py-2 lg:py-2 lg:max-w-none">
+// 					{/* <h2 className="text-2xl font-extrabold tracking-tight text-gray-900">
+// 					Customers also purchased
+// 				</h2> */}
 
-	return (
-		<div className="bg-white">
-			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-				<div className="max-w-2xl mx-auto py-2 sm:py-2 lg:py-2 lg:max-w-none">
-					{/* <h2 className="text-2xl font-extrabold tracking-tight text-gray-900">
-					Customers also purchased
-				</h2> */}
+// 					<div className="grid grid-cols-1 gap-y-6 gap-x-6 sm:grid-cols-2 lg:grid-cols-4">
+// 						{products.map((product, i) => (
+// 							<div key={i} className="group relative">
+// 								<div className="w-full  bg-white aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:aspect-none">
+// 									<Image
+//                     src={product.image[0]}
+//                     alt={product.name}
+//                     width={500}
+//                     height={600}
+//                     objectFit='cover'
+//                   />
+// 									{/* <img
+// 										src={product.image[0]}
+// 										alt={product.name}
+// 										className="w-full h-full object-contain"
+// 									/> */}
+// 								</div>
+// 								<div className="mt-4 flex justify-between">
+// 									<div>
+// 										<h3 className="text-sm text-gray-700">
+// 											<Link
+// 												href={`/detalles/${product.slug}`}
+// 												// href={`/detail/${product.slug}`}
 
-					<div className="grid grid-cols-1 gap-y-6 gap-x-6 sm:grid-cols-2 lg:grid-cols-4">
-						{products.map((product, i) => (
-							<div key={i} className="group relative">
-								<div className="w-full  bg-white aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:aspect-none">
-									<Image
-                    src={product.image[0]}
-                    alt={product.name}
-                    width={500}
-                    height={600}
-                    objectFit='cover'
-                  />
-									{/* <img
-										src={product.image[0]}
-										alt={product.name}
-										className="w-full h-full object-contain"
-									/> */}
-								</div>
-								<div className="mt-4 flex justify-between">
-									<div>
-										<h3 className="text-sm text-gray-700">
-											<Link
-												href={`/detalles/${product.slug}`}
-												// href={`/detail/${product.slug}`}
-
-												passHref
-												prefetch={false}
-											>
-												<a href="#">
-													<span aria-hidden="true" className="absolute inset-0" />
-													{product.name}
-												</a>
-											</Link>
-										</h3>
-										{/* <p className="mt-1 text-sm text-gray-500">{product.color}</p> */}
-									</div>
-									<p className="text-sm font-medium text-gray-900">
-										{product.price}.00 Bs
-									</p>
-								</div>
-							</div>
-						))}
-					</div>
-				</div>
-			</div>
-		</div>
-	);
-};
+// 												passHref
+// 												prefetch={false}
+// 											>
+// 												<a href="#">
+// 													<span aria-hidden="true" className="absolute inset-0" />
+// 													{product.name}
+// 												</a>
+// 											</Link>
+// 										</h3>
+// 										{/* <p className="mt-1 text-sm text-gray-500">{product.color}</p> */}
+// 									</div>
+// 									<p className="text-sm font-medium text-gray-900">
+// 										{product.price}.00 Bs
+// 									</p>
+// 								</div>
+// 							</div>
+// 						))}
+// 					</div>
+// 				</div>
+// 			</div>
+// 		</div>
+// 	);
+// };
 
 export const LayoutItemListAdmin: FC<Props> = ({ products }) => {
 	const router = useRouter()

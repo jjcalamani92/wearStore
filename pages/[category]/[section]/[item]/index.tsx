@@ -1,12 +1,11 @@
+import React, { FC, useContext } from "react";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { Category, IClothing, ISeo, Item, Section } from "../../../../src/interfaces";
-import React, { FC, useContext } from "react";
 import { ITEM, PRODUCTS_BY_ITEM } from "../../../../src/gql/query";
 import { Layout } from "../../../../components/Layout";
-import { LayoutProductlist01, HeadingPrimary, HeadingTable } from "../../../../components/Components";
+import { HeadingPrimary, GridCard } from "../../../../components/Components";
 import { graphQLClientP, graphQLClientS } from "../../../../src/graphQLClient";
 import { SBI } from "../../../../src/gql/siteQuery";
-import { useRouter } from "next/router";
 import { UiContext } from "../../../../src/context";
 
 interface Props {
@@ -15,7 +14,6 @@ interface Props {
 }
 
 const ItemPage:FC<Props> = ({items, seo}) => {
-  const router = useRouter()
 	const { site } = useContext(UiContext)
   return (
     <>  
@@ -24,10 +22,10 @@ const ItemPage:FC<Props> = ({items, seo}) => {
         pageDescription={`${seo.item.description}`}
         imageFullUrl={seo.item.imageSrc}
     >
-      <HeadingPrimary 
+        <HeadingPrimary 
           seo={seo}
         />
-      <LayoutProductlist01 products={items} />
+        <GridCard product={items} />
     </Layout>
     </>
   );
@@ -64,7 +62,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
 
   const { clothingByCategoryAndSectionAndItem } = await graphQLClientP.request(PRODUCTS_BY_ITEM, {category: `${category}`, section: `${section}`, item: `${item}`, site: `${process.env.API_SITE}`})
-  // console.log(clothingByCategoryAndSectionAndItem)
   return {
     props: {
       items: clothingByCategoryAndSectionAndItem,

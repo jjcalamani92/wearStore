@@ -37,6 +37,7 @@ const AdminPage:FC<Props> = ({clothingAll, clothingsAll}) => {
 		>
 				<HeadingTable title='Productos' href="/admin/products/new"/>
 				<TableProduct products={data.clothingsAll} />
+				
 				<LayoutItemListAdmin products={data.clothingsAll}/>
 				<Pagination01 setPage={setPage} page={page} length={data.clothingsAll.length} all={PAGE_SIZE} />
 			{/* <LayoutAdmin>
