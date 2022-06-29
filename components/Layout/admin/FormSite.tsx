@@ -83,14 +83,14 @@ export const FormSite: FC<Props> = ({ site }) => {
               </h4>
             </div>
             <form onSubmit={handleSubmit(onSubmit)}>
-              <div className="shadow sm:rounded-md sm:overflow-hidden">
-                <div className="px-4 py-5 bg-white space-y-6 sm:p-6">
+              <div className="sm:shadow sm:rounded-md sm:overflow-hidden">
+                <div className=" bg-white space-y-6 sm:p-6">
 
                   <div className="grid grid-cols-1 lg:grid-cols-3 lg:gap-6">
                     <div className="col-span-2">
                       <div>
                         <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-                          Nombre del Sitio
+                          Nombre
                         </label>
                         <input
                           className="my-2 focus:ring-red-500 focus:border-red-500 block w-full shadow-sm sm:text-sm  rounded-md p-1 border border-gray-300"
@@ -160,11 +160,11 @@ export const FormSite: FC<Props> = ({ site }) => {
 
                       <div>
                         <label htmlFor="description" className="block text-sm font-medium text-gray-700">
-                          Descripción del Sitio
+                          Descripción
                         </label>
                         <div className="mt-1">
                           <textarea
-                            rows={2}
+                            rows={4}
                             className="shadow-sm focus:ring-red-500 focus:border-red-500 my-2 block w-full sm:text-sm border border-gray-300 rounded-md p-1"
                             {...register('description', {
                               required: 'Este campo es requerido',
@@ -179,11 +179,11 @@ export const FormSite: FC<Props> = ({ site }) => {
                       
                       <div>
                         <label htmlFor="location" className="block text-sm font-medium text-gray-700">
-                          Ubicación del Negocio
+                          Ubicación
                         </label>
                         <div className="mt-1">
                           <textarea
-                            rows={3}
+                            rows={4}
                             className="shadow-sm focus:ring-red-500 focus:border-red-500 my-2 block w-full sm:text-sm border border-gray-300 rounded-md p-1"
                             {...register('location', {
                               required: 'Este campo es requerido',
@@ -199,7 +199,7 @@ export const FormSite: FC<Props> = ({ site }) => {
                     </div>
 
                     <div className="col-span-1">
-                      <label className="block text-sm font-medium text-gray-700">Logo del Sitio</label>
+                      <label className="block text-sm font-medium text-gray-700">Logo</label>
                       <div className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
                         <div className="space-y-1 text-center">
                           <svg
@@ -230,7 +230,7 @@ export const FormSite: FC<Props> = ({ site }) => {
                         </div>
                       </div>
                       <div className="grid grid-cols-1 gap-2 mt-2 " >
-                        <div className="relative border-2">
+                        <div className="rounded-lg overflow-hidden leading-none border-2 p-2">
                           <Image
                             src={getValues('logo')}
                             alt="image"
@@ -245,14 +245,15 @@ export const FormSite: FC<Props> = ({ site }) => {
                               icon={faCircleMinus}
                             /> */}
                         </div>
-                      </div></div>
+                      </div>
+                    </div>
                   </div>
                   <div className=" bg-white text-right ">
                     <button
                       type="submit"
                       className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-500 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
                     >
-                      Actualizar Datos del Sitio
+                      Actualizar
                     </button>
                   </div>
                 </div>

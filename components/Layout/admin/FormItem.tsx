@@ -91,7 +91,7 @@ export const FormItem: FC<Props> = ({ item, category, section }) => {
                     <div className="col-span-2">
                       <div>
                         <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-                          Nombre del Item
+                          Nombre
                         </label>
                         <input
                           className="my-2 focus:ring-red-500 focus:border-red-500 block w-full shadow-sm sm:text-sm  rounded-md p-1 border border-gray-300"
@@ -108,12 +108,30 @@ export const FormItem: FC<Props> = ({ item, category, section }) => {
                         </div>
                       </div>
                       <div>
+                        <label htmlFor="description" className="block text-sm font-medium text-gray-700">
+                          Descripción
+                        </label>
+                        <div className="mt-1">
+                          <textarea
+                            rows={4}
+                            className="shadow-sm focus:ring-red-500 focus:border-red-500 my-2 block w-full sm:text-sm border border-gray-300 rounded-md p-1"
+                            {...register('description', {
+                              required: 'Este campo es requerido',
+                              minLength: { value: 2, message: 'Mínimo 3 caracteres' }
+                            })}
+                          />
+                        </div>
+                        <div>
+                          {errors.description && <span className="text-sm text-red-500">{errors.description.message}</span>}
+                        </div>
+                      </div>
+                      <div>
                         <label htmlFor="imageAlt" className="block text-sm font-medium text-gray-700">
                           Descripción de la Imagen
                         </label>
                         <div className="mt-1">
                           <textarea
-                            rows={2}
+                            rows={4}
                             className="shadow-sm focus:ring-red-500 focus:border-red-500 my-2 block w-full sm:text-sm border border-gray-300 rounded-md p-1"
                             {...register('imageAlt', {
                               required: 'Este campo es requerido',
@@ -126,29 +144,12 @@ export const FormItem: FC<Props> = ({ item, category, section }) => {
                         </div>
                       </div>
 
-                      <div>
-                        <label htmlFor="description" className="block text-sm font-medium text-gray-700">
-                          Descripción del Item
-                        </label>
-                        <div className="mt-1">
-                          <textarea
-                            rows={2}
-                            className="shadow-sm focus:ring-red-500 focus:border-red-500 my-2 block w-full sm:text-sm border border-gray-300 rounded-md p-1"
-                            {...register('description', {
-                              required: 'Este campo es requerido',
-                              minLength: { value: 2, message: 'Mínimo 3 caracteres' }
-                            })}
-                          />
-                        </div>
-                        <div>
-                          {errors.description && <span className="text-sm text-red-500">{errors.description.message}</span>}
-                        </div>
-                      </div>
+                      
 
                     </div>
 
                     <div className="col-span-1">
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Imagen del Item</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">Imagen</label>
                       <div className="grid grid-cols-2 gap-2">
                         <div className="flex justify-center px-6 pt-5 border-2 border-gray-300 border-dashed rounded-md">
                           <div className="space-y-1 text-center">
@@ -179,23 +180,17 @@ export const FormItem: FC<Props> = ({ item, category, section }) => {
                             <p className="text-xs text-gray-500">PNG, JPG, GIF hasta 5MB</p>
                           </div>
                         </div>
-                        <div className="" >
-                          <div className="relative border-2 rounded-md">
-                            <Image
-                              src={getValues('imageSrc')}
-                              alt="image"
-                              height={300}
-                              width={300}
-                              objectFit="contain"
-                            // className="object-center object-cover"
-                            />
-                            {/* <FontAwesomeIcon
-                              className="text-sm leading-none mx-1 text-gray-600 hover:text-gray-900 rounded focus:outline-none absolute bottom-1 right-1"
-                              // onClick={() => onDeleteImage(data)}
-                              icon={faCircleMinus}
-                            /> */}
+                        <div className="flex items-center">
+                          <div className=" rounded-lg overflow-hidden leading-none">
+                              <Image
+                                src={getValues('imageSrc')}
+                                alt="image"
+                                height={300}
+                                width={300}
+                                objectFit="cover"
+                              />
+                            </div>
                           </div>
-                        </div>
                       </div>
                     </div>
                   </div>
@@ -205,7 +200,7 @@ export const FormItem: FC<Props> = ({ item, category, section }) => {
                       className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-500 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
                     >
                       {
-                        item._id ? `Actualizar Item` : `Crear Item`
+                        item._id ? `Actualizar` : `Crear`
                       }
                     </button>
                   </div>

@@ -130,7 +130,7 @@ export const LayoutItemListAdmin: FC<Props> = ({ products }) => {
 
 							<Link href={`/admin/products/${product.slug}`}>
 							<div key={i} className="group">
-								<div className="w-full min-h-80 bg-white aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none relative ">
+								<div className="w-full min-h-80 bg-white aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none leading-none">
 								<Image
 									src={product.image[0]}
 									alt={product.name}
@@ -143,7 +143,7 @@ export const LayoutItemListAdmin: FC<Props> = ({ products }) => {
 									
 								
 								</div>
-								<div className="mt-4 flex justify-between">
+								<div className="mt-2 flex justify-between">
 									<div>
 										<h3 className="text-sm text-gray-700">
 											<a href="#">
@@ -160,7 +160,7 @@ export const LayoutItemListAdmin: FC<Props> = ({ products }) => {
 								
 							</div>
 							</Link>
-							<div onClick={() => onDeleteData(product._id)}  className="mt-4 transition text-center duration-150 ease-in-out hover:bg-red-600 focus:outline-none border bg-white border-1 border-red-500 rounded px-8 py-2 text-sm text-red-600  hover:text-white hover:border-0">Eliminar</div>
+							<div onClick={() => onDeleteData(product._id)}  className="mt-2 transition text-center duration-150 ease-in-out hover:bg-red-600 focus:outline-none border bg-white border-1 border-red-500 rounded px-8 py-2 text-sm text-red-600  hover:text-white hover:border-0">Eliminar</div>
 							</div>
 						))}
 					</div>
@@ -214,7 +214,7 @@ export const LayoutMarkListAdmin: FC<LayoutMarkListAdmin> = ({ marks }) => {
 							<div key={i} className="group">
 								<div className="w-full min-h-80 bg-white aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none relative ">
 								<Image
-									src={product.image}
+									src={product.imageSrc}
 									alt={product.name}
 
 									width={500}
@@ -293,7 +293,7 @@ export const LayoutCategoryListAdmin: FC<LayoutCategoryListAdmin> = ({ data }) =
 
 							<Link  href={`/admin/sites/${d.href}`} className="group">
 								<a>
-									<div className="w-full min-h-80 bg-white aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none relative ">
+									<div className="w-full min-h-80 bg-white aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none leading-none">
 										<Image
 											src={d.imageSrc}
 											alt={d.name}
@@ -303,7 +303,7 @@ export const LayoutCategoryListAdmin: FC<LayoutCategoryListAdmin> = ({ data }) =
 										/>
 										
 									</div>
-									<div className="mt-4 flex justify-between">
+									<div className="mt-2 flex justify-between">
 									<div>
 										<h3 className="text-sm text-gray-700">
 											
@@ -317,7 +317,7 @@ export const LayoutCategoryListAdmin: FC<LayoutCategoryListAdmin> = ({ data }) =
 								</div>
 								</a>
 							</Link>
-							<div onClick={() => onDeleteData(d._id)}  className="mt-4 transition text-center duration-150 ease-in-out hover:bg-red-600 focus:outline-none border bg-white border-1 border-red-500 rounded  px-8 py-2 text-sm text-red-600  hover:text-white hover:border-0">Eliminar</div>
+							<div onClick={() => onDeleteData(d._id)}  className="mt-2 transition text-center duration-150 ease-in-out hover:bg-red-600 focus:outline-none border bg-white border-1 border-red-500 rounded  px-8 py-2 text-sm text-red-600  hover:text-white hover:border-0">Eliminar</div>
 							</div>
 						))}
 					</div>

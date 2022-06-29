@@ -40,7 +40,8 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
 			name: '',
 			href:'',
 			description: '',
-			image: 'https://res.cloudinary.com/dvcyhn0lj/image/upload/v1655217461/14.1_no-image.jpg_gkwtld.jpg',
+			imageSrc: 'https://res.cloudinary.com/dvcyhn0lj/image/upload/v1655217461/14.1_no-image.jpg_gkwtld.jpg',
+			imageAlt: ''
 		}
 	} else {
 		// const data = await client.request(

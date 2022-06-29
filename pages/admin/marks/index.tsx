@@ -21,14 +21,6 @@ interface Props {
 const AdminPages:FC<Props> = ({seo, markAll}) => {
 	const { site, toggleSideSearch, toggleSideCart } = useContext(UiContext)
 
-  // console.log(markAll)
-//   const { loading, error, data, fetchMore } = useQuery(MARKS, {
-// 		variables: { site: process.env.API_SITE },  
-// 		fetchPolicy: 'network-only',
-// 		onCompleted: () => console.log('called'),
-// });
-// if (loading) return <Spinner04 />;
-  // console.log(data)
 	return (
 		<>
 		<Layout

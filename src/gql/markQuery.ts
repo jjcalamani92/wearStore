@@ -6,7 +6,8 @@ export const MARKS = gql`
 		markAll(site: $site) {
 			_id
 			name
-			image
+			imageSrc
+			imageAlt
       href
 			description
 		}
@@ -18,7 +19,8 @@ export const MARK_BY_HREF = gql`
 		marksByHref(href: $href, site: $site) {
 			_id
 			name
-			image
+			imageSrc
+			imageAlt
       href
 			description
 		}

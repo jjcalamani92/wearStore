@@ -56,112 +56,84 @@ export const TableItem: FC<Props> = ({ items, category, section }) => {
                 <a className="transition duration-150 ease-in-out hover:bg-red-600 focus:outline-none border bg-red-500 rounded text-white px-8 py-2 text-sm">Nuevo Item</a>
               </Link>
             </div>
-            <div className="hidden lg:flex">
-              <table className="table-auto  whitespace-nowrap w-full">
-                <thead>
-                  <tr className="h-16 border border-gray-100 rounded">
-                    <th className="w-3/10" >
-                      <div className="flex items-center pl-5">
-                        <p className="text-base font-medium leading-none text-gray-900 mr-2">
-                          Nombre del Item
-                        </p>
-                      </div>
-                    </th>
-                    <th className="w-3/10" >
-                      <div className="flex items-center pl-5">
-                        <p className="text-base font-medium leading-none text-gray-900 mr-2">
-                          Descripción
-                        </p>
-                      </div>
-                    </th>
+            <div className="hidden lg:block container ">
+              <div className="grid grid-cols-11 gap-2  border border-gray-100 rounded content-center px-2 py-5">
+                <div className="col-span-1 items-center ">
+                  <p className="text-base font-medium leading-none text-gray-900 mr-2 ">
+                    Nombre
+                  </p>
+                </div>
+                <div className="col-span-4 items-center ">
+                  <p className="text-base font-medium leading-none text-gray-900 mr-2 ">
+                    Descripción
+                  </p>
+                </div>
+                <div className="items-center ">
+                  <p className="text-base font-medium leading-none text-gray-900 mr-2 ">
+                    Imagen
+                  </p>
+                </div>
+                <div className="col-span-4 items-center ">
+                  <p className="text-base font-medium leading-none text-gray-900 mr-2 ">
+                    Descripción de la imagen
+                  </p>
+                </div>
+                <div></div>
+              </div>
+              {
+                items.map((item, i) => (
+                  <div className="grid grid-cols-11 gap-2 border border-gray-100 p-2 "  key={i}>
+                    
+                    <div className="col-span-1 flex items-center">
+                      <p className="text-sm leading-none text-gray-600 ">
+                        {item.name}
+                      </p>
+                    </div>
+                    <div className="col-span-4 flex items-center">
+                      <p className="text-sm leading-normal text-gray-600 ">
+                        {item.description}
 
-                    <th className="w-1/10" >
-                      <div className="flex items-center pl-5">
-                        <p className="text-base font-medium leading-none text-gray-900 mr-2">
-                          Imagen
-                        </p>
-                      </div>
-                    </th>
-                    <th className="w-1/10" >
-                      <div className="flex items-center pl-5">
-                        <p className="text-base font-medium leading-none text-gray-900 mr-2">
-                          Descripción de la imagen
-                        </p>
-                      </div>
-                    </th>
-                    {/* <th className="w-1/10" >
-                        <div className="flex items-center pl-5">
-                          <p className="text-base font-medium leading-none text-gray-900 mr-2">
-                            Fecha de publicación
-                          </p>
+                      </p>
+                    </div>
+                    <div className="flex items-center">
+                    <div className="rounded-lg bg-white overflow-hidden group-hover:opacity-75 leading-none">
+                          <Image
+                            src={item.imageSrc}
+                            alt={item.name}
+                            height={100}
+                            width={100}
+                            objectFit='cover'
+                          />
                         </div>
-                      </th> */}
-                    <th className="w-1/10" ></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {items.map((item, i) => (
-                    <tr className="h-16  border border-gray-100 rounded" key={i}>
-                      <td className="pl-15 mb-5">
-                        <div className="flex items-center pl-5">
-                          <p className="text-sm leading-none text-gray-600 mr-2">
-                            {item.name}
-                          </p>
-                        </div>
-                      </td>
-                      <td className="pl-15 mb-5">
-                        <div className="flex items-center">
-                          <p className="text-sm leading-none text-gray-600 ml-2 capitalize">
-                            {item.description}
-                          </p>
-                        </div>
-                      </td>
-
-                      <td className="pl-5">
-                        <div className="flex items-center">
-                          <div className="aspect-w-1 h-30 aspect-h-1 rounded-lg bg-white overflow-hidden group-hover:opacity-75">
-                            <Image
-                              src={item.imageSrc}
-                              alt={item.name}
-                              height={100}
-                              width={100}
-                              className="object-center object-cover"
+                    </div>
+                    <div className="col-span-4 flex items-center">
+                      <p className="text-sm  leading-normal text-gray-600 ">
+                      {item.imageAlt}
+                      </p>
+                    </div>
+                    <div className="flex items-center justify-center">
+                      <Link href={`/admin/sites/${router.query.category}/${router.query.section}/${item.href}`} >
+                          <a>
+                            <FontAwesomeIcon
+                              className="text-sm leading-none mx-1 text-gray-600 hover:text-gray-900 rounded focus:outline-none h-5 w-5"
+                              icon={faPenToSquare}
                             />
-                          </div>
+                          </a>
+                        </Link>
+                        <div onClick={() => onDeleteData(item._id)} >
+                          <a>
+                            <FontAwesomeIcon
+                              className="text-sm leading-none mx-1 text-gray-600 hover:text-gray-900 rounded focus:outline-none h-5 w-5"
+                              icon={faCircleMinus}
+                            />
+                          </a>
                         </div>
-                      </td>
-                      <td className="pl-5">
-                        <div className="flex items-center">
-                          <p className="text-sm leading-none text-gray-600 ml-2">
-                            {item.imageAlt}
-                          </p>
-                        </div>
-                      </td>
-                      <td className="pl-4">
-                        <div className="flex items-center gap-2">
-                          <Link href={`/admin/sites/${router.query.category}/${router.query.section}/${item.href}`} >
-                            <a>
-                              <FontAwesomeIcon
-                                className="text-sm leading-none mx-1 text-gray-600 hover:text-gray-900 rounded focus:outline-none h-5 w-5"
-                                icon={faPenToSquare}
-                              />
-                            </a>
-                          </Link>
-                          <div onClick={() => onDeleteData(item._id)} >
-                            <a>
-                              <FontAwesomeIcon
-                                className="text-sm leading-none mx-1 text-gray-600 hover:text-gray-900 rounded focus:outline-none h-5 w-5"
-                                icon={faCircleMinus}
-                              />
-                            </a>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+                    </div>
+                  </div>
+                ))
+              }
             </div>
+            
           </div>
         </div>
       </div>
