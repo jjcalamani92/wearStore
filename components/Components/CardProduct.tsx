@@ -60,7 +60,7 @@ export const CardComponent: FC<CardComponent> = ({ name, imageSrc, imageAlt, des
               objectFit={objectFit}
             />
           </div>
-          <h3 className={`mt-1 ${p[0] === 'admin' ? "text-sm text-gray-700" : " text-base font-semibold text-gray-900"}`}>
+          <h3 className={`mt-1 overflow-ellipsis whitespace-nowrap overflow-hidden ${p[0] === 'admin' ? "text-sm text-gray-700 " : " text-base font-semibold text-gray-900"}`}>
             {name}
 
           </h3>
