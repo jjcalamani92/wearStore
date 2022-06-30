@@ -456,8 +456,11 @@ export const Form: FC<Props> = ({ product }) => {
                             }
 
                           />
-                          <p className="mt-2 text-sm text-gray-500">
+                          <p className="mt-2 text-sm text-gray-500 hidden lg:block">
                             Presiona [Spacio] para agregar.
+                          </p>
+                          <p className="mt-2 text-sm text-gray-500 lg:hidden">
+                            Presiona [Comma] para agregar.
                           </p>
                       </div>
                       <div className="col-span-6 sm:col-span-2 border py-2 px-3 border-gray-300 rounded-md h-20 overflow-y-auto">
