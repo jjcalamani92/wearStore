@@ -217,7 +217,7 @@ export const Form: FC<Props> = ({ product }) => {
                 <div className="sm:p-6">
 
                   <div className="grid grid-cols-1 lg:grid-cols-3 lg:gap-6">
-                    <div className="col-span-2 grid grid-cols-6 gap-6">
+                    <div className="col-span-2 grid grid-cols-6 gap-3 sm:gap-6 ">
                       <div className="col-span-6 sm:col-span-4">
                         <label htmlFor="name" className="block text-sm font-medium text-gray-700">
                           Nombre
