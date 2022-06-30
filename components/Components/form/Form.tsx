@@ -451,7 +451,7 @@ export const Form: FC<Props> = ({ product }) => {
                             type={"text"}
                             value={newTagValue}
                             onChange={({ target }) => setNewTagValue(target.value)}
-                            onKeyUp={({ code, key }) => 
+                            onKeyPress={({ code, key }) => 
                             key === 'Space' ? onNewTag() : code === 'Space' ? onNewTag() : undefined
                             }
 
