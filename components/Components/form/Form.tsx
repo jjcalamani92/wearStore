@@ -150,6 +150,7 @@ export const Form: FC<Props> = ({ product }) => {
 
 
   const onNewTag = () => {
+    
     const newTag = newTagValue.trim().toLocaleLowerCase();
     setNewTagValue('');
     const currentTags = getValues('tags');
@@ -489,7 +490,7 @@ export const Form: FC<Props> = ({ product }) => {
                             value={newTagValue}
                             onChange={({ target }) => setNewTagValue(target.value)}
                             onKeyUp={({ code, key }) => 
-                            code === 'Comma' ? onNewTag() : code === 'Space' ? onNewTag() : undefined
+                            code === 'Enter' ? onNewTag() : code === 'Space' ? onNewTag() : undefined
                             }
 
                           />
@@ -497,11 +498,11 @@ export const Form: FC<Props> = ({ product }) => {
                             Presiona [Spacio] para agregar.
                           </p>
                           <p className="mt-2 text-sm text-gray-500 lg:hidden">
-                            Presiona [Comma] para agregar.
+                            Presiona [Enter] para agregar.
                           </p>
                           
                       </div>
-                      <ReactTags
+                      {/* <ReactTags
                             // inputFieldPosition="inline"
                             tags={tags}
                             // suggestions={suggestions}
@@ -511,8 +512,8 @@ export const Form: FC<Props> = ({ product }) => {
                             handleDrag={handleDrag}
                             handleTagClick={handleTagClick}
                             inputFieldPosition="bottom"
-                            autocomplete
-                          />
+                            // autocomplete
+                          /> */}
                       <div className="col-span-6 sm:col-span-2 border py-2 px-3 border-gray-300 rounded-md h-20 overflow-y-auto">
 
                         <div className="grid grid-cols-2 gap-2 "  >
