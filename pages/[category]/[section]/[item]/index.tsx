@@ -3,7 +3,7 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { Category, IClothing, ISeo, Item, Section } from "../../../../src/interfaces";
 import { ITEM, PRODUCTS_BY_ITEM } from "../../../../src/gql/query";
 import { Layout } from "../../../../components/Layout";
-import { HeadingPrimary, GridCard } from "../../../../components/Components";
+import { HeadingPrimary, GridProduct } from "../../../../components/Components";
 import { graphQLClientP, graphQLClientS } from "../../../../src/graphQLClient";
 import { SBI } from "../../../../src/gql/siteQuery";
 import { UiContext } from "../../../../src/context";
@@ -25,7 +25,7 @@ const ItemPage:FC<Props> = ({items, seo}) => {
         <HeadingPrimary 
           seo={seo}
         />
-        <GridCard product={items} />
+        <GridProduct product={items} />
     </Layout>
     </>
   );

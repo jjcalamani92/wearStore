@@ -5,7 +5,7 @@ import { graphQLClientS } from '../../../../src/graphQLClient';
 import { SBS } from '../../../../src/gql/siteQuery';
 import { FormCategory } from '../../../../components/Components/form/FormCategory';
 import { useRouter } from 'next/router';
-import { LayoutFeaturedListAdmin, LayoutSectionListAdmin, LayoutCategoryListAdmin, HeadingTable } from '../../../../components/Components';
+import { LayoutFeaturedListAdmin, LayoutSectionListAdmin, LayoutCategoryListAdmin, HeadingTable, GridPages } from '../../../../components/Components';
 import { TableFeatured } from '../../../../components/Components/table/TableFeatured';
 import { TableSection } from '../../../../components/Components/table/TableSection';
 import { HeadingAdmin } from '../../../../components/Components/HeadingAdmin';
@@ -39,6 +39,7 @@ const ProductPage: NextPage<Props> = ({ category }) => {
 					/>
 					
 					<TableSection sections={category.sections} category={category._id}/>
+					{/* <GridPages data={category.sections} category={category._id} /> */}
 					<LayoutSectionListAdmin data={category.sections} category={category._id}/>
 					
 					<HeadingTable 

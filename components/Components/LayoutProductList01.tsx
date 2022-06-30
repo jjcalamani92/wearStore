@@ -253,7 +253,6 @@ export const LayoutMarkListAdmin: FC<LayoutMarkListAdmin> = ({ marks }) => {
 	);
 };
 
-
 export const LayoutCategoryListAdmin: FC<LayoutCategoryListAdmin> = ({ data }) => {
 	const router = useRouter()
 	const onDeleteData = async (id: string) => {
@@ -329,6 +328,7 @@ export const LayoutCategoryListAdmin: FC<LayoutCategoryListAdmin> = ({ data }) =
 };
 
 export const LayoutSectionListAdmin: FC<LayoutSectionListAdmin> = ({ data, category }) => {
+	console.log(category)
 	const router = useRouter()
   const onDeleteData = async (id: string) => {
 		const data = {section: id, category: category }

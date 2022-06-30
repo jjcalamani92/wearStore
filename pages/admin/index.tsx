@@ -1,8 +1,6 @@
 import { FC, useContext, useState } from "react";
 import { PRODUCTS, PRODUCT_ALL } from '../../src/gql/query';
-import request, { RequestDocument } from "graphql-request";
-import Link from 'next/link';
-import { Spinner04, TableProduct, Pagination01, LayoutItemListAdmin, Pagination, HeadingTable } from "../../components/Components";
+import { Spinner04, TableProduct, Pagination01, LayoutItemListAdmin, HeadingTable, GridProduct } from "../../components/Components";
 import { Layout, LayoutAdmin } from "../../components/Layout";
 import { useQuery } from "@apollo/client";
 import { GetServerSideProps } from "next";
@@ -37,7 +35,7 @@ const AdminPage:FC<Props> = ({clothingAll, clothingsAll}) => {
 		>
 				<HeadingTable title='Productos' href="/admin/products/new"/>
 				<TableProduct products={data.clothingsAll} />
-				
+				<GridProduct product={data.clothingsAll}/>
 				<LayoutItemListAdmin products={data.clothingsAll}/>
 				<Pagination01 setPage={setPage} page={page} length={data.clothingsAll.length} all={PAGE_SIZE} />
 			{/* <LayoutAdmin>

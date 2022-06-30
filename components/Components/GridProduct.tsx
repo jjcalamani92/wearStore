@@ -1,10 +1,10 @@
 import { useRouter } from "next/router"
 import { FC } from "react"
 import { Category, Item, Section } from "../../src/interfaces"
-import { CardComponent } from "./CardComponent"
+import { CardComponent } from "./CardProduct"
 import { IClothing } from '../../src/interfaces/Clothing';
 
-interface GridCard {
+interface GridProduct {
   data?: Section[] | Category[] |  Item[]
   sections?: Section[]
   categories?: Category[]
@@ -13,19 +13,17 @@ interface GridCard {
   product?: IClothing[]
 }
 
-export const GridCard: FC<GridCard> = ({sections, category, data, product}) => {
+export const GridProduct: FC<GridProduct> = ({sections, category, data, product}) => {
   const router = useRouter();
-  // console.log(router.query)
-  // console.log(router.query.category)
-  // console.log(router.query.section)
-  // console.log(router.query.item)
-
+  const { pathname } = router
+  const p = pathname.substring(1).split('/')
+  console.log(pathname)
   return (
     <div className="bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl mx-auto lg:max-w-none">
           <div 
-          className="grid grid-cols-1 gap-y-6 gap-x-6 sm:grid-cols-2 lg:grid-cols-3"
+          className={`grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4  gap-6`}
           >
             {
               router.query.item 
@@ -47,6 +45,8 @@ export const GridCard: FC<GridCard> = ({sections, category, data, product}) => {
                   ))}
                   </>
               :
+              pathname === '/admin/sites'
+              ?
               <>
               {data?.map((fact,i) => (
                 <CardComponent 
@@ -59,8 +59,44 @@ export const GridCard: FC<GridCard> = ({sections, category, data, product}) => {
                   height={600} 
                   objectFit='cover'
                   href={
-                    // router.query.item ? `/detalles/${fact.slug}` 
-                    // : 
+                    router.query.section ? `/${router.query.category}/${router.query.section}/${fact.href}` 
+                    : 
+                    router.query.category ? `/${router.query.category}/${fact.href}` : ''
+                  }
+                />
+              ))}
+              </>
+              :
+              p[0] === 'admin'
+              ?
+              <>
+                  {product?.map((fact,i) => (
+                    <CardComponent 
+                      key={i}
+                      name={fact.name} 
+                      imageSrc={fact.image[0]} 
+                      imageAlt={fact.name} 
+                      width={500}
+                      height={600} 
+                      objectFit='cover'
+                      href={`/admin/products/${fact.slug}`}
+                    />
+                  ))}
+                  </>
+              :
+              
+              <>
+              {data?.map((fact,i) => (
+                <CardComponent 
+                  key={i}
+                  name={fact.name} 
+                  imageSrc={fact.imageSrc} 
+                  imageAlt={fact.imageAlt} 
+                  description={fact.description} 
+                  width={500}
+                  height={600} 
+                  objectFit='cover'
+                  href={
                     router.query.section ? `/${router.query.category}/${router.query.section}/${fact.href}` 
                     : 
                     router.query.category ? `/${router.query.category}/${fact.href}` : ''

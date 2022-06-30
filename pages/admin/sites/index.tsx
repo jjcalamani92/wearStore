@@ -4,7 +4,7 @@ import { graphQLClientS } from "../../../src/graphQLClient";
 import { S } from "../../../src/gql/siteQuery";
 import { GetStaticProps, GetServerSideProps } from 'next';
 import { Category, ISeo, Item, Section, Site } from "../../../src/interfaces";
-import { HeadingTable, LayoutCategoryListAdmin, FormSite } from "../../../components/Components";
+import { HeadingTable, LayoutCategoryListAdmin, FormSite, GridPages } from "../../../components/Components";
 import { TableCategory } from "../../../components/Components/table/TableCategory";
 
 
@@ -22,6 +22,8 @@ const AdminPages:FC<Props> = ({seo, site}) => {
 		>
 				<HeadingTable title='Categorias' href="/admin/sites/new"/>
 				<TableCategory categories={site.categories} />
+				
+				{/* <GridPages data={site.categories}/> */}
 				<LayoutCategoryListAdmin data={site.categories}/>
 
 				<HeadingTable title='Actualizar datos del Sitio'/>

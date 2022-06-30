@@ -1,6 +1,6 @@
 import { FC } from "react"
 import { Section } from "../../src/interfaces"
-import { CardComponent } from "./CardComponent"
+import { CardComponent } from "./CardProduct"
 
 interface CategoryPreviews01 {
   section: Section[]

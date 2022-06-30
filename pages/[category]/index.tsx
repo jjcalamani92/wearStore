@@ -4,7 +4,7 @@ import { IClothing, } from "../../src/interfaces";
 import { CATEGORY } from "../../src/gql/query";
 import { Category, ISeo} from '../../src/interfaces/Site';
 import { SBS } from "../../src/gql/siteQuery";
-import { HeadingPrimary, GridCard } from "../../components/Components";
+import { HeadingPrimary, GridProduct } from "../../components/Components";
 import { Layout } from "../../components/Layout/Layout";
 import { graphQLClientS, graphQLClientP } from '../../src/graphQLClient';
 import { UiContext } from "../../src/context";
@@ -23,7 +23,7 @@ const CategoryPage:FC<Props>= ({seo, category}) => {
 			imageFullUrl={`${seo.category.imageSrc}`}
 		>
 			<HeadingPrimary seo={seo} />
-			<GridCard  data={category.sections}/>
+			<GridProduct  data={category.sections}/>
 		</Layout>
 	);
 };
