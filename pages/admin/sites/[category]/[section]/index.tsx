@@ -3,7 +3,6 @@ import { Category, IClothing, Section } from "../../../../../src/interfaces";
 import { Layout, LayoutAdmin } from '../../../../../components/Layout';
 import { graphQLClientS } from '../../../../../src/graphQLClient';
 import { SBS } from '../../../../../src/gql/siteQuery';
-import Link from 'next/link';
 import { TableItem, FormSection } from '../../../../../components/Components';
 import { useRouter } from 'next/router';
 import { HeadingTable, LayoutItemsListAdmin } from '../../../../../components/Components';

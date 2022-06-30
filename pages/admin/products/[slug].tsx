@@ -2,7 +2,7 @@ import { NextPage, GetServerSideProps } from 'next';
 import { PRODUCT_BY_SLUG } from '../../../src/gql/query';
 import { IClothing } from "../../../src/interfaces";
 import { GraphQLClient } from 'graphql-request';
-import { Form } from '../../../components/Components';
+import { Form, HeadingTable, TableFeatured } from '../../../components/Components';
 import { Layout, LayoutAdmin } from '../../../components/Layout';
 import { useContext } from 'react';
 import { UiContext } from '../../../src/context';
@@ -20,6 +20,11 @@ const ProductPage: NextPage<Props> = ({ product }) => {
 			pageDescription={site.description}
 			imageFullUrl={site.logo}
 		>
+				<HeadingTable
+						title={
+							product._id ? `Actualizar Producto` : `Crear Producto`
+						} 
+					/>
 				<Form product={product} />
 			</Layout>
 		</>
