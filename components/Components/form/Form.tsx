@@ -7,6 +7,7 @@ import { ChangeEvent, FC, useEffect, useState } from 'react';
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import { Category, IMark, Item, Section } from "../../../src/interfaces";
+import { WithContext as ReactTags } from 'react-tag-input';
 
 interface FormData {
   _id?: string;
@@ -30,6 +31,13 @@ interface Props {
 }
 
 const validSizes = ['XS', 'S', 'M', 'L', 'XL', 'XXL', 'XXXL']
+
+const KeyCodes = {
+  comma: 188,
+  enter: 13
+};
+
+const delimiters = [KeyCodes.comma, KeyCodes.enter];
 
 export const Form: FC<Props> = ({ product }) => {
 
@@ -206,6 +214,35 @@ export const Form: FC<Props> = ({ product }) => {
     }
   }
 
+
+  const [tags, setTags] = useState([
+    { id: 'Thailand', text: 'Thailand' },
+    { id: 'India', text: 'India' },
+    { id: 'Vietnam', text: 'Vietnam' },
+    { id: 'Turkey', text: 'Turkey' }
+  ]);
+
+  const handleDelete = (i: number) => {
+    setTags(tags.filter((tag, index) => index !== i));
+  };
+
+  const handleAddition = (tag: { id: string; text: string; }) => {
+    setTags([...tags, tag]);
+  };
+
+  const handleDrag = (tag: { id: string; text: string; }, currPos: number, newPos: number) => {
+    const newTags = tags.slice();
+
+    newTags.splice(currPos, 1);
+    newTags.splice(newPos, 0, tag);
+
+    // re-render
+    setTags(newTags);
+  };
+
+  const handleTagClick = (index: number) => {
+    console.log('The tag at index ' + index + ' was clicked');
+  };
   return (
     <>
       <div className="bg-white">
@@ -462,7 +499,20 @@ export const Form: FC<Props> = ({ product }) => {
                           <p className="mt-2 text-sm text-gray-500 lg:hidden">
                             Presiona [Comma] para agregar.
                           </p>
+                          
                       </div>
+                      <ReactTags
+                            // inputFieldPosition="inline"
+                            tags={tags}
+                            // suggestions={suggestions}
+                            delimiters={delimiters}
+                            handleDelete={handleDelete}
+                            handleAddition={handleAddition}
+                            handleDrag={handleDrag}
+                            handleTagClick={handleTagClick}
+                            inputFieldPosition="bottom"
+                            autocomplete
+                          />
                       <div className="col-span-6 sm:col-span-2 border py-2 px-3 border-gray-300 rounded-md h-20 overflow-y-auto">
 
                         <div className="grid grid-cols-2 gap-2 "  >
@@ -478,6 +528,7 @@ export const Form: FC<Props> = ({ product }) => {
                             ))
                           }
                         </div>
+                       
                       </div>
 
                       {/* <div>
