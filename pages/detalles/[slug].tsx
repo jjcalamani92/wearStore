@@ -14,10 +14,9 @@ interface SlugPage {
 }
 
 const SlugPage: NextPage<SlugPage> = ({ product, seo }) => {
-	const { site } = useContext(UiContext)
 	return (
 		<Layout
-			title={`${site.title} - ${product.name}`}
+			title={product.name}
 			pageDescription={product.description}
 			imageFullUrl={product.image[0]}
 		>
