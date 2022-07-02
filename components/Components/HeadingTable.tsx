@@ -21,7 +21,7 @@ export const HeadingTable: FC<Props> = ({ category, section, item, name, title, 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl mx-auto lg:max-w-none">
 
-          <div className="mb-6 flex flex-row lg:flex-row items-center lg:items-center justify-between sm:overflow-hidden">
+          <div className="my-6 flex flex-row lg:flex-row items-center lg:items-center justify-between sm:overflow-hidden">
             <h4 className="text-2xl font-bold leading-tight text-gray-800">{title}</h4>
             {
               href
