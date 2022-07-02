@@ -40,6 +40,7 @@ export const GridProduct: FC<GridProduct> = ({sections, category, data, product}
                       objectFit='cover'
                       href={`/detalles/${fact.slug}`}
                       price={fact.price}
+                      oldPrice={fact.oldPrice}
                     />
                   ))}
                   </>

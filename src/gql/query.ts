@@ -73,6 +73,7 @@ export const PRODUCTS_BY_ITEM = gql`
 		clothingByCategoryAndSectionAndItem(category: $category, section: $section, item: $item, site: $site) {
 			name
 			price
+			oldPrice
 			image
 			slug
 		}

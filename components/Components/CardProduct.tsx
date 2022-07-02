@@ -17,13 +17,13 @@ interface CardComponent {
 
   id?: string;
   price?: number;
+  oldPrice?: number;
 }
-export const CardComponent: FC<CardComponent> = ({ name, imageSrc, imageAlt, description, width, height, objectFit, href, price, id }) => {
+export const CardComponent: FC<CardComponent> = ({ name, imageSrc, imageAlt, description, width, height, objectFit, href, price, oldPrice, id }) => {
   const router = useRouter();
   const { pathname } = router
   const p = pathname.substring(1).split('/')
-  // console.log(pathname)
-
+  console.log(oldPrice)
   const onDeleteData = async (id: string) => {
 		Swal.fire({
 			title: 'Está seguro?',
@@ -51,7 +51,7 @@ export const CardComponent: FC<CardComponent> = ({ name, imageSrc, imageAlt, des
     <div className={`${p[0] === 'admin' ? "lg:hidden" : null}`}>
       <Link href={href} className="group-hover:opacity-75">
         <a>
-          <div className="w-full bg-white rounded-lg overflow-hidden   leading-none">
+          <div className="w-full bg-white rounded-lg overflow-hidden   leading-none relative">
             <Image
               src={imageSrc}
               alt={imageAlt}
@@ -59,16 +59,30 @@ export const CardComponent: FC<CardComponent> = ({ name, imageSrc, imageAlt, des
               height={height}
               objectFit={objectFit}
             />
+            {
+              oldPrice
+              ?
+              <span className="absolute left-0 top-2 text-sm text-red-500 bg-gray-100 p-1"> -{`${Math.floor((Number(price)-Number(oldPrice))*100/Number(price))}`}%</span>
+              : null
+            }
           </div>
           <h3 className={`mt-1 overflow-ellipsis whitespace-nowrap overflow-hidden ${p[0] === 'admin' ? "text-sm text-gray-700 " : " text-base font-semibold text-gray-900"}`}>
             {name}
 
           </h3>
           {
-            price
+              oldPrice
+              ? <div className="flex justify-between">
+                  <p className="mt-1 text-sm  text-gray-500 line-through">{price}.00 Bs </p>
+                  <p className="mt-1 text-sm font-semibold  text-gray-900"> {oldPrice}.00 Bs</p>
+                </div>
+              : 
+              price
               ?
-              <p className="mt-1 text-sm  text-gray-500">{price}.00 Bs</p>
+              <p className="mt-1 text-sm text-gray-500">{price}.00 Bs </p>
+              
               : null
+
           }
           {
             p[0] 
