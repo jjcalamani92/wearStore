@@ -16,6 +16,7 @@ export interface IClothing {
 	status: boolean;
 	site: string;
 	
+	featured: string;
 	color: string;
 	sizes: string[];
 }

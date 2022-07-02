@@ -48,10 +48,10 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
 			price: 0,
 			oldPrice: 0,
 			tags: ['producto'],
+			featured: 'ninguno',
 
 			color: 'como se ve en la imagen',
 			sizes:[]
-
 		}
 	} else {
 		const data = await client.request(

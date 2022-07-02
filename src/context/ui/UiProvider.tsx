@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { useReducer } from "react";
 import { Site } from "../../interfaces";
@@ -9,16 +10,37 @@ export interface UiState {
 	isCartOpen: boolean;
 	site: Site
 }
+const client = [
+	{
+		_id: "123456",
+		title: "piccoletti",
+		logo: "https://res.cloudinary.com/dvcyhn0lj/image/upload/v1647095547/piccoletti-logo_j6hxbw.jpg",	
+	},
+	{
+		_id: "1234567",
+		title: "hardware",
+		logo: "https://res.cloudinary.com/dvcyhn0lj/image/upload/v1647095547/piccoletti-logo_j6hxbw.jpg",	
+	},
+	{
+		_id: "1234568",
+		title: "corales",
+		logo: "https://res.cloudinary.com/dvcyhn0lj/image/upload/v1647095547/piccoletti-logo_j6hxbw.jpg",	
+	}
+]
 
+const data = {
+	title: "Piccoletti",
+	logo: "https://res.cloudinary.com/dvcyhn0lj/image/upload/v1656384574/React-jj/blogs/Screenshot_2_m0jqqs.png",
+}
 const UI_INITIAL_STATE: UiState = {
 	isMenuOpen: false,
 	isSearchOpen: false,
 	isCartOpen: false,
 	site: {
 		_id: "",
-		title: "Piccoletti",
+		title: "",
 		domain: "",
-		logo: "https://res.cloudinary.com/dvcyhn0lj/image/upload/v1656384574/React-jj/blogs/Screenshot_2_m0jqqs.png",
+		logo: `${data.logo}`,
 		numberPhone: "",
 		address: "",
 		location: "",
@@ -30,7 +52,6 @@ const UI_INITIAL_STATE: UiState = {
 };
 
 export const UiProvider = ({ children }: React.PropsWithChildren<{}>) => {
-	const [site, setSite] = useState([]);
 	const [state, dispatch] = useReducer(uiReducer, UI_INITIAL_STATE);
 	useEffect(() => {
 		fetch(`${process.env.APIS_URL}/api/site/${process.env.API_SITE}`)

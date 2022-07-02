@@ -2,6 +2,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { FC } from "react";
 import { Footer01, Header, Search01 } from "../Components";
+import { Footer } from "../Components/Footer";
 
 interface Props {
 	title: string;
@@ -37,7 +38,11 @@ export const Layout: FC<Props> = ({
 			<main>{children}</main>
 			{ p[0] === 'admin'
         ? null
-				: <Footer01 />
+				: 
+				<>
+					<Footer />
+					{/* <Footer01 /> */}
+				</>
 			}
 			</>
 	);

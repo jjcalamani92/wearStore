@@ -370,12 +370,12 @@ export const LayoutSectionListAdmin: FC<LayoutSectionListAdmin> = ({ data, categ
 							<Link  href={`/admin/sites/${router.query.category}/${d.href}`} className="group">
 								<a>
 
-								<div className="w-full min-h-80 bg-white aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none ">
+								<div className="w-full min-h-80 bg-white aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none leading-none">
 									<Image
 										src={d.imageSrc}
 										alt={d.name}
-										width={300}
-										height={300}
+										width={400}
+										height={400}
 										objectFit={'cover'}
 									/>
 									
@@ -446,12 +446,12 @@ export const LayoutFeaturedListAdmin: FC<LayoutFeaturedListAdmin> = ({ data, cat
 							<div key={i} >
 								<Link href={`/admin/sites/${router.query.category}/f/${d.href}`}>
 								<a className="group">
-								<div className="w-full min-h-80 bg-white aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none relative ">
+								<div className="w-full min-h-80 bg-white aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none relative leading-none">
 									<Image
 										src={d.imageSrc}
 										alt={d.name}
-										width={300}
-										height={300}
+										width={400}
+										height={400}
 										objectFit={'cover'}
 									/>
 									

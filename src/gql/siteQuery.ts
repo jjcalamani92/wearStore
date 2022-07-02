@@ -40,6 +40,23 @@ export const SBS = gql`
 		}
 	}
 `;
+export const SBF = gql`
+	query Site($id: String!) {
+		site(id: $id) {
+			categories {
+				featured {
+					_id
+          name
+					href
+					description
+					imageSrc
+					imageAlt
+        }
+			}
+		}
+	}
+`;
+
 
 export const SBI = gql`
 	query Site($id: String!) {

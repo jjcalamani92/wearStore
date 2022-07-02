@@ -1,5 +1,7 @@
 export * from './CategoryPreviews01'
 export * from './CategoryPreviews02'
+export * from './Feature'
+export * from './Footer'
 export * from './Footer01'
 export * from './Header'
 export * from './Heading'

@@ -31,12 +31,12 @@ const AdminPage:FC<Props> = ({clothingAll, clothingsAll}) => {
 		<Layout
 			title={site.title}
 			pageDescription={site.description}
-			imageFullUrl={site.logo}
+			// imageFullUrl={site.logo}
 		>
 				<HeadingTable title='Productos' href="/admin/products/new"/>
 				<TableProduct products={data.clothingsAll} />
-				<GridProduct product={data.clothingsAll}/>
-				{/* <LayoutItemListAdmin products={data.clothingsAll}/> */}
+				{/* <GridProduct product={data.clothingsAll}/> */}
+				<LayoutItemListAdmin products={data.clothingsAll}/>
 				<Pagination01 setPage={setPage} page={page} length={data.clothingsAll.length} all={PAGE_SIZE} />
 			{/* <LayoutAdmin>
 				{/* <Pagination  /> */}

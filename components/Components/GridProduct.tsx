@@ -17,7 +17,6 @@ export const GridProduct: FC<GridProduct> = ({sections, category, data, product}
   const router = useRouter();
   const { pathname } = router
   const p = pathname.substring(1).split('/')
-  console.log(pathname)
   return (
     <div className="bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -26,7 +25,7 @@ export const GridProduct: FC<GridProduct> = ({sections, category, data, product}
           className={`grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4  gap-6`}
           >
             {
-              router.query.item 
+              router.query.item  || router.query.featured
               ?
                 <>
                   {product?.map((fact,i) => (

@@ -89,6 +89,78 @@ export const PRODUCTS_BY_SECTION = gql`
 	}
 `;
 
+export const PRODUCT_BY_OFFER = gql`
+	query ClothingOffer( $site: String!) {
+		clothingOffer(site: $site) {
+			_id
+			name
+			brand
+			description
+			image
+			inStock
+			slug
+			category
+			section
+			item
+			price
+			oldPrice
+			tags
+			featured
+
+			color
+			sizes
+
+		}
+	}
+`;
+export const PRODUCT_BY_PROMOTION = gql`
+	query ClothingPromotion( $site: String!) {
+		clothingPromotion( site: $site) {
+			_id
+			name
+			brand
+			description
+			image
+			inStock
+			slug
+			category
+			section
+			item
+			price
+			oldPrice
+			tags
+			featured
+
+			color
+			sizes
+
+		}
+	}
+`;
+export const PRODUCT_BY_FEATURED = gql`
+	query ClothingByFeatured($featured: String!, $site: String!) {
+		clothingByFeatured(featured: $featured, site: $site) {
+			_id
+			name
+			brand
+			description
+			image
+			inStock
+			slug
+			category
+			section
+			item
+			price
+			oldPrice
+			tags
+			featured
+
+			color
+			sizes
+
+		}
+	}
+`;
 export const PRODUCT_BY_SLUG = gql`
 	query ClothingBySlug($slug: String!, $site: String!) {
 		clothingBySlug(slug: $slug, site: $site) {
@@ -106,6 +178,7 @@ export const PRODUCT_BY_SLUG = gql`
 			oldPrice
 			tags
 
+			featured
 			color
 			sizes
 
@@ -130,6 +203,7 @@ export const PRODUCT_ALL = gql`
 			price
 			tags
 
+			featured
 			color
 			sizes
 		}

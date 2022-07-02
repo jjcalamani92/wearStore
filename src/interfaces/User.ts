@@ -3,7 +3,7 @@ export interface IUser {
 	email: string;
 	role: string;
 	username?: string;
-	image?: string;
+	image: string;
 }
 
 export interface UserS {

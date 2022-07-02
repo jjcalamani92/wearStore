@@ -239,6 +239,13 @@ export const Header = () => {
                   <div className="border-t border-gray-200">
                   <div className="w-full flex items-center justify-between px-6 pt-1 mb-1">
                     <div className="flex items-center">
+                    {/* <Image
+                      width={50}
+                      height={50}
+                      src={user?.image}
+                      objectFit={'contain'}
+                      alt=""
+                    /> */}
                       <img alt="profile-pic" src={user?.image} className="w-8 h-8 rounded-md" />
                       <p className=" text-gray-800 text-base leading-4 ml-2 capitalize">{user?.username}</p>
                     </div>
@@ -277,22 +284,18 @@ export const Header = () => {
             <div className="h-16 flex items-center">
 
 
-              {/* Logo */}
-              <div className="ml-4 flex lg:ml-0">
-                <Link href="/">
-                  <a >
+                <Link href="/" className=''>
+                  <a className='flex items-center'>
                     {/* <span className="sr-only">Workflow</span> */}
                     <Image
-                      // className="h-8 w-auto"
                       width={120}
-                      height={50}
+                      height={40}
                       src={site.logo}
                       objectFit={'contain'}
                       alt=""
                     />
                   </a>
                 </Link>
-              </div>
 
               {/* Flyout menus */}
               <Popover.Group className="hidden z-40 lg:ml-8 lg:block lg:self-stretch">

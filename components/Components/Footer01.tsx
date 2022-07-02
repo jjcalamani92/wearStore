@@ -8,6 +8,14 @@ export const Footer01 = () => {
     const { site, toggleSideSearch, toggleSideCart } = useContext(UiContext)
 
     return (
+        <>
+        <div className="bg-white">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-2xl mx-auto lg:max-w-none">
+
+                </div>
+            </div>
+        </div>
         <div className="pt-12">
             <footer id="footer" className="relative z-30 ">
                 {/* <footer id="footer" className="relative z-30 dark:bg-gray-900 pt-24"> */}
@@ -108,5 +116,6 @@ export const Footer01 = () => {
                 </div>
             </footer>
         </div>
+        </>
     );
 };

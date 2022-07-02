@@ -2,8 +2,8 @@ import { FC, useContext } from 'react';
 import { GetStaticPaths, GetStaticProps } from "next";
 import { IClothing, } from "../../src/interfaces";
 import { CATEGORY } from "../../src/gql/query";
-import { Category, ISeo} from '../../src/interfaces/Site';
-import { SBS } from "../../src/gql/siteQuery";
+import { Category, Featured, ISeo, Site} from '../../src/interfaces/Site';
+import { SBF, SBS } from "../../src/gql/siteQuery";
 import { HeadingPrimary, GridProduct } from "../../components/Components";
 import { Layout } from "../../components/Layout/Layout";
 import { graphQLClientS, graphQLClientP } from '../../src/graphQLClient';
@@ -12,9 +12,11 @@ import { UiContext } from "../../src/context";
 interface Props {
 	category: Category
 	seo: ISeo
+	featured: Featured
 }
 
-const CategoryPage:FC<Props>= ({seo, category}) => {
+
+const CategoryPage:FC<Props>= ({seo, category, featured}) => {
 	const { site } = useContext(UiContext)
 	return (
 		<Layout
@@ -29,9 +31,9 @@ const CategoryPage:FC<Props>= ({seo, category}) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async (ctx) => {
-  const { clothingAll } = await graphQLClientP.request(CATEGORY, { site: `${process.env.API_SITE}`})
-	const paths = clothingAll.map((data:IClothing) => ({
-    params: { category: data.category}
+	const { site } = await graphQLClientS.request(SBS, {id: process.env.API_SITE})
+	const paths = site.categories.map((data:Category) => ({
+    params: { category: data.href}
   }))
 	return {
 		paths,
@@ -46,6 +48,12 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 	function findCategory(res:Category){
 		return res.href === `${category}`;
 	}
+	const data = await graphQLClientS.request(SBF, {id: process.env.API_SITE})
+
+	const pat = data.site.categories.reduce((allFeatured: Featured[], category:Category) => {
+		return [...allFeatured, ...category.featured]
+	}, [])
+
 	return {
 		props: { 
 			category: res,
@@ -57,6 +65,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
           imageSrc: res.imageSrc
         },
       },
+			featured: pat,
 		},
 		revalidate: 10
 	};

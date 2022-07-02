@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import { ChangeEvent, FC, useEffect, useState } from 'react';
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
-import { Category, IMark, Item, Section } from "../../../src/interfaces";
+import { Category, Featured, IMark, Item, Section } from "../../../src/interfaces";
 import { WithContext as ReactTags } from 'react-tag-input';
 
 interface FormData {
@@ -22,6 +22,7 @@ interface FormData {
   price: number;
   oldPrice: number;
   tags: string[];
+  featured: string;
 
   color: string;
   sizes: string[];
@@ -30,6 +31,7 @@ interface Props {
   product: FormData
 }
 
+const validFeatured = ['ninguno', 'ofertas', 'promociones']
 const validSizes = ['XS', 'S', 'M', 'L', 'XL', 'XXL', 'XXXL']
 
 const KeyCodes = {
@@ -40,6 +42,7 @@ const KeyCodes = {
 const delimiters = [KeyCodes.comma, KeyCodes.enter];
 
 export const Form: FC<Props> = ({ product }) => {
+  // console.log(product)
 
   const { register, handleSubmit, formState: { errors }, getValues, setValue, watch } = useForm<FormData>({
     defaultValues: { ...product }
@@ -54,7 +57,12 @@ export const Form: FC<Props> = ({ product }) => {
   const [sectionHref, setSectionHref] = useState('');
   const [item, setItem] = useState([]);
   const [itemHref, setItemHref] = useState('');
+  const [featured, setFeatured] = useState([]);
+  const [featuredHref, setFeaturedHref] = useState('');
 
+  console.log('featured', featured)
+  // console.log(section)
+  // console.log(brand)
   // console.log(categoryHref)
   // console.log(sectionHref)
 
@@ -64,6 +72,7 @@ export const Form: FC<Props> = ({ product }) => {
       setBrandHref(product.brand);
       setCategoryHref(product.category);
       setSectionHref(product.section);
+      setFeaturedHref(product.featured);
     }
   }, [])
 
@@ -77,10 +86,6 @@ export const Form: FC<Props> = ({ product }) => {
     const getBrand = async () => {
       const resp = await fetch(`${process.env.APIP_URL}/api/marks`)
         .then(res => res.json())
-      // .then(data => {
-      //   setBrand(data.filter((d: { site: string; }) => d.site === `${process.env.API_SITE}`))
-      // }
-      // )
       const res = resp.filter((d: { site: string; }) => d.site === `${process.env.API_SITE}`)
       const re = res.map((data: { href: IMark; }): IMark => data.href)
       setBrand(re)
@@ -99,8 +104,6 @@ export const Form: FC<Props> = ({ product }) => {
     getcategory();
   }, []);
 
-
-
   const handleCategory = (event: ChangeEvent<HTMLSelectElement>) => {
     const getCategoryHref = event.target.value;
     setValue('category', getCategoryHref, { shouldValidate: true })
@@ -117,6 +120,23 @@ export const Form: FC<Props> = ({ product }) => {
     }
     getSection();
   }, [categoryHref]);
+
+  useEffect(() => {
+    const getFeatured = async () => {
+      const resp = await fetch(`${process.env.APIS_URL}/api/site/${process.env.API_SITE}`)
+        .then(res => res.json())
+      const res = resp?.categories.find((data: { href: string; }) => data.href === `${categoryHref}`)
+      const re = res?.featured.map((data: { href: Featured; }): Featured => data.href)
+      setFeatured(re)
+    }
+    getFeatured();
+  }, [categoryHref]);
+
+  const handleFeatured = (event: ChangeEvent<HTMLSelectElement>) => {
+    const getFeaturedHref = event.target.value;
+    setFeaturedHref(getFeaturedHref);
+    setValue('featured', getFeaturedHref, { shouldValidate: true })
+  }
 
   const handleSection = (event: ChangeEvent<HTMLSelectElement>) => {
     const getSectionHref = event.target.value;
@@ -150,7 +170,7 @@ export const Form: FC<Props> = ({ product }) => {
 
 
   const onNewTag = () => {
-    
+
     const newTag = newTagValue.trim().toLocaleLowerCase();
     setNewTagValue('');
     const currentTags = getValues('tags');
@@ -380,7 +400,7 @@ export const Form: FC<Props> = ({ product }) => {
                           {errors.item && <span className="text-sm text-red-500">{errors.item.message}</span>}
                         </div>
                       </div>
-                      
+
                       <div className="col-span-3 sm:col-span-2">
                         <label htmlFor="inStock" className="block text-sm font-medium text-gray-700">
                           Inventario
@@ -413,6 +433,7 @@ export const Form: FC<Props> = ({ product }) => {
                           {errors.price && <span className="text-sm text-red-500">{errors.price.message}</span>}
                         </div>
                       </div>
+
                       <div className="col-span-3 sm:col-span-2">
                         <label htmlFor="oldPrice" className="block text-sm font-medium text-gray-700">
                           Precio de descuento[Bs]
@@ -448,15 +469,16 @@ export const Form: FC<Props> = ({ product }) => {
                           {errors.description && <span className="text-sm text-red-500">{errors.description.message}</span>}
                         </div>
                       </div>
+
                       <div className="col-span-6 sm:col-span-2">
                         <fieldset
-
                         >
                           <legend className="contents text-base font-medium text-gray-900">Tallas</legend>
                           <div className="grid grid-cols-4 sm:grid-cols-3 gap-2 mt-4 ">
                             {
                               validSizes.map((data, i) => (
                                 <div className="flex items-center" key={i}>
+
                                   <input
                                     type="checkbox"
                                     value={data}
@@ -477,10 +499,12 @@ export const Form: FC<Props> = ({ product }) => {
                           </div>
                         </fieldset>
                         <div>
-                          {errors.sizes?.length === 0 && <span className="text-sm text-red-500">seleccione al menos una talla</span>}
+                          {errors.sizes && <span className="text-sm text-red-500">seleccione al menos una talla</span>}
                         </div>
                       </div>
+
                       <div className="col-span-6 sm:col-span-2">
+                        <div>
                           <label htmlFor="tags" className="block text-sm font-medium text-gray-700">
                             Tags
                           </label>
@@ -489,8 +513,8 @@ export const Form: FC<Props> = ({ product }) => {
                             type={"text"}
                             value={newTagValue}
                             onChange={({ target }) => setNewTagValue(target.value)}
-                            onKeyUp={({ code, key }) => 
-                            code === 'Enter' ? onNewTag() : code === 'Space' ? onNewTag() : undefined
+                            onKeyUp={({ code, key }) =>
+                              code === 'Enter' ? onNewTag() : code === 'Space' ? onNewTag() : undefined
                             }
 
                           />
@@ -500,57 +524,78 @@ export const Form: FC<Props> = ({ product }) => {
                           <p className="mt-2 text-sm text-gray-500 lg:hidden">
                             Presiona [Enter] para agregar.
                           </p>
-                          
-                      </div>
-                      {/* <ReactTags
-                            // inputFieldPosition="inline"
-                            tags={tags}
-                            // suggestions={suggestions}
-                            delimiters={delimiters}
-                            handleDelete={handleDelete}
-                            handleAddition={handleAddition}
-                            handleDrag={handleDrag}
-                            handleTagClick={handleTagClick}
-                            inputFieldPosition="bottom"
-                            // autocomplete
-                          /> */}
-                      <div className="col-span-6 sm:col-span-2 border py-2 px-3 border-gray-300 rounded-md h-20 overflow-y-auto">
 
-                        <div className="grid grid-cols-2 gap-2 "  >
+                        </div>
+                        <div className="col-span-6 sm:col-span-2 border py-2 px-3 border-gray-300 rounded-md h-20 overflow-y-auto">
+
+                          <div className="grid grid-cols-2 gap-2 "  >
+                            {
+                              getValues('tags').map((data, i) => (
+                                <p key={i} className="flex items-center">{data}
+                                  <FontAwesomeIcon
+                                    className="text-sm leading-none mx-1 text-gray-600 hover:text-gray-900 rounded focus:outline-none "
+                                    onClick={() => onDeleteTag(data)}
+                                    icon={faCircleMinus}
+                                  />
+                                </p>
+                              ))
+                            }
+                          </div>
+
+                        </div>
+
+                      </div>
+                      <div className="col-span-3 sm:col-span-2">
+                        <label htmlFor="featured" className="block text-sm font-medium text-gray-700">
+                          Destacados
+                        </label>
+                        <select
+                          className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm capitalize"
+                          {...register('featured')}
+                          onChange={(e) => handleFeatured(e)}
+                          value={getValues('featured')}
+
+
+                        >
+                          <option value="ninguno">--Seleccionar--</option>
                           {
-                            getValues('tags').map((data, i) => (
-                              <p key={i} className="flex items-center">{data}
-                                <FontAwesomeIcon
-                                  className="text-sm leading-none mx-1 text-gray-600 hover:text-gray-900 rounded focus:outline-none "
-                                  onClick={() => onDeleteTag(data)}
-                                  icon={faCircleMinus}
-                                />
-                              </p>
+                            featured?.map((data, i) => (
+
+                              <option key={i} className="capitalize">{data}</option>
                             ))
                           }
-                        </div>
-                       
-                      </div>
-
-                      {/* <div>
-                        <label htmlFor="imageAlt" className="block text-sm font-medium text-gray-700">
-                          Descripción de la Imagen
-                        </label>
-                        <div className="mt-1">
-                          <textarea
-                            rows={4}
-                            className="shadow-sm focus:ring-red-500 focus:border-red-500 my-2 block w-full sm:text-sm border border-gray-300 rounded-md p-1"
-                            {...register('imageAlt', {
-                              required: 'Este campo es requerido',
-                              minLength: { value: 2, message: 'Mínimo 3 caracteres' }
-                            })}
-                          />
-                        </div>
+                        </select>
                         <div>
-                          {errors.imageAlt && <span className="text-sm text-red-500">{errors.imageAlt.message}</span>}
+                          {errors.featured && <span className="text-sm text-red-500">{errors.featured.message}</span>}
                         </div>
-                      </div> */}
+                      </div>
+                      {/* <div className="col-span-6 sm:col-span-2">
+                        <fieldset>
+                          <legend className="text-base font-medium text-gray-900">Promociones</legend>
+                          {/* <p className="text-sm text-gray-500">elige una opción:</p> 
+                          <div className="mt-4 space-y-4">
+                            {
+                              validFeatured.map((data, i) => (
+                                <div key={i} className="flex items-center">
+                                  <input
+                                    type="radio"
+                                    value={data}
+                                    className="focus:ring-red-500 h-4 w-4 text-red-500 border-gray-300"
+                                    {...register('featured')}
+                                  />
+                                  <label htmlFor="featured" className="ml-3 block text-sm font-medium text-gray-700">
+                                    {data}
+                                  </label>
+                                  
+                                </div>
+                              ))
+                            }
 
+
+                          </div>
+                        </fieldset>
+                        
+                      </div> */}
 
                     </div>
 
@@ -638,7 +683,7 @@ export const Form: FC<Props> = ({ product }) => {
         </div>
       </div>
 
-     
+
     </>
   )
 }
