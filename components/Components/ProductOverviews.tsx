@@ -24,7 +24,7 @@ export const ProductOverviews: FC<Props> = ({ product }) => {
 		<>
 			<section className="bg-white" >
 				{/* <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:max-w-7xl grid  grid-cols-1 md:gap-4 lg:grid-cols-5"> */}
-				<div className="max-w-2xl mx-auto py-1 px-4 sm:px-0 lg:max-w-7xl lg:py-3 lg:px-8 grid grid-cols-1 lg:gap-6 lg:grid-cols-5">
+				<div className="max-w-2xl mx-auto py-0 px-4 sm:px-0 lg:max-w-7xl lg:py-0 lg:px-8 grid grid-cols-1 lg:gap-6 lg:grid-cols-5">
 					<div className="col-span-3" >
 						<SwiperDetail image={product.image} />
 					</div>
