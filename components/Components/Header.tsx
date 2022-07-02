@@ -86,7 +86,7 @@ export const Header = () => {
                           <Tab.Panel key={category.name} className="pt-10 pb-8 px-4 space-y-10">
                             <div className="grid grid-cols-2 gap-x-4">
                               {category.featured.slice(-2).map((featured) => (
-                                <Link href={`/promociones/${featured.href}`} key={featured.name} className="group relative text-xs lg:text-sm">
+                                <Link href={`/promociones/${featured.href}`} key={featured.name} className="group text-xs lg:text-sm">
                                   <a >
                                     <div className="aspect-w-1 aspect-h-1 rounded-lg bg-white overflow-hidden group-hover:opacity-75">
                                       <Image
@@ -99,7 +99,7 @@ export const Header = () => {
                                       />
                                     </div>
                                     <div className="mt-6 block font-medium text-gray-900 capitalize">
-                                      <span className="absolute z-10 inset-0" aria-hidden="true" />
+                                      <span className="z-10 inset-0" aria-hidden="true" />
                                       {featured.name}
                                     </div>
                                     <p aria-hidden="true" className="mt-1">
