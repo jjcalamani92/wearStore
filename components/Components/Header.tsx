@@ -131,14 +131,19 @@ export const Header = () => {
                                       </Link>
                                     </li>
                                   ))}
-                                  <li className="flow-root">
+                                  {
+                                    section.items.length >3
+                                    ?
+                                    <li className="flow-root">
                                       <Link href={`/${category.href}/${section.href}`}>
-
-                                        <a className="-m-2 p-2 mb-3 block text-xs lg:text-sm text-gray-500">
-                                          Ver Todo
+                                        <a className="-m-2 p-2 mb-3 block text-xs lg:text-sm text-gray-900">
+                                        Ver Todo {'>'}
                                         </a>
                                       </Link>
                                     </li>
+                                    :
+                                    null
+                                  }
                                 </ul>
                               </div>
                             ))}
@@ -390,7 +395,7 @@ export const Header = () => {
                                                 aria-labelledby={`${section.name}-heading`}
                                                 className="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
                                               >
-                                                {section.items.map((item, i) => (
+                                                {section.items.slice(0,4).map((item, i) => (
                                                   <li key={i} className="flex">
                                                     <a href={`/${category.href}/${section.href}/${item.href}`} className="hover:text-gray-800 capitalize">
 
@@ -398,6 +403,21 @@ export const Header = () => {
                                                     </a>
                                                   </li>
                                                 ))}
+                                                {
+                                                  section.items.length >3
+                                                  ?
+                                                  <li className="flow-root">
+                                                  <Link href={`/${category.href}/${section.href}`}>
+
+                                                    <a className="-m-2 p-2 mb-3 block text-xs lg:text-sm text-gray-900">
+                                                      Ver Todo {'>'}
+                                                    </a>
+                                                  </Link>
+                                                </li>
+                                                  :
+                                                  null
+                                                }
+                                                
                                               </ul>
                                             </div>
                                           ))}
