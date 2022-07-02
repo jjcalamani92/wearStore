@@ -359,7 +359,7 @@ export const Header = () => {
                                       <div className="grid grid-cols-5 gap-y-10 gap-x-8 py-16">
                                         <div className="col-start-5 grid grid-cols-1 gap-x-8">
                                           {category.featured.slice(-1).map((featured, i) => (
-                                            <Link key={i} href={`/promociones/${featured.href}`} className="group relative text-base sm:text-xs lg:text-sm">
+                                            <Link key={i} href={`/promociones/${featured.href}`} className="group text-base sm:text-xs lg:text-sm">
                                               <a>
                                               <div className="aspect-w-1 aspect-h-1 rounded-lg bg-white overflow-hidden group-hover:opacity-75">
                                                 <Image
@@ -372,7 +372,7 @@ export const Header = () => {
                                                 />
                                               </div>
                                               <div className="mt-6 block font-medium text-gray-900 capitalize">
-                                                <span className="absolute z-10 inset-0" aria-hidden="true" />
+                                                <span className="z-10 inset-0" aria-hidden="true" />
                                                 {featured.name}
                                               </div>
                                               <p aria-hidden="true" className="mt-1 capitalize mb-2">
