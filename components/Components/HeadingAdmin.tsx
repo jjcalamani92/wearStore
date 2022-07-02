@@ -87,7 +87,7 @@ export const HeadingPrimary:FC<HeadingPrimary> = ({category, section, name, seo,
   return (<nav aria-label="Breadcrumb" className=" py-4 sm:py-6">
   <ol
     role="list"
-    className="max-w-2xl mx-auto px-4 flex items-center space-x-0 sm:px-0 lg:max-w-7xl lg:px-8 "
+    className="max-w-2xl mx-auto px-0 flex items-center space-x-0 sm:px-0 lg:max-w-7xl lg:px-0 "
   >
    
     {
