@@ -73,12 +73,14 @@ export const CardComponent: FC<CardComponent> = ({ name, imageSrc, imageAlt, des
               <>
                 <span className="absolute right-0 top-2  ">
                   <p className="hidden lg:block text-xs lg:GridProduct bg-red-500 text-white p-1 font-semibold"> en oferta </p>
-                  <Image
-                    src={"https://res.cloudinary.com/dvcyhn0lj/image/upload/v1656784000/etiqueta_vlolbd.png"}
-                    alt="oferta"
-                    width={20}
-                    height={20}
-                  />
+                  <div className="lg:hidden">
+                    <Image
+                      src={"https://res.cloudinary.com/dvcyhn0lj/image/upload/v1656784000/etiqueta_vlolbd.png"}
+                      alt="oferta"
+                      width={20}
+                      height={20}
+                    />
+                  </div>
                 </span>
                 
               </>

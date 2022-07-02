@@ -247,7 +247,7 @@ export const Header = () => {
                       alt=""
                     /> */}
                       <img alt="profile-pic" src={user?.image} className="w-8 h-8 rounded-md" />
-                      <p className=" text-xs lg:text-sm text-gray-800 text-base leading-4 ml-2 capitalize">{user?.username}</p>
+                      <p className=" text-xs lg:text-sm text-gray-800  leading-4 ml-2 capitalize">{user?.username}</p>
                     </div>
                     <ul className="flex">
                       <div className="ml-2" onClick={out}>
