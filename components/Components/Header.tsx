@@ -48,7 +48,7 @@ export const Header = () => {
               leaveTo="-translate-x-full"
             >
               <Dialog.Panel className="relative max-w-xs w-full bg-white shadow-xl pb-12 flex flex-col overflow-y-auto">
-                <div className="px-4 pt-5 pb-2 flex">
+                <div className="px-4 py-2 flex">
                   <button
                     type="button"
                     className="-m-2 p-2 rounded-md inline-flex items-center justify-center text-gray-400"
@@ -83,12 +83,12 @@ export const Header = () => {
                       </div>
                       <Tab.Panels as={Fragment}>
                         {site.categories.map((category) => (
-                          <Tab.Panel key={category.name} className="pt-10 pb-8 px-4 space-y-10">
+                          <Tab.Panel key={category.name} className="pt-5 pb-8 px-4 space-y-5">
                             <div className="grid grid-cols-2 gap-x-4">
                               {category.featured.slice(-2).map((featured) => (
                                 <Link href={`/promociones/${featured.href}`} key={featured.name} className="group text-xs lg:text-sm">
                                   <a >
-                                    <div className="aspect-w-1 aspect-h-1 rounded-lg bg-white overflow-hidden group-hover:opacity-75">
+                                    <div className="aspect-w-1 aspect-h-1 rounded-lg bg-white overflow-hidden leading-none group-hover:opacity-75 li">
                                       <Image
                                         src={featured.imageSrc}
                                         alt={featured.imageAlt}
@@ -98,19 +98,20 @@ export const Header = () => {
                                         objectPosition={'center'}
                                       />
                                     </div>
-                                    <div className="mt-6 block font-medium text-gray-900 capitalize">
+                                    <div className="mt-3 block text-xs lg:text-sm font-medium text-gray-900 capitalize">
                                       <span className="z-10 inset-0" aria-hidden="true" />
                                       {featured.name}
                                     </div>
-                                    <p aria-hidden="true" className="mt-1">
+                                    <p aria-hidden="true" className="mt-1 text-xs lg:text-sm">
                                       Ver Productos
                                     </p>
                                   </a>
                                 </Link>
                               ))}
                             </div>
+                            <div className="grid grid-cols-2 gap-x-4">
                             {category.sections.map((section, i) => (
-                              <div key={i}>
+                              <div key={i} className="mt-0">
                                 <Link href={`/${category.href}/${section.href}`}>
                                   <a className="text-xs lg:text-sm font-medium text-gray-900 capitalize">
                                     {section.name}
@@ -118,9 +119,9 @@ export const Header = () => {
                                 </Link>
                                 <ul
                                   role="list"
-                                  className="mt-6 flex flex-col space-y-6 capitalize"
+                                  className="mt-3 flex flex-col space-y-6 capitalize"
                                 >
-                                  {section.items.map((item, i) => (
+                                  {section.items.slice(0,4).map((item, i) => (
                                     <li key={i} className="flow-root">
                                       <Link href={`/${category.href}/${section.href}/${item.href}`}>
 
@@ -130,9 +131,18 @@ export const Header = () => {
                                       </Link>
                                     </li>
                                   ))}
+                                  <li className="flow-root">
+                                      <Link href={`/${category.href}/${section.href}`}>
+
+                                        <a className="-m-2 p-2 mb-3 block text-xs lg:text-sm text-gray-500">
+                                          Ver Todo
+                                        </a>
+                                      </Link>
+                                    </li>
                                 </ul>
                               </div>
                             ))}
+                            </div>
                           </Tab.Panel>
                         ))}
                       </Tab.Panels>
