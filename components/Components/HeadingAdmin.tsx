@@ -33,7 +33,7 @@ export const HeadingDetail:FC<Props> = ({category, section, item, name}) => {
     <li>
       <div className=" flex items-center">
         <Link href={`/${category}/${section}/${item}`} passHref prefetch={false}>
-          <a href="#" className="text-sm font-medium text-gray-900 capitalize">
+          <a href="#" className="text-xs lg:text-sm  font-medium text-gray-900 capitalize">
             {item}
           </a>
         </Link>
@@ -62,7 +62,7 @@ export const HeadingDetail:FC<Props> = ({category, section, item, name}) => {
           passHref
           prefetch={false}
         >
-          <a className="text-sm font-medium text-gray-900 capitalize">
+          <a className="text-xs lg:text-sm  font-medium text-gray-900 capitalize overflow-ellipsis whitespace-nowrap overflow-hidden">
             {name}
           </a>
         </Link>
@@ -94,10 +94,10 @@ export const HeadingPrimary:FC<HeadingPrimary> = ({category, section, name, seo,
       seo.category?.name
       ?
       <li>
-        <div className={ `'items-center' ${slug ? 'hidden sm:flex' : 'flex'} ${item ? 'hidden sm:flex' : 'flex'}`}>
+        <div className={ `items-center ${slug ? 'hidden sm:flex' : 'flex'} ${item ? 'hidden sm:flex' : 'flex'}`}>
         {/* <div className=" flex items-center"> */}
           <Link href={`/${seo.category.href}`} passHref prefetch={false}>
-            <a href="#" className="text-sm font-medium text-gray-900 capitalize">
+            <a href="#" className="text-xs lg:text-sm  font-medium text-gray-900 capitalize">
               {seo.category.name}
             </a>
           </Link>
@@ -129,7 +129,7 @@ export const HeadingPrimary:FC<HeadingPrimary> = ({category, section, name, seo,
           passHref
           prefetch={false}
         >
-          <a className="text-sm font-medium text-gray-900 capitalize">
+          <a className="text-xs lg:text-sm font-medium text-gray-900 capitalize">
             {seo.section.name}
           </a>
         </Link>
@@ -162,7 +162,7 @@ export const HeadingPrimary:FC<HeadingPrimary> = ({category, section, name, seo,
           passHref
           prefetch={false}
         >
-          <a className="text-sm font-medium text-gray-900 capitalize">
+          <a className="text-xs lg:text-sm  font-medium text-gray-900 capitalize overflow-ellipsis">
             {seo.item.name}
           </a>
         </Link>
@@ -204,7 +204,7 @@ export const HeadingPrimary:FC<HeadingPrimary> = ({category, section, name, seo,
           passHref
           prefetch={false}
         >
-          <a className="text-sm font-medium text-gray-900 capitalize">
+          <a className="overflow-ellipsis text-xs lg:text-sm font-medium text-gray-900 capitalize">
             {productName}
           </a>
         </Link>
@@ -239,7 +239,7 @@ export const HeadingAdmin:FC<Props> = ({category, section, item}) => {
         <div className={ 'items-center flex'}>
         {/* <div className=" flex items-center"> */}
           <Link href={`/admin/sites`} passHref prefetch={false}>
-            <a href="#" className="text-sm font-medium text-gray-900 capitalize">
+            <a href="#" className="text-xs lg:text-sm  font-medium text-gray-900 capitalize">
               Páginas
             </a>
           </Link>
@@ -265,7 +265,7 @@ export const HeadingAdmin:FC<Props> = ({category, section, item}) => {
           <path d="M5.697 4.34L8.98 16.532h1.327L7.025 4.341H5.697z" />
         </svg>
           <Link href={`/admin/sites/${category}`} passHref prefetch={false}>
-            <a href="#" className="text-sm font-medium text-gray-900 capitalize">
+            <a href="#" className="text-xs lg:text-sm  font-medium text-gray-900 capitalize">
               {category}
             </a>
           </Link>
@@ -293,7 +293,7 @@ export const HeadingAdmin:FC<Props> = ({category, section, item}) => {
           <path d="M5.697 4.34L8.98 16.532h1.327L7.025 4.341H5.697z" />
         </svg>
           <Link href={`/admin/sites/${category}/${section}`} passHref prefetch={false}>
-            <a href="#" className="text-sm font-medium text-gray-900 capitalize">
+            <a href="#" className="text-xs lg:text-sm font-medium text-gray-900 capitalize">
               {section}
             </a>
           </Link>

@@ -201,8 +201,10 @@ export const HeadingPrimary: FC<HeadingPrimary> = ({ category, section, name, se
                         passHref
                         prefetch={false}
                       >
-                        <a className="text-xs lg:text-sm font-medium text-gray-900 capitalize">
-                          {productName}
+                        <a>
+                          <p className="text-xs lg:text-sm font-medium text-gray-900 capitalize ">
+                            {productName}
+                          </p>
                         </a>
                       </Link>
 
