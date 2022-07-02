@@ -85,26 +85,28 @@ export const Header = () => {
                         {site.categories.map((category) => (
                           <Tab.Panel key={category.name} className="pt-10 pb-8 px-4 space-y-10">
                             <div className="grid grid-cols-2 gap-x-4">
-                              {category.featured.slice(-2).map((item) => (
-                                <div key={item.name} className="group relative text-xs lg:text-sm">
-                                  <div className="aspect-w-1 aspect-h-1 rounded-lg bg-white overflow-hidden group-hover:opacity-75">
-                                    <Image
-                                      src={item.imageSrc}
-                                      alt={item.imageAlt}
-                                      height={200}
-                                      width={200}
-                                      objectFit={"cover"}
-                                      objectPosition={'center'}
-                                    />
-                                  </div>
-                                  <a href={item.href} className="mt-6 block font-medium text-gray-900 capitalize">
-                                    <span className="absolute z-10 inset-0" aria-hidden="true" />
-                                    {item.name}
+                              {category.featured.slice(-2).map((featured) => (
+                                <Link href={`/promociones/${featured.href}`} key={featured.name} className="group relative text-xs lg:text-sm">
+                                  <a >
+                                    <div className="aspect-w-1 aspect-h-1 rounded-lg bg-white overflow-hidden group-hover:opacity-75">
+                                      <Image
+                                        src={featured.imageSrc}
+                                        alt={featured.imageAlt}
+                                        height={200}
+                                        width={200}
+                                        objectFit={"cover"}
+                                        objectPosition={'center'}
+                                      />
+                                    </div>
+                                    <div className="mt-6 block font-medium text-gray-900 capitalize">
+                                      <span className="absolute z-10 inset-0" aria-hidden="true" />
+                                      {featured.name}
+                                    </div>
+                                    <p aria-hidden="true" className="mt-1">
+                                      Ver Productos
+                                    </p>
                                   </a>
-                                  <p aria-hidden="true" className="mt-1">
-                                    Comprar Ahora
-                                  </p>
-                                </div>
+                                </Link>
                               ))}
                             </div>
                             {category.sections.map((section, i) => (
@@ -120,9 +122,12 @@ export const Header = () => {
                                 >
                                   {section.items.map((item, i) => (
                                     <li key={i} className="flow-root">
-                                      <a href={`/${category.href}/${section.href}/${item.href}`} className="-m-2 p-2 block text-xs lg:text-sm text-gray-500">
-                                        {item.name}
-                                      </a>
+                                      <Link href={`/${category.href}/${section.href}/${item.href}`}>
+
+                                        <a className="-m-2 p-2 block text-xs lg:text-sm text-gray-500">
+                                          {item.name}
+                                        </a>
+                                      </Link>
                                     </li>
                                   ))}
                                 </ul>
@@ -236,38 +241,38 @@ export const Header = () => {
                 </div> */}
                 {p[0] === 'admin'
                   ? <>
-                  <div className="border-t border-gray-200">
-                  <div className="w-full flex items-center justify-between px-6 pt-1 mb-1">
-                    <div className="flex items-center">
-                    {/* <Image
+                    <div className="border-t border-gray-200">
+                      <div className="w-full flex items-center justify-between px-6 pt-1 mb-1">
+                        <div className="flex items-center">
+                          {/* <Image
                       width={50}
                       height={50}
                       src={user?.image}
                       objectFit={'contain'}
                       alt=""
                     /> */}
-                      <img alt="profile-pic" src={user?.image} className="w-8 h-8 rounded-md" />
-                      <p className=" text-xs lg:text-sm text-gray-800  leading-4 ml-2 capitalize">{user?.username}</p>
-                    </div>
-                    <ul className="flex">
-                      <div className="ml-2" onClick={out}>
-                        <a className="p-2 text-xs lg:text-sm text-gray-400 hover:text-gray-500 items-center flex">
-                          <span className="sr-only">Logout</span>
-                          <HomeIcon
-                            className="w-6 h-6"
-                            aria-hidden="true"
-                          />
-                        </a>
-                      </div>
+                          <img alt="profile-pic" src={user?.image} className="w-8 h-8 rounded-md" />
+                          <p className=" text-xs lg:text-sm text-gray-800  leading-4 ml-2 capitalize">{user?.username}</p>
+                        </div>
+                        <ul className="flex">
+                          <div className="ml-2" onClick={out}>
+                            <a className="p-2 text-xs lg:text-sm text-gray-400 hover:text-gray-500 items-center flex">
+                              <span className="sr-only">Logout</span>
+                              <HomeIcon
+                                className="w-6 h-6"
+                                aria-hidden="true"
+                              />
+                            </a>
+                          </div>
 
-                    </ul>
-                  </div>
-                </div>
+                        </ul>
+                      </div>
+                    </div>
                   </>
                   : null
-                  
+
                 }
-                
+
               </Dialog.Panel>
             </Transition.Child>
           </div>
@@ -284,18 +289,18 @@ export const Header = () => {
             <div className="h-16 flex items-center">
 
 
-                <Link href="/" className=''>
-                  <a className='flex items-center'>
-                    {/* <span className="sr-only">Workflow</span> */}
-                    <Image
-                      width={120}
-                      height={40}
-                      src={site.logo}
-                      objectFit={'contain'}
-                      alt=""
-                    />
-                  </a>
-                </Link>
+              <Link href="/" className=''>
+                <a className='flex items-center'>
+                  {/* <span className="sr-only">Workflow</span> */}
+                  <Image
+                    width={120}
+                    height={40}
+                    src={site.logo}
+                    objectFit={'contain'}
+                    alt=""
+                  />
+                </a>
+              </Link>
 
               {/* Flyout menus */}
               <Popover.Group className="hidden z-40 lg:ml-8 lg:block lg:self-stretch">
@@ -338,26 +343,28 @@ export const Header = () => {
                                     <div className="max-w-7xl mx-auto px-8">
                                       <div className="grid grid-cols-5 gap-y-10 gap-x-8 py-16">
                                         <div className="col-start-5 grid grid-cols-1 gap-x-8">
-                                          {category.featured.slice(-1).map((item, i) => (
-                                            <div key={i} className="group relative text-base sm:text-xs lg:text-sm">
+                                          {category.featured.slice(-1).map((featured, i) => (
+                                            <Link key={i} href={`/promociones/${featured.href}`} className="group relative text-base sm:text-xs lg:text-sm">
+                                              <a>
                                               <div className="aspect-w-1 aspect-h-1 rounded-lg bg-white overflow-hidden group-hover:opacity-75">
                                                 <Image
-                                                  src={item.imageSrc}
-                                                  alt={item.imageAlt}
+                                                  src={featured.imageSrc}
+                                                  alt={featured.imageAlt}
                                                   width='250'
                                                   height='250'
                                                   objectFit={"cover"}
                                                   objectPosition={'center'}
                                                 />
                                               </div>
-                                              <a href={item.href} className="mt-6 block font-medium text-gray-900 capitalize">
+                                              <div className="mt-6 block font-medium text-gray-900 capitalize">
                                                 <span className="absolute z-10 inset-0" aria-hidden="true" />
-                                                {item.name}
-                                              </a>
+                                                {featured.name}
+                                              </div>
                                               <p aria-hidden="true" className="mt-1 capitalize mb-2">
                                                 Comprar Ahora
                                               </p>
-                                            </div>
+                                              </a>
+                                            </Link>
                                           ))}
                                         </div>
                                         <div className="row-start-1 grid grid-cols-4 gap-y-10 gap-x-8 text-xs lg:text-sm col-span-4">
@@ -409,27 +416,27 @@ export const Header = () => {
                   {
                     isLoggedIn && user?.role === 'ADMIN_ROL' && p[0] === 'admin' && (
                       <>
-                      <Link href="/admin/sites">
-                        <a
-                          className="flex items-center text-xs lg:text-sm font-medium text-gray-700 hover:text-gray-800 capitalize"
-                        >
-                          Sitio
-                        </a>
-                      </Link>
-                      <Link href="/admin/marks">
-                        <a
-                          className="flex items-center text-xs lg:text-sm font-medium text-gray-700 hover:text-gray-800 capitalize"
-                        >
-                          Marcas
-                        </a>
-                      </Link>
-                      <Link href="/admin">
-                        <a
-                          className="flex items-center text-xs lg:text-sm font-medium text-gray-700 hover:text-gray-800 capitalize"
-                        >
-                          Productos
-                        </a>
-                      </Link>
+                        <Link href="/admin/sites">
+                          <a
+                            className="flex items-center text-xs lg:text-sm font-medium text-gray-700 hover:text-gray-800 capitalize"
+                          >
+                            Sitio
+                          </a>
+                        </Link>
+                        <Link href="/admin/marks">
+                          <a
+                            className="flex items-center text-xs lg:text-sm font-medium text-gray-700 hover:text-gray-800 capitalize"
+                          >
+                            Marcas
+                          </a>
+                        </Link>
+                        <Link href="/admin">
+                          <a
+                            className="flex items-center text-xs lg:text-sm font-medium text-gray-700 hover:text-gray-800 capitalize"
+                          >
+                            Productos
+                          </a>
+                        </Link>
                       </>
                     )
                   }
