@@ -72,7 +72,7 @@ export const Header = () => {
                               className={({ selected }) =>
                                 classNames(
                                   selected ? 'text-red-600 border-red-600' : 'text-gray-900 border-transparent',
-                                  'flex-1 whitespace-nowrap py-4 px-1 border-b-2 text-sm font-medium capitalize'
+                                  'flex-1 whitespace-nowrap py-4 px-1 border-b-2 text-xs lg:text-sm font-medium capitalize'
                                 )
                               }
                             >
@@ -86,7 +86,7 @@ export const Header = () => {
                           <Tab.Panel key={category.name} className="pt-10 pb-8 px-4 space-y-10">
                             <div className="grid grid-cols-2 gap-x-4">
                               {category.featured.slice(-2).map((item) => (
-                                <div key={item.name} className="group relative text-sm">
+                                <div key={item.name} className="group relative text-xs lg:text-sm">
                                   <div className="aspect-w-1 aspect-h-1 rounded-lg bg-white overflow-hidden group-hover:opacity-75">
                                     <Image
                                       src={item.imageSrc}
@@ -110,7 +110,7 @@ export const Header = () => {
                             {category.sections.map((section, i) => (
                               <div key={i}>
                                 <Link href={`/${category.href}/${section.href}`}>
-                                  <a className="font-medium text-gray-900 capitalize">
+                                  <a className="text-xs lg:text-sm font-medium text-gray-900 capitalize">
                                     {section.name}
                                   </a>
                                 </Link>
@@ -120,7 +120,7 @@ export const Header = () => {
                                 >
                                   {section.items.map((item, i) => (
                                     <li key={i} className="flow-root">
-                                      <a href={`/${category.href}/${section.href}/${item.href}`} className="-m-2 p-2 block text-gray-500">
+                                      <a href={`/${category.href}/${section.href}/${item.href}`} className="-m-2 p-2 block text-xs lg:text-sm text-gray-500">
                                         {item.name}
                                       </a>
                                     </li>
@@ -194,7 +194,7 @@ export const Header = () => {
                           ?
                           <div className="flow-root">
                             <Link href='/' >
-                              <a className="-m-2 p-2 block font-medium text-gray-900  cursor-pointer" onClick={logout}>
+                              <a className="-m-2 p-2 block text-xs lg:text-sm font-medium text-gray-900  cursor-pointer" onClick={logout}>
                                 Salir
                               </a>
                             </Link>
@@ -204,14 +204,14 @@ export const Header = () => {
                           <>
                             <div className="flow-root">
                               <Link href={`/auth/login`}>
-                                <a className="-m-2 p-2 block font-medium text-gray-900">
+                                <a className="-m-2 p-2 block text-xs lg:text-sm font-medium text-gray-900">
                                   Login
                                 </a>
                               </Link>
                             </div>
                             <div className="flow-root">
                               <Link href={`/auth/register`}>
-                                <a className="-m-2 p-2 block font-medium text-gray-900">
+                                <a className="-m-2 p-2 block text-xs lg:text-sm font-medium text-gray-900">
                                   Register
                                 </a>
                               </Link>
@@ -247,11 +247,11 @@ export const Header = () => {
                       alt=""
                     /> */}
                       <img alt="profile-pic" src={user?.image} className="w-8 h-8 rounded-md" />
-                      <p className=" text-gray-800 text-base leading-4 ml-2 capitalize">{user?.username}</p>
+                      <p className=" text-xs lg:text-sm text-gray-800 text-base leading-4 ml-2 capitalize">{user?.username}</p>
                     </div>
                     <ul className="flex">
                       <div className="ml-2" onClick={out}>
-                        <a className="p-2 text-gray-400 hover:text-gray-500 items-center flex">
+                        <a className="p-2 text-xs lg:text-sm text-gray-400 hover:text-gray-500 items-center flex">
                           <span className="sr-only">Logout</span>
                           <HomeIcon
                             className="w-6 h-6"
@@ -275,7 +275,7 @@ export const Header = () => {
       </Transition.Root>
 
       <header className="relative bg-white">
-        {/* <p className="bg-red-600 h-10 flex items-center justify-center text-sm font-medium text-white px-4 sm:px-6 lg:px-8">
+        {/* <p className="bg-red-600 h-10 flex items-center justify-center text-xs lg:text-sm font-medium text-white px-4 sm:px-6 lg:px-8">
           Obtenga envío gratuito en pedidos superiores a $ 100
         </p> */}
 
@@ -314,7 +314,7 @@ export const Header = () => {
                                     open
                                       ? 'border-red-600 text-red-600'
                                       : 'border-transparent text-gray-700 hover:text-gray-800',
-                                    'relative z-10 flex items-center transition-colors ease-out duration-200 text-sm font-medium border-b-2 -mb-px pt-px capitalize'
+                                    'relative z-10 flex items-center transition-colors ease-out duration-200 text-xs lg:text-sm font-medium border-b-2 -mb-px pt-px capitalize'
                                   )}
                                 >
                                   {category.name}
@@ -330,7 +330,7 @@ export const Header = () => {
                                 leaveFrom="opacity-100"
                                 leaveTo="opacity-0"
                               >
-                                <Popover.Panel className="absolute top-full inset-x-0 text-sm text-gray-500">
+                                <Popover.Panel className="absolute top-full inset-x-0 text-xs lg:text-sm text-gray-500">
                                   {/* Presentational element used to render the bottom shadow, if we put the shadow on the actual panel it pokes out the top, so we use this shorter element to hide the top of the shadow */}
                                   <div className="absolute inset-0 top-1/2 bg-white shadow" aria-hidden="true" />
 
@@ -339,7 +339,7 @@ export const Header = () => {
                                       <div className="grid grid-cols-5 gap-y-10 gap-x-8 py-16">
                                         <div className="col-start-5 grid grid-cols-1 gap-x-8">
                                           {category.featured.slice(-1).map((item, i) => (
-                                            <div key={i} className="group relative text-base sm:text-sm">
+                                            <div key={i} className="group relative text-base sm:text-xs lg:text-sm">
                                               <div className="aspect-w-1 aspect-h-1 rounded-lg bg-white overflow-hidden group-hover:opacity-75">
                                                 <Image
                                                   src={item.imageSrc}
@@ -360,7 +360,7 @@ export const Header = () => {
                                             </div>
                                           ))}
                                         </div>
-                                        <div className="row-start-1 grid grid-cols-4 gap-y-10 gap-x-8 text-sm col-span-4">
+                                        <div className="row-start-1 grid grid-cols-4 gap-y-10 gap-x-8 text-xs lg:text-sm col-span-4">
                                           {category.sections.map((section, i) => (
                                             <div key={i}>
                                               <Link href={`/${category.href}/${section.href}`}>
@@ -401,7 +401,7 @@ export const Header = () => {
                     <a
                       key={i}
                       href={page.href}
-                      className="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800 capitalize"
+                      className="flex items-center text-xs lg:text-sm font-medium text-gray-700 hover:text-gray-800 capitalize"
                     >
                       {page.name}
                     </a>
@@ -411,21 +411,21 @@ export const Header = () => {
                       <>
                       <Link href="/admin/sites">
                         <a
-                          className="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800 capitalize"
+                          className="flex items-center text-xs lg:text-sm font-medium text-gray-700 hover:text-gray-800 capitalize"
                         >
                           Sitio
                         </a>
                       </Link>
                       <Link href="/admin/marks">
                         <a
-                          className="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800 capitalize"
+                          className="flex items-center text-xs lg:text-sm font-medium text-gray-700 hover:text-gray-800 capitalize"
                         >
                           Marcas
                         </a>
                       </Link>
                       <Link href="/admin">
                         <a
-                          className="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800 capitalize"
+                          className="flex items-center text-xs lg:text-sm font-medium text-gray-700 hover:text-gray-800 capitalize"
                         >
                           Productos
                         </a>
@@ -443,13 +443,13 @@ export const Header = () => {
               <div className="ml-auto flex items-center">
                 {/* <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
                   <Link href={`/auth/login`}>
-                    <a className="text-sm font-medium text-gray-700 hover:text-gray-800">
+                    <a className="text-xs lg:text-sm font-medium text-gray-700 hover:text-gray-800">
                       Login
                     </a>
                   </Link>
                   <span className="h-6 w-px bg-gray-200" aria-hidden="true" />
                   <Link href={`/auth/register`}>
-                    <a className="text-sm font-medium text-gray-700 hover:text-gray-800">
+                    <a className="text-xs lg:text-sm font-medium text-gray-700 hover:text-gray-800">
                       Register
                     </a>
                   </Link>
@@ -462,7 +462,7 @@ export const Header = () => {
                       alt=""
                       className="w-5 h-auto block flex-shrink-0"
                     />
-                    <span className="ml-3 block text-sm font-medium">CAD</span>
+                    <span className="ml-3 block text-xs lg:text-sm font-medium">CAD</span>
                     <span className="sr-only">, change currency</span>
                   </a>
                 </div> */}
@@ -539,7 +539,7 @@ export const Header = () => {
                       <div className="w-full flex items-center justify-between px-6 pt-1 mb-1">
                         <div className="flex items-center">
                           <img alt="profile-pic" src={user?.image} className="w-8 h-8 rounded-md" />
-                          <p className=" text-gray-800 text-sm leading-4 ml-2 capitalize">{user?.username}</p>
+                          <p className=" text-gray-800 text-xs lg:text-sm leading-4 ml-2 capitalize">{user?.username}</p>
                         </div>
                         <ul className="flex">
                           <div className="ml-2" onClick={out}>
@@ -567,7 +567,7 @@ export const Header = () => {
                       className="flex-shrink-0 h-6 w-6 text-gray-400 group-hover:text-gray-500"
                       aria-hidden="true"
                     />
-                    <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">0</span>
+                    <span className="ml-2 text-xs lg:text-sm font-medium text-gray-700 group-hover:text-gray-800">0</span>
                     <span className="sr-only">items in cart, view bag</span>
                   </div>
                 </div> */}

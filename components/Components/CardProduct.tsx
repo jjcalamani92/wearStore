@@ -64,7 +64,7 @@ export const CardComponent: FC<CardComponent> = ({ name, imageSrc, imageAlt, des
             {
               oldPrice
               ?
-              <span className="absolute left-0 top-2 text-xs lg:text-sm  text-red-500 bg-gray-100 p-1"> -{`${Math.floor((Number(price)-Number(oldPrice))*100/Number(price))}`}%</span>
+              <span className="absolute left-0 top-2 text-xs lg:GridProduct  text-red-500 bg-gray-100 p-1"> -{`${Math.floor((Number(price)-Number(oldPrice))*100/Number(price))}`}%</span>
               : null
             }
             {
@@ -72,7 +72,7 @@ export const CardComponent: FC<CardComponent> = ({ name, imageSrc, imageAlt, des
               ? 
               <>
                 <span className="absolute right-0 top-2  ">
-                  <p className="hidden lg:block text-xs lg:text-sm bg-red-500 text-white p-1 font-semibold"> en oferta </p>
+                  <p className="hidden lg:block text-xs lg:GridProduct bg-red-500 text-white p-1 font-semibold"> en oferta </p>
                   <Image
                     src={"https://res.cloudinary.com/dvcyhn0lj/image/upload/v1656784000/etiqueta_vlolbd.png"}
                     alt="oferta"
@@ -85,20 +85,20 @@ export const CardComponent: FC<CardComponent> = ({ name, imageSrc, imageAlt, des
               : null
             }
           </div>
-          <h3 className={`mt-1 overflow-ellipsis whitespace-nowrap overflow-hidden text-xs lg:text-sm ${p[0] === 'admin' ? " text-gray-700 " : "font-semibold text-gray-900"}`}>
+          <h3 className={`mt-1 overflow-ellipsis whitespace-nowrap overflow-hidden text-xs lg:GridProduct ${p[0] === 'admin' ? " text-gray-700 " : "font-semibold text-gray-900"}`}>
             {name}
 
           </h3>
           {
               oldPrice
               ? <div className="flex justify-between">
-                  <p className="mt-1 text-xs lg:text-sm  text-gray-500 line-through">{price}.00 Bs </p>
-                  <p className="mt-1 text-xs lg:text-sm font-semibold  text-gray-900"> {oldPrice}.00 Bs</p>
+                  <p className="mt-1 text-xs lg:GridProduct  text-gray-500 line-through">{price}.00 Bs </p>
+                  <p className="mt-1 text-xs lg:GridProduct font-semibold  text-gray-900"> {oldPrice}.00 Bs</p>
                 </div>
               : 
               price
               ?
-              <p className="mt-1 text-xs lg:text-sm text-gray-500">{price}.00 Bs </p>
+              <p className="mt-1 text-xs lg:GridProduct text-gray-500">{price}.00 Bs </p>
               
               : null
 
@@ -108,14 +108,14 @@ export const CardComponent: FC<CardComponent> = ({ name, imageSrc, imageAlt, des
             ?
             null
             : 
-            <p className="mt-1 text-sm  text-gray-500">{description}</p>
+            <p className="mt-1 text-xs lg:GridProduct  text-gray-500">{description}</p>
           }
         </a>
       </Link>
       {
             p[0] === 'admin'
               ?
-              <div onClick={() => onDeleteData(`${id}`)}  className="mt-2 transition text-center duration-150 ease-in-out hover:bg-red-600 focus:outline-none border bg-white border-1 border-red-500 rounded px-8 py-2 text-sm text-red-600  hover:text-white hover:border-0">Eliminar</div>
+              <div onClick={() => onDeleteData(`${id}`)}  className="mt-2 transition text-center duration-150 ease-in-out hover:bg-red-600 focus:outline-none border bg-white border-1 border-red-500 rounded px-8 py-2 text-xs lg:GridProduct text-red-600  hover:text-white hover:border-0">Eliminar</div>
 							
               : null
           }
