@@ -51,7 +51,7 @@ export const AuthProvider: FC = ({ children }) => {
     // const { data } = await axios.post(`${process.env.APIU_URL}/api/user`, { username, email, password })
 
     const {data} = await axios.post(`${process.env.APIU_URL}/api/user`, { username, email, password })
-    dispatch({ type: '[Auth] - Register', payload: { _id: data._id, email: data.email, role: data.role } })
+    dispatch({ type: '[Auth] - Register', payload: { _id: data._id, email: data.email, role: data.role, image: data.image } })
     return {
       hasError: false
     }
