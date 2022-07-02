@@ -12,15 +12,7 @@ interface Props {
   item?: string
   name?: string
 }
-interface HeadingPrimary {
-  category?: string
-  section?: string
-  item?: string
-  name?: string
-  seo?: any
-  productName?: string
-  productSlug?: string
-}
+
 
 export const HeadingTable: FC<Props> = ({ category, section, item, name, title, href }) => {
   return (
