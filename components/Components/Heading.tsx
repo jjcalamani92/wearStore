@@ -25,7 +25,7 @@ export const HeadingDetail: FC<Props> = ({ category, section, item, name }) => {
       className="max-w-2xl mx-auto px-4 flex items-center space-x-2 sm:px-6 lg:max-w-7xl lg:px-8 "
     >
       <li>
-        <div className=" flex items-center">
+        <div className="flex items-center">
           <Link href={`/${category}/${section}/${item}`} passHref prefetch={false}>
             <a href="#" className="text-xs lg:text-sm font-medium text-gray-900 capitalize">
               {item}
@@ -91,10 +91,10 @@ export const HeadingPrimary: FC<HeadingPrimary> = ({ category, section, name, se
                 seo.category?.name
                   ?
                   <li>
-                    <div className={`'items-center' ${slug ? 'hidden sm:flex' : 'flex'} ${item ? 'hidden sm:flex' : 'flex'}`}>
+                    <div className={`items-center ${slug ? 'hidden sm:flex' : 'flex'} ${item ? 'hidden sm:flex' : 'flex'}`}>
                       {/* <div className=" flex items-center"> */}
                       <Link href={`/${seo.category.href}`} passHref prefetch={false}>
-                        <a href="#" className="text-xs lg:text-sm font-medium text-gray-900 capitalize">
+                        <a className="text-xs lg:text-sm font-medium text-gray-900 capitalize">
                           {seo.category.name}
                         </a>
                       </Link>
@@ -107,7 +107,7 @@ export const HeadingPrimary: FC<HeadingPrimary> = ({ category, section, name, se
                 seo.section?.name
                   ?
                   <li>
-                    <div className={`'items-center' ${slug ? 'hidden sm:flex' : 'flex'}`}>
+                    <div className={`items-center ${slug ? 'hidden sm:flex' : 'flex'}`}>
                       {/* <div className="flex items-center"> */}
                       <svg
                         width={16}

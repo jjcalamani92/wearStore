@@ -152,28 +152,28 @@ export const Header = () => {
                     <div className="border-t border-gray-200 py-6 px-4 space-y-6">
                       <div className="flow-root">
                         <Link href="/admin">
-                          <a className="-m-2 p-2 block font-medium text-gray-900">
+                          <a className="-m-2 p-2 block text-xs lg:text-sm font-medium text-gray-900">
                             Panel de Administración
                           </a>
                         </Link>
                       </div>
                       <div className="flow-root">
                         <Link href="/admin/sites">
-                          <a className="-m-2 p-2 block text-gray-500">
+                          <a className="-m-2 p-2 block text-xs lg:text-sm text-gray-500">
                             Sitio
                           </a>
                         </Link>
                       </div>
                       <div className="flow-root">
                         <Link href="/admin/marks">
-                          <a className="-m-2 p-2 block text-gray-500">
+                          <a className="-m-2 p-2 block text-xs lg:text-sm text-gray-500">
                             Marcas
                           </a>
                         </Link>
                       </div>
                       <div className="flow-root">
                         <Link href="/admin">
-                          <a className="-m-2 p-2 block text-gray-500">
+                          <a className="-m-2 p-2 block text-xs lg:text-sm text-gray-500">
                             Productos
                           </a>
                         </Link>
