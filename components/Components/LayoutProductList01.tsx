@@ -120,7 +120,7 @@ export const LayoutItemListAdmin: FC<Props> = ({ products }) => {
 	return (
 		<div className="bg-white lg:hidden">
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-				<div className="max-w-2xl mx-auto py-2 sm:py-2 lg:py-2 lg:max-w-none">
+				<div className="max-w-2xl mx-auto lg:max-w-none">
 					{/* <h2 className="text-2xl font-extrabold tracking-tight text-gray-900">
 					Customers also purchased
 				</h2> */}
@@ -161,7 +161,7 @@ export const LayoutItemListAdmin: FC<Props> = ({ products }) => {
 								
 							</div>
 							</Link>
-							<div onClick={() => onDeleteData(product._id)}  className="mt-2 transition text-center duration-150 ease-in-out hover:bg-red-600 focus:outline-none border bg-white border-1 border-red-500 rounded px-8 py-2 text-sm text-red-600  hover:text-white hover:border-0">Eliminar</div>
+							<div onClick={() => onDeleteData(product._id)}  className="mt-2 transition text-center duration-150 ease-in-out hover:bg-red-600 focus:outline-none border bg-white border-1 border-red-500 rounded px-8 py-2 text-xs lg:text-sm text-red-600  hover:text-white hover:border-0">Eliminar</div>
 							</div>
 						))}
 					</div>
@@ -202,7 +202,7 @@ export const LayoutMarkListAdmin: FC<LayoutMarkListAdmin> = ({ marks }) => {
 	return (
 		<div className="bg-white lg:hidden">
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-				<div className="max-w-2xl mx-auto py-2 sm:py-2 lg:py-2 lg:max-w-none">
+				<div className="max-w-2xl mx-auto lg:max-w-none">
 					{/* <h2 className="text-2xl font-extrabold tracking-tight text-gray-900">
 					Customers also purchased
 				</h2> */}
@@ -228,7 +228,7 @@ export const LayoutMarkListAdmin: FC<LayoutMarkListAdmin> = ({ marks }) => {
 								</div>
 								<div className="mt-4 flex justify-between">
 									<div>
-										<h3 className="text-sm text-gray-700">
+										<h3 className="text-xs lg:text-sm text-gray-700">
 											<a href="#">
 														<span aria-hidden="true" className="inset-0" />
 														{product.name}
@@ -243,7 +243,7 @@ export const LayoutMarkListAdmin: FC<LayoutMarkListAdmin> = ({ marks }) => {
 								
 							</div>
 							</Link>
-							<div onClick={() => onDeleteData(product._id)}  className="mt-4 transition text-center duration-150 ease-in-out hover:bg-red-600 focus:outline-none border bg-white border-1 border-red-500 rounded  px-8 py-2 text-sm text-red-600  hover:text-white hover:border-0">Eliminar</div>
+							<div onClick={() => onDeleteData(product._id)}  className="mt-4 transition text-center duration-150 ease-in-out hover:bg-red-600 focus:outline-none border bg-white border-1 border-red-500 rounded  px-8 py-2 text-xs lg:text-sm text-red-600  hover:text-white hover:border-0">Eliminar</div>
 							</div>
 						))}
 					</div>
@@ -282,7 +282,7 @@ export const LayoutCategoryListAdmin: FC<LayoutCategoryListAdmin> = ({ data }) =
 	return (
 		<div className="bg-white lg:hidden">
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-				<div className="max-w-2xl mx-auto py-2 sm:py-2 lg:py-2 lg:max-w-none">
+				<div className="max-w-2xl mx-auto lg:max-w-none">
 					{/* <h2 className="text-2xl font-extrabold tracking-tight text-gray-900">
 					Customers also purchased
 				</h2> */}
@@ -305,7 +305,7 @@ export const LayoutCategoryListAdmin: FC<LayoutCategoryListAdmin> = ({ data }) =
 									</div>
 									<div className="mt-2 flex justify-between">
 									<div>
-										<h3 className="text-sm text-gray-700">
+										<h3 className="text-xs lg:text-sm text-gray-700">
 											
 														{d.name}
 										</h3>
@@ -317,7 +317,7 @@ export const LayoutCategoryListAdmin: FC<LayoutCategoryListAdmin> = ({ data }) =
 								</div>
 								</a>
 							</Link>
-							<div onClick={() => onDeleteData(d._id)}  className="mt-2 transition text-center duration-150 ease-in-out hover:bg-red-600 focus:outline-none border bg-white border-1 border-red-500 rounded  px-8 py-2 text-sm text-red-600  hover:text-white hover:border-0">Eliminar</div>
+							<div onClick={() => onDeleteData(d._id)}  className="mt-2 transition text-center duration-150 ease-in-out hover:bg-red-600 focus:outline-none border bg-white border-1 border-red-500 rounded  px-8 py-2 text-xs lg:text-sm text-red-600  hover:text-white hover:border-0">Eliminar</div>
 							</div>
 						))}
 					</div>
@@ -359,7 +359,7 @@ export const LayoutSectionListAdmin: FC<LayoutSectionListAdmin> = ({ data, categ
 	return (
 		<div className="bg-white lg:hidden">
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-				<div className="max-w-2xl mx-auto py-2 sm:py-2 lg:py-2 lg:max-w-none">
+				<div className="max-w-2xl mx-auto lg:max-w-none">
 					{/* <h2 className="text-2xl font-extrabold tracking-tight text-gray-900">
 					Customers also purchased
 				</h2> */}
@@ -382,7 +382,7 @@ export const LayoutSectionListAdmin: FC<LayoutSectionListAdmin> = ({ data, categ
 								</div>
 								<div className="mt-4 flex justify-between">
 									<div>
-										<h3 className="text-sm text-gray-700">
+										<h3 className="text-xs lg:text-sm text-gray-700">
 											<span aria-hidden="true" className="inset-0" />
 											{d.name}
 										</h3>
@@ -394,7 +394,7 @@ export const LayoutSectionListAdmin: FC<LayoutSectionListAdmin> = ({ data, categ
 								</div>
 								</a>
 							</Link>
-							<div onClick={() => onDeleteData(d._id)}  className="mt-4 transition text-center duration-150 ease-in-out hover:bg-red-600 focus:outline-none border bg-white border-1 border-red-500 rounded  px-8 py-2 text-sm text-red-600  hover:text-white hover:border-0">Eliminar</div>
+							<div onClick={() => onDeleteData(d._id)}  className="mt-4 transition text-center duration-150 ease-in-out hover:bg-red-600 focus:outline-none border bg-white border-1 border-red-500 rounded  px-8 py-2 text-xs lg:text-sm text-red-600  hover:text-white hover:border-0">Eliminar</div>
 							</div>
 						))}
 					</div>
@@ -436,7 +436,7 @@ export const LayoutFeaturedListAdmin: FC<LayoutFeaturedListAdmin> = ({ data, cat
 	return (
 		<div className="bg-white lg:hidden">
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-				<div className="max-w-2xl mx-auto py-2 sm:py-2 lg:py-2 lg:max-w-none">
+				<div className="max-w-2xl mx-auto  lg:max-w-none">
 					{/* <h2 className="text-2xl font-extrabold tracking-tight text-gray-900">
 					Customers also purchased
 				</h2> */}
@@ -458,7 +458,7 @@ export const LayoutFeaturedListAdmin: FC<LayoutFeaturedListAdmin> = ({ data, cat
 								</div>
 								<div className="mt-4 flex justify-between">
 									<div>
-										<h3 className="text-sm text-gray-700">
+										<h3 className="text-xs lg:text-sm text-gray-700">
 										
 														{d.name}
 										</h3>
@@ -471,7 +471,7 @@ export const LayoutFeaturedListAdmin: FC<LayoutFeaturedListAdmin> = ({ data, cat
 								
 								</a>
 								</Link>
-								<div onClick={() => onDeleteData(d._id)}  className="mt-4 transition text-center duration-150 ease-in-out hover:bg-red-600 focus:outline-none border bg-white border-1 border-red-500 rounded  px-8 py-2 text-sm text-red-600  hover:text-white hover:border-0">Eliminar</div>
+								<div onClick={() => onDeleteData(d._id)}  className="mt-4 transition text-center duration-150 ease-in-out hover:bg-red-600 focus:outline-none border bg-white border-1 border-red-500 rounded  px-8 py-2 text-xs lg:text-sm text-red-600  hover:text-white hover:border-0">Eliminar</div>
 							</div>
 							
 						))}
@@ -515,7 +515,7 @@ export const LayoutItemsListAdmin: FC<LayoutItemsListAdmin> = ({ data, category,
 	return (
 		<div className="bg-white lg:hidden">
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-				<div className="max-w-2xl mx-auto py-2 sm:py-2 lg:py-2 lg:max-w-none">
+				<div className="max-w-2xl mx-auto lg:max-w-none">
 					
 
 					<div className="grid grid-cols-2 gap-y-6 gap-x-6 md:grid-cols-4 lg:grid-cols-4">
@@ -535,7 +535,7 @@ export const LayoutItemsListAdmin: FC<LayoutItemsListAdmin> = ({ data, category,
 									</div>
 									<div className="mt-4 flex justify-between">
 										<div>
-											<h3 className="text-sm text-gray-700">
+											<h3 className="text-xs lg:text-sm text-gray-700">
 												{d.name}
 											</h3>
 											{/* <p className="mt-1 text-sm text-gray-500">{product.color}</p> */}
@@ -547,7 +547,7 @@ export const LayoutItemsListAdmin: FC<LayoutItemsListAdmin> = ({ data, category,
 									</a>
 									
 								</Link>
-								<div onClick={() => onDeleteData(d._id)}  className="mt-4 transition text-center duration-150 ease-in-out hover:bg-red-600 focus:outline-none border bg-white border-1 border-red-500 rounded  px-8 py-2 text-sm text-red-600  hover:text-white hover:border-0">Eliminar</div>
+								<div onClick={() => onDeleteData(d._id)}  className="mt-4 transition text-center duration-150 ease-in-out hover:bg-red-600 focus:outline-none border bg-white border-1 border-red-500 rounded  px-8 py-2 text-xs lg:text-sm text-red-600  hover:text-white hover:border-0">Eliminar</div>
 							</div>
 
 						))}

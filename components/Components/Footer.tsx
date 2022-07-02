@@ -15,60 +15,67 @@ export const Footer = () => {
               className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4  gap-6`}
             >
               <ul>
-                <li className="mb-6">
-                  <Link href="/contacto">
-                    <a className="text-xs lg:text-sm leading-none hover:text-brand  text-gray-800 ">Contacto</a>
+                {site.categories.map((category, i) => (
+                  <li key={i} className="mb-3">
+
+                    <Link href={`/${category.href}`}>
+                      <a className="text-xs lg:text-sm leading-none hover:text-brand  text-gray-800 ">{category.name}</a>
+                    </Link>
+                  </li>
+                ))
+                }
+
+              </ul>
+              <ul>
+              {site.categories.map((category, i) => (
+                category.sections.map((section, i) => (
+                  
+                  <li key={i} className="mb-3">
+
+                  <Link href={`/${category.href}/${section.href}`}>
+                    <a className="text-xs lg:text-sm leading-none hover:text-brand  text-gray-800 ">{section.name}</a>
                   </Link>
                 </li>
-                <li className="mb-6">
+                ))
+                ))
+                }
+              </ul>
+              <ul>
+                <li className="mb-3">
                   <Link href="/contacto">
-                    <a className="text-xs lg:text-sm leading-none hover:text-brand  text-gray-800 ">Contacto</a>
+                    <a className="text-xs lg:text-sm leading-none hover:text-brand  text-gray-800 ">Lunes</a>
                   </Link>
                 </li>
-                <li className="mb-6">
+                <li className="mb-3">
                   <Link href="/contacto">
-                    <a className="text-xs lg:text-sm leading-none hover:text-brand  text-gray-800 ">Contacto</a>
+                    <a className="text-xs lg:text-sm leading-none hover:text-brand  text-gray-800 ">Martes</a>
+                  </Link>
+                </li>
+                <li className="mb-3">
+                  <Link href="/contacto">
+                    <a className="text-xs lg:text-sm leading-none hover:text-brand  text-gray-800 ">Miercoles</a>
+                  </Link>
+                </li>
+                <li className="mb-3">
+                  <Link href="/contacto">
+                    <a className="text-xs lg:text-sm leading-none hover:text-brand  text-gray-800 ">Jueves</a>
+                  </Link>
+                </li>
+                <li className="mb-3">
+                  <Link href="/contacto">
+                    <a className="text-xs lg:text-sm leading-none hover:text-brand  text-gray-800 ">Viernes</a>
+                  </Link>
+                </li>
+                <li className="mb-3">
+                  <Link href="/contacto">
+                    <a className="text-xs lg:text-sm leading-none hover:text-brand  text-gray-800 ">Sabado</a>
                   </Link>
                 </li>
               </ul>
               <ul>
                 <li className="mb-6">
                   <Link href="/contacto">
-                    <a className="text-xs lg:text-sm leading-none hover:text-brand  text-gray-800 ">Contacto</a>
-                  </Link>
-                </li>
-                <li className="mb-6">
-                  <Link href="/contacto">
-                    <a className="text-xs lg:text-sm leading-none hover:text-brand  text-gray-800 ">Contacto</a>
-                  </Link>
-                </li>
-                <li className="mb-6">
-                  <Link href="/contacto">
-                    <a className="text-xs lg:text-sm leading-none hover:text-brand  text-gray-800 ">Contacto</a>
-                  </Link>
-                </li>
-              </ul>
-              <ul>
-                <li className="mb-6">
-                  <Link href="/contacto">
-                    <a className="text-xs lg:text-sm leading-none hover:text-brand  text-gray-800 ">Contacto</a>
-                  </Link>
-                </li>
-                <li className="mb-6">
-                  <Link href="/contacto">
-                    <a className="text-xs lg:text-sm leading-none hover:text-brand  text-gray-800 ">Contacto</a>
-                  </Link>
-                </li>
-                <li className="mb-6">
-                  <Link href="/contacto">
-                    <a className="text-xs lg:text-sm leading-none hover:text-brand  text-gray-800 ">Contacto</a>
-                  </Link>
-                </li>
-              </ul>
-              <ul>
-                <li className="mb-6">
-                  <Link href="/contacto">
-                    <a className="text-xs lg:text-sm leading-none hover:text-brand  text-gray-800 ">Contacto</a>
+                    <a className="text-xs lg:text-sm leading-none hover:text-brand  text-gray-800 ">Domingo</a>
                   </Link>
                 </li>
                 <li className="mb-6">
@@ -86,17 +93,17 @@ export const Footer = () => {
             </div>
             <div className="py-16 flex flex-col justify-center items-center">
               <Link href="/" className=''>
-                  <a className='flex items-center'>
-                    <Image
-                      width={250}
-                      height={100}
-                      src={site.logo}
-                      objectFit={'contain'}
-                      alt=""
-                    />
-                  </a>
-                </Link>
-              
+                <a className='flex items-center'>
+                  <Image
+                    width={250}
+                    height={100}
+                    src={site.logo}
+                    objectFit={'contain'}
+                    alt=""
+                  />
+                </a>
+              </Link>
+
               <p className="mt-6 text-xs lg:text-sm leading-none text-gray-900 ">2022 {site.title}. Todos los derechos reservados.</p>
             </div>
           </div>

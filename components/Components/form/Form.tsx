@@ -277,11 +277,11 @@ export const Form: FC<Props> = ({ product }) => {
                   <div className="grid grid-cols-1 lg:grid-cols-3 lg:gap-6">
                     <div className="col-span-2 grid grid-cols-6 gap-3 sm:gap-6 ">
                       <div className="col-span-6 sm:col-span-4">
-                        <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                        <label htmlFor="name" className="block text-xs lg:text-sm font-medium text-gray-700">
                           Nombre
                         </label>
                         <input
-                          className="mt-1 focus:ring-red-500 focus:border-red-500 block w-full shadow-sm sm:text-sm  rounded-md  py-2 px-3 border border-gray-300"
+                          className="mt-1 focus:ring-red-500 focus:border-red-500 block w-full shadow-sm text-xs lg:text-sm  rounded-md  py-2 px-3 border border-gray-300"
                           type={"text"}
                           {...register('name', {
                             onChange: (e) => { },
@@ -291,16 +291,16 @@ export const Form: FC<Props> = ({ product }) => {
                           })}
                         />
                         <div>
-                          {errors.name && <span className="text-sm text-red-500">{errors.name.message}</span>}
+                          {errors.name && <span className="text-xs lg:text-sm text-red-500">{errors.name.message}</span>}
                         </div>
                       </div>
 
                       <div className="col-span-3 sm:col-span-2">
-                        <label htmlFor="brand" className="block text-sm font-medium text-gray-700">
+                        <label htmlFor="brand" className="block text-xs lg:text-sm font-medium text-gray-700">
                           Marca
                         </label>
                         <select
-                          className="mt-1  block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm capitalize"
+                          className="mt-1  block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 text-xs lg:text-sm capitalize"
                           {...register('brand', {
                             required: 'Este campo es requerido',
                           })}
@@ -318,16 +318,16 @@ export const Form: FC<Props> = ({ product }) => {
                           }
                         </select>
                         <div>
-                          {errors.brand && <span className="text-sm text-red-500">{errors.brand.message}</span>}
+                          {errors.brand && <span className="text-xs lg:text-sm text-red-500">{errors.brand.message}</span>}
                         </div>
                       </div>
 
                       <div className="col-span-3 sm:col-span-2">
-                        <label htmlFor="category" className="block text-sm font-medium text-gray-700">
+                        <label htmlFor="category" className="block text-xs lg:text-sm font-medium text-gray-700">
                           Categoría
                         </label>
                         <select
-                          className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm capitalize"
+                          className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 text-xs lg:text-sm capitalize"
                           {...register('category', {
                             required: 'Este campo es requerido',
                           })}
@@ -345,15 +345,15 @@ export const Form: FC<Props> = ({ product }) => {
                           }
                         </select>
                         <div>
-                          {errors.category && <span className="text-sm text-red-500">{errors.category.message}</span>}
+                          {errors.category && <span className="text-xs lg:text-sm text-red-500">{errors.category.message}</span>}
                         </div>
                       </div>
                       <div className="col-span-3 sm:col-span-2">
-                        <label htmlFor="section" className="block text-sm font-medium text-gray-700">
+                        <label htmlFor="section" className="block text-xs lg:text-sm font-medium text-gray-700">
                           Sección
                         </label>
                         <select
-                          className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm capitalize"
+                          className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 text-xs lg:text-sm capitalize"
                           {...register('section', {
                             required: 'Este campo es requerido',
                           })}
@@ -371,15 +371,15 @@ export const Form: FC<Props> = ({ product }) => {
                           }
                         </select>
                         <div>
-                          {errors.category && <span className="text-sm text-red-500">{errors.category.message}</span>}
+                          {errors.category && <span className="text-xs lg:text-sm text-red-500">{errors.category.message}</span>}
                         </div>
                       </div>
                       <div className="col-span-3 sm:col-span-2">
-                        <label htmlFor="item" className="block text-sm font-medium text-gray-700">
+                        <label htmlFor="item" className="block text-xs lg:text-sm font-medium text-gray-700">
                           Item
                         </label>
                         <select
-                          className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm capitalize"
+                          className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-xs lg:text-sm capitalize"
                           {...register('item', {
                             required: 'Este campo es requerido',
                           })}
@@ -397,16 +397,16 @@ export const Form: FC<Props> = ({ product }) => {
                           }
                         </select>
                         <div>
-                          {errors.item && <span className="text-sm text-red-500">{errors.item.message}</span>}
+                          {errors.item && <span className="text-xs lg:text-sm text-red-500">{errors.item.message}</span>}
                         </div>
                       </div>
 
                       <div className="col-span-3 sm:col-span-2">
-                        <label htmlFor="inStock" className="block text-sm font-medium text-gray-700">
+                        <label htmlFor="inStock" className="block text-xs lg:text-sm font-medium text-gray-700">
                           Inventario
                         </label>
                         <input
-                          className="mt-1 focus:ring-red-500 focus:border-red-500 block w-full shadow-sm sm:text-sm border border-gray-300 rounded-md  py-2 px-3"
+                          className="mt-1 focus:ring-red-500 focus:border-red-500 block w-full shadow-sm sm:text-xs lg:text-sm border border-gray-300 rounded-md  py-2 px-3"
                           type='number'
                           {...register('inStock', {
                             required: 'Este campo es requerido',
@@ -414,15 +414,15 @@ export const Form: FC<Props> = ({ product }) => {
                           })}
                         />
                         <div>
-                          {errors.inStock && <span className="text-sm text-red-500">{errors.inStock.message}</span>}
+                          {errors.inStock && <span className="text-xs lg:text-sm text-red-500">{errors.inStock.message}</span>}
                         </div>
                       </div>
                       <div className="col-span-3 sm:col-span-2">
-                        <label htmlFor="price" className="block text-sm font-medium text-gray-700">
+                        <label htmlFor="price" className="block text-xs lg:text-sm font-medium text-gray-700">
                           Precio[Bs]
                         </label>
                         <input
-                          className="mt-1 focus:ring-red-500 focus:border-red-500 block w-full shadow-sm sm:text-sm border border-gray-300 rounded-md  py-2 px-3"
+                          className="mt-1 focus:ring-red-500 focus:border-red-500 block w-full shadow-sm sm:text-xs lg:text-sm border border-gray-300 rounded-md  py-2 px-3"
                           type='number'
                           {...register('price', {
                             required: 'Este campo es requerido',
@@ -430,35 +430,35 @@ export const Form: FC<Props> = ({ product }) => {
                           })}
                         />
                         <div>
-                          {errors.price && <span className="text-sm text-red-500">{errors.price.message}</span>}
+                          {errors.price && <span className="text-xs lg:text-sm text-red-500">{errors.price.message}</span>}
                         </div>
                       </div>
 
                       <div className="col-span-3 sm:col-span-2">
-                        <label htmlFor="oldPrice" className="block text-sm font-medium text-gray-700">
+                        <label htmlFor="oldPrice" className="block text-xs lg:text-sm font-medium text-gray-700">
                           Precio de descuento[Bs]
                         </label>
                         <input
                           type='number'
-                          className="mt-1 focus:ring-red-500 focus:border-red-500 block w-full shadow-sm sm:text-sm border border-gray-300 rounded-md  py-2 px-3"
+                          className="mt-1 focus:ring-red-500 focus:border-red-500 block w-full shadow-sm sm:text-xs lg:text-sm border border-gray-300 rounded-md  py-2 px-3"
                           {...register('oldPrice', {
                             required: 'Este campo es requerido',
                             min: { value: 0, message: 'Mínimo de valor cero' }
                           })}
                         />
                         <div>
-                          {errors.oldPrice && <span className="text-sm text-red-500">{errors.oldPrice.message}</span>}
+                          {errors.oldPrice && <span className="text-xs lg:text-sm text-red-500">{errors.oldPrice.message}</span>}
                         </div>
                       </div>
 
                       <div className="col-span-6">
-                        <label htmlFor="description" className="block text-sm font-medium text-gray-700">
+                        <label htmlFor="description" className="block text-xs lg:text-sm font-medium text-gray-700">
                           Descripción
                         </label>
                         <div className="">
                           <textarea
                             rows={4}
-                            className="mt-1 shadow-sm focus:ring-red-500 focus:border-red-500 block w-full sm:text-sm border border-gray-300 rounded-md  py-2 px-3"
+                            className="mt-1 shadow-sm focus:ring-red-500 focus:border-red-500 block w-full sm:text-xs lg:text-sm border border-gray-300 rounded-md  py-2 px-3"
                             {...register('description', {
                               required: 'Este campo es requerido',
                               minLength: { value: 2, message: 'Mínimo 3 caracteres' }
@@ -466,7 +466,7 @@ export const Form: FC<Props> = ({ product }) => {
                           />
                         </div>
                         <div>
-                          {errors.description && <span className="text-sm text-red-500">{errors.description.message}</span>}
+                          {errors.description && <span className="text-xs lg:text-sm text-red-500">{errors.description.message}</span>}
                         </div>
                       </div>
 
@@ -490,7 +490,7 @@ export const Form: FC<Props> = ({ product }) => {
                                       },
                                     })}
                                   />
-                                  <label htmlFor="sizes" className="ml-3 block text-sm font-medium text-gray-700">
+                                  <label htmlFor="sizes" className="ml-3 block text-xs lg:text-sm font-medium text-gray-700">
                                     {data}
                                   </label>
                                 </div>
@@ -499,17 +499,17 @@ export const Form: FC<Props> = ({ product }) => {
                           </div>
                         </fieldset>
                         <div>
-                          {errors.sizes && <span className="text-sm text-red-500">seleccione al menos una talla</span>}
+                          {errors.sizes && <span className="text-xs lg:text-sm text-red-500">seleccione al menos una talla</span>}
                         </div>
                       </div>
 
                       <div className="col-span-6 sm:col-span-2">
                         <div>
-                          <label htmlFor="tags" className="block text-sm font-medium text-gray-700">
+                          <label htmlFor="tags" className="block text-xs lg:text-sm font-medium text-gray-700">
                             Tags
                           </label>
                           <input
-                            className="mt-2 py-2 px-3 focus:ring-red-500 focus:border-red-500 block w-full shadow-sm sm:text-sm border border-gray-300 rounded-md p-1"
+                            className="mt-2 py-2 px-3 focus:ring-red-500 focus:border-red-500 block w-full shadow-sm sm:text-xs lg:text-sm border border-gray-300 rounded-md p-1"
                             type={"text"}
                             value={newTagValue}
                             onChange={({ target }) => setNewTagValue(target.value)}
@@ -518,10 +518,10 @@ export const Form: FC<Props> = ({ product }) => {
                             }
 
                           />
-                          <p className="mt-2 text-sm text-gray-500 hidden lg:block">
+                          <p className="mt-2 text-xs lg:text-sm text-gray-500 hidden lg:block">
                             Presiona [Spacio] para agregar.
                           </p>
-                          <p className="mt-2 text-sm text-gray-500 lg:hidden">
+                          <p className="mt-2 text-xs lg:text-sm text-gray-500 lg:hidden">
                             Presiona [Enter] para agregar.
                           </p>
 
@@ -533,7 +533,7 @@ export const Form: FC<Props> = ({ product }) => {
                               getValues('tags').map((data, i) => (
                                 <p key={i} className="flex items-center">{data}
                                   <FontAwesomeIcon
-                                    className="text-sm leading-none mx-1 text-gray-600 hover:text-gray-900 rounded focus:outline-none "
+                                    className="text-xs lg:text-sm leading-none mx-1 text-gray-600 hover:text-gray-900 rounded focus:outline-none "
                                     onClick={() => onDeleteTag(data)}
                                     icon={faCircleMinus}
                                   />
@@ -546,11 +546,11 @@ export const Form: FC<Props> = ({ product }) => {
 
                       </div>
                       <div className="col-span-3 sm:col-span-2">
-                        <label htmlFor="featured" className="block text-sm font-medium text-gray-700">
+                        <label htmlFor="featured" className="block text-xs lg:text-sm font-medium text-gray-700">
                           Destacados
                         </label>
                         <select
-                          className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm capitalize"
+                          className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-xs lg:text-sm capitalize"
                           {...register('featured')}
                           onChange={(e) => handleFeatured(e)}
                           value={getValues('featured')}
@@ -566,13 +566,13 @@ export const Form: FC<Props> = ({ product }) => {
                           }
                         </select>
                         <div>
-                          {errors.featured && <span className="text-sm text-red-500">{errors.featured.message}</span>}
+                          {errors.featured && <span className="text-xs lg:text-sm text-red-500">{errors.featured.message}</span>}
                         </div>
                       </div>
                       {/* <div className="col-span-6 sm:col-span-2">
                         <fieldset>
                           <legend className="text-base font-medium text-gray-900">Promociones</legend>
-                          {/* <p className="text-sm text-gray-500">elige una opción:</p> 
+                          {/* <p className="text-xs lg:text-sm text-gray-500">elige una opción:</p> 
                           <div className="mt-4 space-y-4">
                             {
                               validFeatured.map((data, i) => (
@@ -583,7 +583,7 @@ export const Form: FC<Props> = ({ product }) => {
                                     className="focus:ring-red-500 h-4 w-4 text-red-500 border-gray-300"
                                     {...register('featured')}
                                   />
-                                  <label htmlFor="featured" className="ml-3 block text-sm font-medium text-gray-700">
+                                  <label htmlFor="featured" className="ml-3 block text-xs lg:text-sm font-medium text-gray-700">
                                     {data}
                                   </label>
                                   
@@ -600,7 +600,7 @@ export const Form: FC<Props> = ({ product }) => {
                     </div>
 
                     <div className="col-span-1 mt-3 sm:mt-0">
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Imagen</label>
+                      <label className="block text-xs lg:text-sm font-medium text-gray-700 mb-2">Imagen</label>
                       <div className="grid grid-cols-1 gap-2">
                         <div className="flex justify-center p-2 border-2 border-gray-300 border-dashed rounded-md">
                           <div className=" text-center">
@@ -618,7 +618,7 @@ export const Form: FC<Props> = ({ product }) => {
                                 strokeLinejoin="round"
                               />
                             </svg>
-                            <div className="flex flex-col text-sm text-gray-600">
+                            <div className="flex flex-col text-xs lg:text-sm text-gray-600">
                               <label
                                 htmlFor="file-upload"
                                 className="relative cursor-pointer bg-white rounded-md font-medium text-red-500 hover:text-red-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-red-500"
@@ -644,7 +644,7 @@ export const Form: FC<Props> = ({ product }) => {
                                 // className="object-center object-cover"
                                 />
                                 <FontAwesomeIcon
-                                  className="text-sm leading-none mx-1 text-gray-600 hover:text-gray-900 rounded focus:outline-none absolute bottom-1 right-1"
+                                  className="text-xs lg:text-sm leading-none mx-1 text-gray-600 hover:text-gray-900 rounded focus:outline-none absolute bottom-1 right-1"
                                   onClick={() => onDeleteImage(data)}
                                   icon={faCircleMinus}
                                 />
@@ -669,7 +669,7 @@ export const Form: FC<Props> = ({ product }) => {
                   <div className=" bg-white text-right mt-3">
                     <button
                       type="submit"
-                      className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-500 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+                      className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-xs lg:text-sm font-medium rounded-md text-white bg-red-500 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
                     >
                       {
                         product._id ? `Actualizar` : `Crear`

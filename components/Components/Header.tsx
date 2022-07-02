@@ -356,12 +356,12 @@ export const Header = () => {
 
                                   <div className="relative bg-white">
                                     <div className="max-w-7xl mx-auto px-8">
-                                      <div className="grid grid-cols-5 gap-y-10 gap-x-8 py-16">
-                                        <div className="col-start-5 grid grid-cols-1 gap-x-8">
-                                          {category.featured.slice(-1).map((featured, i) => (
+                                      <div className="grid grid-cols-6 gap-y-10 gap-x-8 py-10">
+                                        <div className="col-start-5 grid grid-cols-2 gap-x-8 col-span-4">
+                                          {category.featured.slice(-2).map((featured, i) => (
                                             <Link key={i} href={`/promociones/${featured.href}`} className="group text-base sm:text-xs lg:text-sm">
                                               <a>
-                                              <div className="aspect-w-1 aspect-h-1 rounded-lg bg-white overflow-hidden group-hover:opacity-75">
+                                              <div className="aspect-w-1 aspect-h-1 rounded-lg bg-white overflow-hidden group-hover:opacity-75 leading-none">
                                                 <Image
                                                   src={featured.imageSrc}
                                                   alt={featured.imageAlt}
@@ -371,12 +371,12 @@ export const Header = () => {
                                                   objectPosition={'center'}
                                                 />
                                               </div>
-                                              <div className="mt-6 block font-medium text-gray-900 capitalize">
+                                              <div className="mt-3 block font-medium text-gray-900 capitalize">
                                                 <span className="z-10 inset-0" aria-hidden="true" />
                                                 {featured.name}
                                               </div>
-                                              <p aria-hidden="true" className="mt-1 capitalize mb-2">
-                                                Comprar Ahora
+                                              <p aria-hidden="true" className="mt-1 capitalize ">
+                                                Ver Productos
                                               </p>
                                               </a>
                                             </Link>

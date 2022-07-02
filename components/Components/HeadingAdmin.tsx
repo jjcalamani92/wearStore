@@ -233,7 +233,7 @@ export const HeadingAdmin:FC<Props> = ({category, section, item}) => {
   <nav aria-label="Breadcrumb" className=" pt-2 sm:pt-3">
   <ol
     role="list"
-    className="max-w-2xl mx-auto px-4 flex items-center space-x-0 sm:px-0 lg:max-w-7xl lg:px-8"
+    className="max-w-2xl mx-auto flex items-center space-x-0 sm:px-0 lg:max-w-7xl "
   >
       <li>
         <div className={ 'items-center flex'}>
