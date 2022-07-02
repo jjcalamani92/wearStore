@@ -25,7 +25,7 @@ export const CardComponent: FC<CardComponent> = ({ name, imageSrc, imageAlt, des
   const router = useRouter();
   const { pathname } = router
   const p = pathname.substring(1).split('/')
-  console.log(featured)
+  // console.log(featured)
   const onDeleteData = async (id: string) => {
 		Swal.fire({
 			title: 'Está seguro?',

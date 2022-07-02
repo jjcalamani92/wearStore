@@ -17,7 +17,7 @@ interface Props {
 
 const FeaturedPage:FC<Props> = ({seo, section, feature, products}) => {
 	const { site } = useContext(UiContext)
-  console.log(products)
+  // console.log(products)
   return (
     <>
       <Layout

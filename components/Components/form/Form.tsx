@@ -60,7 +60,7 @@ export const Form: FC<Props> = ({ product }) => {
   const [featured, setFeatured] = useState([]);
   const [featuredHref, setFeaturedHref] = useState('');
 
-  console.log('featured', featured)
+  // console.log('featured', featured)
   // console.log(section)
   // console.log(brand)
   // console.log(categoryHref)
