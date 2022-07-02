@@ -35,7 +35,17 @@ export const ProductOverviews: FC<Props> = ({ product }) => {
 							</h1>
 						</div>
 						<div className="mb-4">
-							<p className="text-3xl text-gray-900 ">{product.price}.00 Bs </p>
+							{
+								product.oldPrice
+								? 
+								<div className='flex '>
+									<p className="text-3xl text-gray-500 line-through mr-2">{product.price}.00 Bs </p>
+									<p className="font-semibold text-3xl text-gray-900 ">{product.oldPrice}.00 Bs </p>
+								</div>
+								:
+								<p className="text-3xl text-gray-900 ">{product.price}.00 Bs </p>
+							}
+							
 						</div>
 						<div className="mb-4">
 						<form >
