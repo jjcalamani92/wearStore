@@ -49,7 +49,7 @@ export const TableItem: FC<Props> = ({ items, category, section }) => {
     <>
       <div className="bg-white hidden lg:block ">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl mx-auto py-2 sm:py-2 lg:py-2 lg:max-w-none">
+          <div className="max-w-2xl mx-auto lg:max-w-none">
             
             <div className="sm:shadow sm:rounded-md  sm:overflow-hidden">
               <div className="grid grid-cols-11 gap-2   content-center px-2 py-5">

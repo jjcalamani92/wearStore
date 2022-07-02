@@ -48,7 +48,7 @@ export const TableFeatured: FC<Props> = ({ featured, category }) => {
     <>
       <div className="bg-white hidden lg:block ">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl mx-auto py-2 sm:py-2 lg:py-2 lg:max-w-none">
+          <div className="max-w-2xl mx-auto lg:max-w-none">
 
             
             <div className="sm:shadow sm:rounded-md  sm:overflow-hidden">
