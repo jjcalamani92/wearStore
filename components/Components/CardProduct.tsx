@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { FC } from "react"
 import Swal from "sweetalert2";
+import { Featured } from '../../src/interfaces/Site';
 
 interface CardComponent {
   name: string;
@@ -18,12 +19,13 @@ interface CardComponent {
   id?: string;
   price?: number;
   oldPrice?: number;
+  featured?: string;
 }
-export const CardComponent: FC<CardComponent> = ({ name, imageSrc, imageAlt, description, width, height, objectFit, href, price, oldPrice, id }) => {
+export const CardComponent: FC<CardComponent> = ({ name, imageSrc, imageAlt, description, width, height, objectFit, href, price, oldPrice, featured, id }) => {
   const router = useRouter();
   const { pathname } = router
   const p = pathname.substring(1).split('/')
-  console.log(oldPrice)
+  console.log(featured)
   const onDeleteData = async (id: string) => {
 		Swal.fire({
 			title: 'Está seguro?',
@@ -62,24 +64,30 @@ export const CardComponent: FC<CardComponent> = ({ name, imageSrc, imageAlt, des
             {
               oldPrice
               ?
-              <span className="absolute left-0 top-2 text-sm text-red-500 bg-gray-100 p-1"> -{`${Math.floor((Number(price)-Number(oldPrice))*100/Number(price))}`}%</span>
+              <span className="absolute left-0 top-2 text-xs lg:text-sm  text-red-500 bg-gray-100 p-1"> -{`${Math.floor((Number(price)-Number(oldPrice))*100/Number(price))}`}%</span>
+              : null
+            }
+            {
+              oldPrice
+              ? 
+              <span className="absolute right-0 top-2 text-xs lg:text-sm bg-red-500 text-white p-1 font-semibold">en oferta</span>
               : null
             }
           </div>
-          <h3 className={`mt-1 overflow-ellipsis whitespace-nowrap overflow-hidden ${p[0] === 'admin' ? "text-sm text-gray-700 " : " text-base font-semibold text-gray-900"}`}>
+          <h3 className={`mt-1 overflow-ellipsis whitespace-nowrap overflow-hidden text-xs lg:text-sm ${p[0] === 'admin' ? " text-gray-700 " : "font-semibold text-gray-900"}`}>
             {name}
 
           </h3>
           {
               oldPrice
               ? <div className="flex justify-between">
-                  <p className="mt-1 text-sm  text-gray-500 line-through">{price}.00 Bs </p>
-                  <p className="mt-1 text-sm font-semibold  text-gray-900"> {oldPrice}.00 Bs</p>
+                  <p className="mt-1 text-xs lg:text-sm  text-gray-500 line-through">{price}.00 Bs </p>
+                  <p className="mt-1 text-xs lg:text-sm font-semibold  text-gray-900"> {oldPrice}.00 Bs</p>
                 </div>
               : 
               price
               ?
-              <p className="mt-1 text-sm text-gray-500">{price}.00 Bs </p>
+              <p className="mt-1 text-xs lg:text-sm text-gray-500">{price}.00 Bs </p>
               
               : null
 

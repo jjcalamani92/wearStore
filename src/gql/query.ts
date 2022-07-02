@@ -74,6 +74,7 @@ export const PRODUCTS_BY_ITEM = gql`
 			name
 			price
 			oldPrice
+			featured
 			image
 			slug
 		}
