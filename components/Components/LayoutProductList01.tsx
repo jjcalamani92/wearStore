@@ -146,7 +146,7 @@ export const LayoutItemListAdmin: FC<Props> = ({ products }) => {
 								</div>
 								<div className="mt-2 flex justify-between">
 									<div>
-										<h3 className="text-sm text-gray-700">
+										<h3 className="text-xs lg:text-sm text-gray-700">
 											<a href="#">
 														<span aria-hidden="true" className="inset-0" />
 														{product.name}
