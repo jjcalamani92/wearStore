@@ -78,13 +78,13 @@ export const FormCategory: FC<Props> = ({ category }) => {
     <>
       <div className="bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl mx-auto pb-2 lg:max-w-none">
+          <div className="max-w-2xl mx-auto mb-3 lg:max-w-none">
             
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="sm:shadow sm:rounded-md sm:overflow-hidden">
                 <div className=" bg-white sm:p-6">
 
-                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 sm:gap-6">
+                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-0 lg:gap-6">
                     <div className="col-span-2">
                       <div>
                         <label htmlFor="name" className="block text-xs lg:text-sm font-medium text-gray-700">

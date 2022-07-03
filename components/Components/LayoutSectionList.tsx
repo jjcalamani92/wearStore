@@ -17,7 +17,7 @@ export const LayoutSectionList:FC<LayoutSectionList> = ({ products }) => {
 	return (
 		<div className="bg-white">
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-			<div className="max-w-2xl mx-auto py-2 sm:py-2 lg:py-2 lg:max-w-none">
+			<div className="max-w-2xl mx-auto lg:max-w-none">
 				{/* <h2 className="text-2xl font-extrabold tracking-tight text-gray-900">
 					Customers also purchased
 				</h2> */}

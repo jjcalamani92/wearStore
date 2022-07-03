@@ -268,7 +268,7 @@ export const Form: FC<Props> = ({ product }) => {
     <>
       <div className="bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl mx-auto py-2 sm:py-2 lg:py-2 lg:max-w-none">
+          <div className="max-w-2xl mx-auto lg:max-w-none mb-3">
 
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="sm:shadow sm:rounded-md sm:overflow-hidden">
@@ -379,7 +379,7 @@ export const Form: FC<Props> = ({ product }) => {
                           Item
                         </label>
                         <select
-                          className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-xs lg:text-sm capitalize"
+                          className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 text-xs lg:text-sm capitalize"
                           {...register('item', {
                             required: 'Este campo es requerido',
                           })}
@@ -406,7 +406,7 @@ export const Form: FC<Props> = ({ product }) => {
                           Inventario
                         </label>
                         <input
-                          className="mt-1 focus:ring-red-500 focus:border-red-500 block w-full shadow-sm sm:text-xs lg:text-sm border border-gray-300 rounded-md  py-2 px-3"
+                          className="mt-1 focus:ring-red-500 focus:border-red-500 block w-full shadow-sm text-xs lg:text-sm border border-gray-300 rounded-md  py-2 px-3"
                           type='number'
                           {...register('inStock', {
                             required: 'Este campo es requerido',
@@ -422,7 +422,7 @@ export const Form: FC<Props> = ({ product }) => {
                           Precio[Bs]
                         </label>
                         <input
-                          className="mt-1 focus:ring-red-500 focus:border-red-500 block w-full shadow-sm sm:text-xs lg:text-sm border border-gray-300 rounded-md  py-2 px-3"
+                          className="mt-1 focus:ring-red-500 focus:border-red-500 block w-full shadow-sm text-xs lg:text-sm border border-gray-300 rounded-md  py-2 px-3"
                           type='number'
                           {...register('price', {
                             required: 'Este campo es requerido',
@@ -440,7 +440,7 @@ export const Form: FC<Props> = ({ product }) => {
                         </label>
                         <input
                           type='number'
-                          className="mt-1 focus:ring-red-500 focus:border-red-500 block w-full shadow-sm sm:text-xs lg:text-sm border border-gray-300 rounded-md  py-2 px-3"
+                          className="mt-1 focus:ring-red-500 focus:border-red-500 block w-full shadow-sm text-xs lg:text-sm border border-gray-300 rounded-md  py-2 px-3"
                           {...register('oldPrice', {
                             required: 'Este campo es requerido',
                             min: { value: 0, message: 'Mínimo de valor cero' }
@@ -458,7 +458,7 @@ export const Form: FC<Props> = ({ product }) => {
                         <div className="">
                           <textarea
                             rows={4}
-                            className="mt-1 shadow-sm focus:ring-red-500 focus:border-red-500 block w-full sm:text-xs lg:text-sm border border-gray-300 rounded-md  py-2 px-3"
+                            className="mt-1 shadow-sm focus:ring-red-500 focus:border-red-500 block w-full text-xs lg:text-sm border border-gray-300 rounded-md  py-2 px-3"
                             {...register('description', {
                               required: 'Este campo es requerido',
                               minLength: { value: 2, message: 'Mínimo 3 caracteres' }
@@ -473,7 +473,7 @@ export const Form: FC<Props> = ({ product }) => {
                       <div className="col-span-6 sm:col-span-2">
                         <fieldset
                         >
-                          <legend className="contents text-base font-medium text-gray-900">Tallas</legend>
+                          <legend className="contents text-xs lg:text-sm font-medium text-gray-900">Tallas</legend>
                           <div className="grid grid-cols-4 sm:grid-cols-3 gap-2 mt-4 ">
                             {
                               validSizes.map((data, i) => (
@@ -482,7 +482,7 @@ export const Form: FC<Props> = ({ product }) => {
                                   <input
                                     type="checkbox"
                                     value={data}
-                                    className="focus:ring-red-500 h-4 w-4 text-red-500 border-gray-300"
+                                    className="focus:ring-red-500 h-4 w-4 text-red-500 border-gray-300 text-xs lg:text-sm"
                                     {...register('sizes', {
                                       required: {
                                         value: true,
@@ -509,7 +509,7 @@ export const Form: FC<Props> = ({ product }) => {
                             Tags
                           </label>
                           <input
-                            className="mt-2 py-2 px-3 focus:ring-red-500 focus:border-red-500 block w-full shadow-sm sm:text-xs lg:text-sm border border-gray-300 rounded-md p-1"
+                            className="mt-2 py-2 px-3 focus:ring-red-500 focus:border-red-500 block w-full shadow-sm text-xs lg:text-sm border border-gray-300 rounded-md p-1"
                             type={"text"}
                             value={newTagValue}
                             onChange={({ target }) => setNewTagValue(target.value)}
@@ -518,10 +518,10 @@ export const Form: FC<Props> = ({ product }) => {
                             }
 
                           />
-                          <p className="mt-2 text-xs lg:text-sm text-gray-500 hidden lg:block">
+                          <p className="mt-2 text-xs lg:text-sm text-gray-500 hidden lg:block mb-2">
                             Presiona [Spacio] para agregar.
                           </p>
-                          <p className="mt-2 text-xs lg:text-sm text-gray-500 lg:hidden">
+                          <p className="mt-2 text-xs lg:text-sm text-gray-500 lg:hidden mb-2">
                             Presiona [Enter] para agregar.
                           </p>
 
@@ -531,7 +531,7 @@ export const Form: FC<Props> = ({ product }) => {
                           <div className="grid grid-cols-2 gap-2 "  >
                             {
                               getValues('tags').map((data, i) => (
-                                <p key={i} className="flex items-center">{data}
+                                <p key={i} className="flex items-center text-xs lg:text-sm">{data}
                                   <FontAwesomeIcon
                                     className="text-xs lg:text-sm leading-none mx-1 text-gray-600 hover:text-gray-900 rounded focus:outline-none "
                                     onClick={() => onDeleteTag(data)}
@@ -550,7 +550,7 @@ export const Form: FC<Props> = ({ product }) => {
                           Destacados
                         </label>
                         <select
-                          className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-xs lg:text-sm capitalize"
+                          className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 text-xs lg:text-sm capitalize"
                           {...register('featured')}
                           onChange={(e) => handleFeatured(e)}
                           value={getValues('featured')}
@@ -561,7 +561,7 @@ export const Form: FC<Props> = ({ product }) => {
                           {
                             featured?.map((data, i) => (
 
-                              <option key={i} className="capitalize">{data}</option>
+                              <option key={i} className="capitalize text-xs lg:text-sm">{data}</option>
                             ))
                           }
                         </select>

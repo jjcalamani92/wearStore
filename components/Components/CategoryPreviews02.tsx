@@ -9,7 +9,7 @@ export const CategoryPreviews02:FC<Props> = ({featured}) => {
         <div className="py-6 lg:py-10">
             <div className="flex justify-center items-center">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="max-w-2xl mx-auto py-2 sm:py-2 lg:py-2 lg:max-w-none">
+                <div className="max-w-2xl mx-auto lg:max-w-none">
                     
                 {/* <div className="2xl:mx-auto 2xl:container py-12 px-4 sm:px-6 xl:px-20 2xl:px-0 w-full"> */}
                     <div className="flex flex-col jusitfy-center items-center space-y-6">

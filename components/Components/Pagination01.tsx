@@ -21,7 +21,7 @@ export const Pagination01: FC<Props> = ({ setPage, page, length, all }) => {
     <>
       <div className="bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl mx-auto py-2 sm:py-2 lg:py-2 lg:max-w-none">
+          <div className="max-w-2xl mx-auto lg:max-w-none">
             <div className="flex-1 flex justify-between sm:hidden">
               <button
                 disabled={!page}
