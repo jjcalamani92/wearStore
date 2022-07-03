@@ -8,6 +8,7 @@ import { GetStaticProps } from 'next';
 import { graphQLClientS } from "../../src/graphQLClient";
 import { SBF } from "../../src/gql/siteQuery";
 import { Category, Featured } from "../../src/interfaces";
+import { HeadingFeatured } from "../../components/Components";
 
 interface Props {
 	featured: Featured[]
@@ -15,7 +16,6 @@ interface Props {
 
 const Index:FC<Props> = ({featured}) => {
 	const { site } = useContext(UiContext)
-	console.log(featured)
 	return (
 		<Layout
 			title={site.title}

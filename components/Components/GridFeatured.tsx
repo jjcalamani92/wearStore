@@ -17,8 +17,6 @@ interface GridProduct {
 export const GridFeatured: FC<GridProduct> = ({ sections, category, data, product }) => {
   const router = useRouter();
   const { pathname } = router
-  const p = pathname.substring(1).split('/')
-  // console.log(pathname)
   return (
     <div className="bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -36,11 +34,7 @@ export const GridFeatured: FC<GridProduct> = ({ sections, category, data, produc
                 width={500}
                 height={600}
                 objectFit='cover'
-                href={
-                  router.query.section ? `/${router.query.category}/${router.query.section}/${fact.href}`
-                    :
-                    router.query.category ? `/${router.query.category}/${fact.href}` : ''
-                }
+                href={`promociones/${fact.href}`}
               />
             ))}
           </div>

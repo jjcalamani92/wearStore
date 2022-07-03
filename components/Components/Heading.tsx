@@ -11,6 +11,7 @@ interface Props {
 interface HeadingPrimary {
   category?: string
   section?: string
+  feature?: string
   item?: string
   name?: string
   seo?: any
@@ -213,6 +214,77 @@ export const HeadingPrimary: FC<HeadingPrimary> = ({ category, section, name, se
                   :
                   null
               }
+
+
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  );
+
+}
+
+export const HeadingFeatured: FC<HeadingPrimary> = ({ category, section, feature, name, seo, productName, productSlug }) => {
+  const router = useRouter()
+  const { slug, item, featured } = router.query
+  // console.log(router.query, slug)
+  return (
+    <div className="bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-2xl mx-auto lg:max-w-none">
+
+          <nav aria-label="Breadcrumb" className=" py-4 sm:py-6">
+            <ol
+              role="list"
+              className="max-w-2xl mx-auto flex items-center space-x-0 sm:px-0 lg:max-w-7xl "
+            >
+              <li>
+                {/* <div className={`items-center ${slug ? 'hidden sm:flex' : 'flex'} ${item ? 'hidden sm:flex' : 'flex'}`}> */}
+                <div className=" flex items-center">
+                  <Link href={`/promociones`} passHref prefetch={false}>
+                    <a className="text-xs lg:text-sm font-medium text-gray-900 capitalize">
+                      promociones
+                    </a>
+                  </Link>
+                </div>
+              </li>
+              <li>
+                {/* <div className={`items-center ${slug ? 'hidden sm:flex' : 'flex'}`}> */}
+                  <div className="flex items-center">
+                    <svg
+                      width={16}
+                      height={20}
+                      viewBox="0 0 16 20"
+                      fill="currentColor"
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true"
+                      className="w-4 h-5 text-gray-300"
+                      // className={`'w-4 h-5 text-gray-300' ${slug ? 'hidden sm:flex' : 'flex'} ${item ? 'hidden sm:flex' : 'flex'}`}
+                    >
+                      <path d="M5.697 4.34L8.98 16.532h1.327L7.025 4.341H5.697z" />
+                    </svg>
+                    <Link
+                      href={`/promociones/${featured}`}
+                      passHref
+                      prefetch={false}
+                    >
+                      <a className="text-xs lg:text-sm font-medium text-gray-900 capitalize">
+                        {feature}
+                      </a>
+                    </Link>
+
+                  </div>
+                {/* </div> */}
+              </li>
+              {/* {
+                seo.featured?.name
+                  ?
+                  
+                  :
+                  null
+              } */}
+
 
 
             </ol>

@@ -146,11 +146,9 @@ export const LayoutItemListAdmin: FC<Props> = ({ products }) => {
 								</div>
 								<div className="mt-2 flex justify-between">
 									<div>
-										<h3 className="text-xs lg:text-sm text-gray-700">
-											<a href="#">
-														<span aria-hidden="true" className="inset-0" />
+										<h3 className="text-xs lg:text-sm text-gray-700 ">
+											
 														{product.name}
-												</a>
 										</h3>
 										{/* <p className="mt-1 text-sm text-gray-500">{product.color}</p> */}
 									</div>
@@ -229,10 +227,7 @@ export const LayoutMarkListAdmin: FC<LayoutMarkListAdmin> = ({ marks }) => {
 								<div className="mt-4 flex justify-between">
 									<div>
 										<h3 className="text-xs lg:text-sm text-gray-700">
-											<a href="#">
-														<span aria-hidden="true" className="inset-0" />
-														{product.name}
-												</a>
+											{product.name}
 										</h3>
 										{/* <p className="mt-1 text-sm text-gray-500">{product.color}</p> */}
 									</div>

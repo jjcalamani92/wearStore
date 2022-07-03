@@ -4,7 +4,7 @@ import React, { FC, useContext } from "react";
 import { PRODUCT_BY_FEATURED, PRODUCT_BY_OFFER, SECTION } from "../../src/gql/query";
 import { SBF, SBI } from "../../src/gql/siteQuery";
 import { Layout } from "../../components/Layout";
-import { CategoryPreviews01, HeadingPrimary, LayoutSectionList, GridProduct } from "../../components/Components";
+import { CategoryPreviews01, HeadingPrimary, LayoutSectionList, GridProduct, HeadingFeatured } from "../../components/Components";
 import { graphQLClientP, graphQLClientS } from '../../src/graphQLClient';
 import { UiContext } from "../../src/context";
 
@@ -17,7 +17,6 @@ interface Props {
 
 const FeaturedPage:FC<Props> = ({seo, section, feature, products}) => {
 	const { site } = useContext(UiContext)
-  // console.log(products)
   return (
     <>
       <Layout
@@ -25,12 +24,9 @@ const FeaturedPage:FC<Props> = ({seo, section, feature, products}) => {
         pageDescription={`${feature.description}`}
         imageFullUrl={feature.imageSrc}
       >
-        {/* <HeadingPrimary seo={seo} /> */}
+  			<HeadingFeatured feature={feature.name} />
         <GridProduct product={products} />
 
-        {/* <GridProduct data={section.items} /> */}
-        {/* <CategoryPreviews01 section={section.items} category={`${section.href}`}/> */}
-			  {/* <LayoutSectionList products={section.items} /> */}
       </Layout>
     </>
   );
@@ -67,20 +63,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     props: { 
       feature: re, 
       products: clothingByFeatured
-      // seo: {
-      //   category: {
-      //     name: res.name,
-      //     href: res.href
-      //   },
-      //   section: {
-      //     name: re.name,
-      //     href: re.href,
-      //     description: re.description,
-      //     imageSrc: re.imageSrc
-      //   },
-      // },
     },
-    revalidate: 10
+    revalidate: 86400000
   };
 };
 

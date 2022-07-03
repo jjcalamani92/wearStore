@@ -23,7 +23,6 @@ export const CardPages: FC<CardPages> = ({ name, imageSrc, imageAlt, description
   const router = useRouter();
   const { pathname } = router
   const p = pathname.substring(1).split('/')
-  console.log(router.query)
 
   const onDeleteData = async (id: string) => {
     

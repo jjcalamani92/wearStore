@@ -157,7 +157,7 @@ export const Header = () => {
                 {/* Links */}
 
 
-                {/* <div className="border-t border-gray-200 py-6 px-4 space-y-6">
+                <div className="border-t border-gray-200 py-6 px-4 space-y-6">
                   {site.pages.map((page) => (
                     <div key={page.name} className="flow-root">
                       <a href={page.href} className="-m-2 p-2 block font-medium text-gray-900">
@@ -165,7 +165,14 @@ export const Header = () => {
                       </a>
                     </div>
                   ))}
-                </div> */}
+                  <div className="flow-root">
+                    <Link href="/promociones">
+                      <a  className="-m-2 p-2 block font-medium text-gray-900 text-xs lg:text-sm">
+                        Promociones
+                      </a>
+                    </Link>
+                    </div>
+                </div>
 
                 {
                   isLoggedIn && user?.role === 'ADMIN_ROL' && (
