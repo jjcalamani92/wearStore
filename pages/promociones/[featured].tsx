@@ -1,8 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import { Category,Section, IClothing, ISeo, Featured } from "../../src/interfaces";
 import React, { FC, useContext } from "react";
-import { PRODUCT_BY_FEATURED, PRODUCT_BY_OFFER, SECTION } from "../../src/gql/query";
-import { SBF, SBI } from "../../src/gql/siteQuery";
+import { PRODUCT_BY_FEATURED, SBF } from "../../src/gql";
 import { Layout } from "../../components/Layout";
 import { CategoryPreviews01, HeadingPrimary, LayoutSectionList, GridProduct, HeadingFeatured } from "../../components/Components";
 import { graphQLClientP, graphQLClientS } from '../../src/graphQLClient';

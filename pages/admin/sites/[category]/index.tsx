@@ -2,7 +2,7 @@ import { NextPage, GetServerSideProps } from 'next';
 import { Category, IClothing } from "../../../../src/interfaces";
 import { Layout, LayoutAdmin } from '../../../../components/Layout';
 import { graphQLClientS } from '../../../../src/graphQLClient';
-import { SBS } from '../../../../src/gql/siteQuery';
+import { SBS } from '../../../../src/gql/site';
 import { FormCategory } from '../../../../components/Components/form/FormCategory';
 import { useRouter } from 'next/router';
 import { LayoutFeaturedListAdmin, LayoutSectionListAdmin, LayoutCategoryListAdmin, HeadingTable, GridPages } from '../../../../components/Components';

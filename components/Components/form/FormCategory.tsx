@@ -147,7 +147,7 @@ export const FormCategory: FC<Props> = ({ category }) => {
 
                     <div className="col-span-1">
                       <label className="block text-xs lg:text-sm font-medium text-gray-700 mb-2">Imagen</label>
-                      <div className="grid grid-cols-2 gap-2">
+                      <div className="grid grid-cols-2 gap-3">
                         <div className="flex justify-center p-5 border-2 border-gray-300 border-dashed rounded-md">
                           <div className="space-y-1 text-center">
                             <svg

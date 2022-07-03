@@ -111,7 +111,7 @@ export const Header = () => {
                             </div>
                             <div className="grid grid-cols-2 gap-x-4">
                             {category.sections.map((section, i) => (
-                              <div key={i} className="mt-0">
+                              <div key={i} className="mt-3">
                                 <Link href={`/${category.href}/${section.href}`}>
                                   <a className="text-xs lg:text-sm font-medium text-gray-900 capitalize">
                                     {section.name}
@@ -136,7 +136,7 @@ export const Header = () => {
                                     ?
                                     <li className="flow-root">
                                       <Link href={`/${category.href}/${section.href}`}>
-                                        <a className="-m-2 p-2 mb-3 block text-xs lg:text-sm text-gray-900">
+                                        <a className="-m-2 p-2 block text-xs lg:text-sm text-gray-900">
                                         Ver Todo {'>'}
                                         </a>
                                       </Link>

@@ -14,12 +14,10 @@ export const Text = <C extends React.ElementType = "span"> ({as, children, ...re
   return <Component {...restProps}>{children}</Component>
 }
 
-
 interface Props {
 	as: React.ElementType;
 	children: React.ReactNode;
 }
-
 
 export const Tex: FC<Props> = ({as, children}) => {
   const Component = as || "span";

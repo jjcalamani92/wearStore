@@ -53,8 +53,8 @@ export const TableSection: FC<Props> = ({ sections, category }) => {
           <div className="max-w-2xl mx-auto lg:max-w-none">
             
             <div className="sm:shadow sm:rounded-md  sm:overflow-hidden">
-              <div className="grid grid-cols-11 gap-2 content-center px-2 py-5">
-                <div className="col-span-1 items-center ">
+              <div className="grid grid-cols-12 gap-2 content-center px-2 py-5">
+                <div className="col-span-2 items-center ">
                   <p className="text-base font-medium leading-none text-gray-900 mr-2 ">
                     Nombre
                   </p>
@@ -78,10 +78,10 @@ export const TableSection: FC<Props> = ({ sections, category }) => {
               </div>
               {
                 sections.map((section, i) => (
-                  <div className="grid grid-cols-11 gap-2 border border-gray-100 p-2 " key={i}>
+                  <div className="grid grid-cols-12 gap-2 border border-gray-100 p-2 " key={i}>
 
-                    <div className="col-span-1 flex items-center">
-                      <p className="text-sm leading-none text-gray-600 ">
+                    <div className="col-span-2 flex items-center">
+                      <p className="text-sm leading-normal text-gray-600 ">
                         {section.name}
                       </p>
                     </div>

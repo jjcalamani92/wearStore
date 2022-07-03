@@ -1,5 +1,5 @@
 import { NextPage, GetServerSideProps } from 'next';
-import { PRODUCT_BY_SLUG } from '../../../src/gql/query';
+import { PRODUCT_BY_SLUG } from '../../../src/gql';
 import { IClothing } from "../../../src/interfaces";
 import { GraphQLClient } from 'graphql-request';
 import { Form, HeadingTable, TableFeatured } from '../../../components/Components';

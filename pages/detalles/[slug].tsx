@@ -1,12 +1,10 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
-import { FC, useContext } from 'react';
 import { Category, IClothing, ISeo, Item, Section } from "../../src/interfaces";
-import { PBS, PRODUCT_BY_SLUG } from "../../src/gql/query";
+import { PBS, PRODUCT_BY_SLUG } from "../../src/gql";
 import { ProductOverviews, HeadingPrimary } from "../../components/Components";
 import { Layout } from "../../components/Layout";
 import { graphQLClientP, graphQLClientS } from "../../src/graphQLClient";
-import { SBI } from "../../src/gql/siteQuery";
-import { UiContext } from "../../src/context";
+import { SBI } from "../../src/gql/site";
 
 interface SlugPage {
 	product: IClothing

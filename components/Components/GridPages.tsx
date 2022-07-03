@@ -18,7 +18,6 @@ export const GridPages: FC<GridPages> = ({sections, category, data, product}) =>
   const router = useRouter();
   const { pathname } = router
   const p = pathname.substring(1).split('/')
-  console.log(router.query)
   return (
     <div className="bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

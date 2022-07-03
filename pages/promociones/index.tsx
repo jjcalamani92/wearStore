@@ -6,9 +6,8 @@ import { Contact, Home, Layout } from "../../components/Layout";
 import { UiContext } from "../../src/context";
 import { GetStaticProps } from 'next';
 import { graphQLClientS } from "../../src/graphQLClient";
-import { SBF } from "../../src/gql/siteQuery";
+import { SBF } from "../../src/gql";
 import { Category, Featured } from "../../src/interfaces";
-import { HeadingFeatured } from "../../components/Components";
 
 interface Props {
 	featured: Featured[]

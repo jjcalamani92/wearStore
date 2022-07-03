@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 import { Layout, LayoutAdmin } from "../../../components/Layout";
 import { graphQLClientS } from "../../../src/graphQLClient";
-import { S } from "../../../src/gql/siteQuery";
+import { S } from "../../../src/gql";
 import { GetStaticProps, GetServerSideProps } from 'next';
 import { Category, ISeo, Item, Section, Site } from "../../../src/interfaces";
 import { HeadingTable, LayoutCategoryListAdmin, FormSite, GridPages } from "../../../components/Components";

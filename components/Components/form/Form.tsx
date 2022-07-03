@@ -7,31 +7,32 @@ import { ChangeEvent, FC, useEffect, useState } from 'react';
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import { Category, Featured, IMark, Item, Section } from "../../../src/interfaces";
-import { WithContext as ReactTags } from 'react-tag-input';
-
-interface FormData {
-  _id?: string;
-  name: string;
-  brand: string;
-  image: string[];
-  description: string;
-  category: string;
-  section: string;
-  item: string;
-  inStock: number;
-  price: number;
-  oldPrice: number;
-  tags: string[];
-  featured: string;
-
-  color: string;
-  sizes: string[];
+import { Product } from "../../../src/interfaces/HomeAppliance";
+{
+  
 }
+type FormData = Omit<Product, 'slug'| 'site' | 'status' | 'client'>
+// interface FormData {
+//   _id?: string;
+//   name: string;
+//   brand: string;
+//   image: string[];
+//   description: string;
+//   category: string;
+//   section: string;
+//   item: string;
+//   inStock: number;
+//   price: number;
+//   oldPrice: number;
+//   tags: string[];
+//   featured: string;
+
+//   color: string;
+//   sizes: string[];
+// }
 interface Props {
   product: FormData
 }
-
-const validFeatured = ['ninguno', 'ofertas', 'promociones']
 const validSizes = ['XS', 'S', 'M', 'L', 'XL', 'XXL', 'XXXL']
 
 const KeyCodes = {

@@ -1,15 +1,11 @@
 import { FC, useContext, useState } from "react";
 import Link from 'next/link';
-import { Layout, LayoutAdmin } from "../../../components/Layout";
-import { graphQLClientP, graphQLClientS } from "../../../src/graphQLClient";
-import { S } from "../../../src/gql/siteQuery";
+import { Layout, } from "../../../components/Layout";
+import { graphQLClientP } from "../../../src/graphQLClient";
 import { GetServerSideProps, GetStaticProps } from "next";
 import { Category, IMark, ISeo, Item, Section, Site } from "../../../src/interfaces";
-import { HeadingTable, LayoutCategoryListAdmin, LayoutMarkListAdmin, Spinner04 } from "../../../components/Components";
-import { TableCategory } from "../../../components/Components/table/TableCategory";
-import { MARKS } from "../../../src/gql/markQuery";
-import { TableMark } from "../../../components/Components/table/TableMark";
-import { useQuery } from "@apollo/client";
+import { HeadingTable, LayoutMarkListAdmin, TableMark } from "../../../components/Components";
+import { MARKS } from "../../../src/gql";
 import { UiContext } from "../../../src/context";
 
 

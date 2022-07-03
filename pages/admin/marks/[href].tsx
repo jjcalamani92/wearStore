@@ -2,7 +2,7 @@ import { NextPage, GetServerSideProps } from 'next';
 import { IClothing, IMark } from "../../../src/interfaces";
 import { GraphQLClient } from 'graphql-request';
 import { Layout, LayoutAdmin } from '../../../components/Layout';
-import { MARK_BY_HREF } from '../../../src/gql/markQuery';
+import { MARK_BY_HREF } from '../../../src/gql/mark';
 import { FormMark, HeadingTable } from '../../../components/Components';
 import { useContext } from 'react';
 import { UiContext } from '../../../src/context';

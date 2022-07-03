@@ -1,10 +1,9 @@
 import { GetStaticPaths, GetStaticProps } from "next";
-import { Category,Section, IClothing, ISeo } from "../../../src/interfaces";
+import { Section, IClothing, ISeo } from "../../../src/interfaces";
 import React, { FC, useContext } from "react";
-import { SECTION } from "../../../src/gql/query";
-import { SBI } from "../../../src/gql/siteQuery";
+import { SECTION, SBI } from "../../../src/gql";
 import { Layout } from "../../../components/Layout";
-import { CategoryPreviews01, HeadingPrimary, LayoutSectionList, GridProduct } from "../../../components/Components";
+import { HeadingPrimary, GridProduct } from "../../../components/Components";
 import { graphQLClientP, graphQLClientS } from '../../../src/graphQLClient';
 import { UiContext } from "../../../src/context";
 
@@ -46,14 +45,13 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { category="", section = "" } = params as { section: string, category: string };
 
   const { site } = await graphQLClientS.request(SBI, {id: process.env.API_SITE})
-	const res = site.categories.find(findCategory)
-	function findCategory(res:Category){
-		return res.href === `${category}`;
-	}
-  const re = res.sections.find(findSection)
-	function findSection(re:Section){
-		return re.href === `${section}`;
-	}
+  
+	const res = site.categories.find((data: { href: string; }) => data.href === `${category}`)
+  const re = res.sections.find((data: { href: string; }) => data.href === `${section}`)
+  // const re = res.sections.find(findSection)
+	// function findSection(re:Section){
+	// 	return re.href === `${section}`;
+	// }
   return {
     props: { 
       section: re, 
@@ -70,7 +68,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         },
       },
     },
-    revalidate: 10
+    revalidate: 86400000
   };
 };
 

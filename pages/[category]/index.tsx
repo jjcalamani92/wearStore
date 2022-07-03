@@ -1,9 +1,7 @@
 import { FC, useContext } from 'react';
 import { GetStaticPaths, GetStaticProps } from "next";
-import { IClothing, } from "../../src/interfaces";
-import { CATEGORY } from "../../src/gql/query";
 import { Category, Featured, ISeo, Site} from '../../src/interfaces/Site';
-import { SBF, SBS } from "../../src/gql/siteQuery";
+import { SBF, SBS } from "../../src/gql/site";
 import { HeadingPrimary, GridProduct } from "../../components/Components";
 import { Layout } from "../../components/Layout/Layout";
 import { graphQLClientS, graphQLClientP } from '../../src/graphQLClient';
@@ -44,10 +42,8 @@ export const getStaticPaths: GetStaticPaths = async (ctx) => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
 	const { category = "" } = params as { category: string };
 	const { site } = await graphQLClientS.request(SBS, {id: process.env.API_SITE})
-	const res = site.categories.find(findCategory)
-	function findCategory(res:Category){
-		return res.href === `${category}`;
-	}
+
+	const res = site.categories.find((data: { href: string; }) => data.href === `${category}`)
 	const data = await graphQLClientS.request(SBF, {id: process.env.API_SITE})
 
 	const pat = data.site.categories.reduce((allFeatured: Featured[], category:Category) => {
@@ -67,7 +63,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       },
 			featured: pat,
 		},
-		revalidate: 10
+		revalidate: 86400000
 	};
 };
 export default CategoryPage;
