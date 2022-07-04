@@ -71,7 +71,7 @@ export const Header = () => {
                               key={category.name}
                               className={({ selected }) =>
                                 classNames(
-                                  selected ? 'text-red-600 border-red-600' : 'text-gray-900 border-transparent',
+                                  selected ? 'text-rose-600 border-rose-600' : 'text-gray-900 border-transparent',
                                   'flex-1 whitespace-nowrap py-4 px-1 border-b-2 text-xs md:text-sm font-medium capitalize'
                                 )
                               }
@@ -83,7 +83,7 @@ export const Header = () => {
                       </div>
                       <Tab.Panels as={Fragment}>
                         {site.categories.map((category) => (
-                          <Tab.Panel key={category.name} className="pt-5 pb-8 px-4 space-y-5">
+                          <Tab.Panel key={category.name} className="pt-5 pb-8 px-4">
                             <div className="grid grid-cols-2 gap-x-4">
                               {category.featured.slice(-2).map((featured) => (
                                 <Link href={`/promociones/${featured.href}`} key={featured.name} className="group text-xs md:text-sm">
@@ -111,7 +111,7 @@ export const Header = () => {
                             </div>
                             <div className="grid grid-cols-2 gap-x-4">
                             {category.sections.map((section, i) => (
-                              <div key={i} className="mt-3">
+                              <div key={i} className="mt-6">
                                 <Link href={`/${category.href}/${section.href}`}>
                                   <a className="text-xs md:text-sm font-medium text-gray-900 capitalize">
                                     {section.name}
@@ -119,7 +119,7 @@ export const Header = () => {
                                 </Link>
                                 <ul
                                   role="list"
-                                  className="mt-3 flex flex-col space-y-6 capitalize"
+                                  className="mt-4 flex flex-col space-y-5 capitalize"
                                 >
                                   {section.items.slice(0,4).map((item, i) => (
                                     <li key={i} className="flow-root">
@@ -158,11 +158,14 @@ export const Header = () => {
 
 
                 <div className="border-t border-gray-200 py-6 px-4 space-y-6">
-                  {site.pages.map((page) => (
-                    <div key={page.name} className="flow-root">
-                      <a href={page.href} className="-m-2 p-2 block font-medium text-gray-900">
-                        {page.name}
-                      </a>
+                  {site.pages.map((page, i) => (
+                    <div key={i} className="flow-root">
+                      <Link href={page.href}>
+                        <a className="-m-2 p-2 block font-medium text-gray-900">
+                          {page.name}
+                        </a>
+                      </Link>
+
                     </div>
                   ))}
                   <div className="flow-root">
@@ -302,7 +305,7 @@ export const Header = () => {
       </Transition.Root>
 
       <header className="relative bg-white">
-        {/* <p className="bg-red-600 h-10 flex items-center justify-center text-xs md:text-sm font-medium text-white px-4 sm:px-6 lg:px-8">
+        {/* <p className="bg-rose-600 h-10 flex items-center justify-center text-xs md:text-sm font-medium text-white px-4 sm:px-6 lg:px-8">
           Obtenga envío gratuito en pedidos superiores a $ 100
         </p> */}
 
@@ -315,7 +318,7 @@ export const Header = () => {
                 <a className='flex items-center'>
                   {/* <span className="sr-only">Workflow</span> */}
                   <Image
-                    width={120}
+                    width={110}
                     height={40}
                     src={site.logo}
                     objectFit={'contain'}
@@ -339,7 +342,7 @@ export const Header = () => {
                                 <Popover.Button
                                   className={classNames(
                                     open
-                                      ? 'border-red-600 text-red-600'
+                                      ? 'border-rose-600 text-rose-600'
                                       : 'border-transparent text-gray-700 hover:text-gray-800',
                                     'relative z-10 flex items-center transition-colors ease-out duration-200 text-xs md:text-sm font-medium border-b-2 -mb-px pt-px capitalize'
                                   )}
@@ -404,10 +407,12 @@ export const Header = () => {
                                               >
                                                 {section.items.slice(0,4).map((item, i) => (
                                                   <li key={i} className="flex">
-                                                    <a href={`/${category.href}/${section.href}/${item.href}`} className="hover:text-gray-800 capitalize">
+                                                    <Link href={`/${category.href}/${section.href}/${item.href}`}>
+                                                      <a  className="hover:text-gray-800 capitalize">
 
-                                                      {item.name}
-                                                    </a>
+                                                        {item.name}
+                                                      </a>
+                                                    </Link>
                                                   </li>
                                                 ))}
                                                 {
@@ -442,13 +447,15 @@ export const Header = () => {
                   }
 
                   {site.pages.map((page, i) => (
+                    <Link key={i} href={page.href}>
+                    
                     <a
-                      key={i}
-                      href={page.href}
+                      
                       className="flex items-center text-xs md:text-sm font-medium text-gray-700 hover:text-gray-800 capitalize"
                     >
                       {page.name}
                     </a>
+                    </Link>
                   ))}
                   {
                     isLoggedIn && user?.role === 'ADMIN_ROL' && p[0] === 'admin' && (

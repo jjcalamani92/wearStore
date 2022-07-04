@@ -18,7 +18,7 @@ export const Footer = () => {
             >
               <ul>
                 {site.categories.map((category, i) => (
-                  <li key={i} className="mb-3">
+                  <li key={i} className="my-6">
 
                     <Link href={`/${category.href}`}>
                       <a className="text-xs md:text-sm font-medium leading-none hover:text-brand  text-gray-800 ">{category.name}</a>
@@ -32,7 +32,7 @@ export const Footer = () => {
                 {site.categories.map((category, i) => (
                   category.sections.map((section, i) => (
 
-                    <li key={i} className="mb-3">
+                    <li key={i} className="my-6">
 
                       <Link href={`/${category.href}/${section.href}`}>
                         <a className="text-xs md:text-sm  font-medium leading-none hover:text-brand  text-gray-800 ">{section.name}</a>
@@ -43,48 +43,48 @@ export const Footer = () => {
                 }
               </ul>
               <ul>
-                <li className="text-xs md:text-sm leading-none hover:text-brand  text-gray-800 font-medium py-3">
+                <li className="text-xs md:text-sm leading-none hover:text-brand  text-gray-800 font-medium my-6">
                   Lunes:
                   <span className="ml-2 font-normal">08:00 am - 16:00 pm</span>
                 </li>
-                <li className="text-xs md:text-sm leading-none hover:text-brand  text-gray-800 font-medium py-3">
+                <li className="text-xs md:text-sm leading-none hover:text-brand  text-gray-800 font-medium my-6">
                   Martes:
                   <span className="ml-2 font-normal">08:00 am - 16:00 pm</span>
                 </li>
-                <li className="text-xs md:text-sm leading-none hover:text-brand  text-gray-800 font-medium py-3">
+                <li className="text-xs md:text-sm leading-none hover:text-brand  text-gray-800 font-medium my-6">
                   Miercoles:
                   <span className="ml-2 font-normal">08:00 am - 16:00 pm</span>
                 </li>
-                <li className="text-xs md:text-sm leading-none hover:text-brand  text-gray-800 font-medium py-3">
+                <li className="text-xs md:text-sm leading-none hover:text-brand  text-gray-800 font-medium my-6">
                   Jueves:
                   <span className="ml-2 font-normal">08:00 am - 16:00 pm</span>
                 </li>
-                <li className="text-xs md:text-sm leading-none hover:text-brand  text-gray-800 font-medium py-3">
+                <li className="text-xs md:text-sm leading-none hover:text-brand  text-gray-800 font-medium my-6">
                   Viernes:
                   <span className="ml-2 font-normal">08:00 am - 16:00 pm</span>
                 </li>
-                <li className="text-xs md:text-sm leading-none hover:text-brand  text-gray-800 font-medium py-3">
+                <li className="text-xs md:text-sm leading-none hover:text-brand  text-gray-800 font-medium my-6">
                   Sabado:
                   <span className="ml-2 font-normal">08:00 am - 16:00 pm</span>
                 </li>
-                <li className="text-xs md:text-sm leading-none hover:text-brand  text-gray-800 font-medium py-3">
+                <li className="text-xs md:text-sm leading-none hover:text-brand  text-gray-800 font-medium my-6">
                   Domingo:
                   <span className="ml-2 font-normal">08:00 am - 16:00 pm</span>
                 </li>
 
               </ul>
               <ul>
-                <li className="mb-6">
+                <li className="my-6">
                   <Link href="/contacto">
                     <a className="text-xs md:text-sm  font-medium leading-none hover:text-brand  text-gray-800 ">Contacto</a>
                   </Link>
                 </li>
-                <li className="mb-6">
+                <li className="my-6">
                   <Link href="#">
                     <a className="text-xs md:text-sm  font-medium leading-none hover:text-brand  text-gray-800 ">Preguntas Frecuentes</a>
                   </Link>
                 </li>
-                <li className="mb-6">
+                <li className="my-6">
                   <h2 className="text-xs md:text-sm font-medium text-gray-900 mb-4">RRSS</h2>
                   <div className="grid grid-cols-5 gap-2 text-red-500 ">
 

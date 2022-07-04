@@ -17,7 +17,7 @@ export const Feature = () => {
               </button>
             </div>
             <div className="col-span-2">
-              <div className="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 lg:gap-8 gap-6">
+              <div className="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6">
                 <img src="https://res.cloudinary.com/dvcyhn0lj/image/upload/v1654481943/piccoletti/featured/1473819-00-A_alt_wpgkdb.jpg" className="w-full" alt="kitchen" />
                 <img src="https://res.cloudinary.com/dvcyhn0lj/image/upload/v1654481935/piccoletti/featured/1473814-00-A_alt_decfpw.jpg" className="w-full" alt="sitting room" />
               </div>
