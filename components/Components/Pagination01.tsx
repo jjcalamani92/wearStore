@@ -11,9 +11,7 @@ interface Props {
   length: number
   all: number
 }
-interface Pagination {
-  page?: number
-}
+
 
 export const Pagination01: FC<Props> = ({ setPage, page, length, all }) => {
   // console.log( page, length, all)
@@ -127,30 +125,42 @@ export const Pagination01: FC<Props> = ({ setPage, page, length, all }) => {
   )
 }
 
+interface Pagination {
+  next: () => void
+  prev: () => void
+  start: string
+  end:string
+  pageData: any
+}
 
-export const  Pagination: FC<Pagination>  = () => {
-  const router = useRouter()
-  const { query, pathname } = router;
-  const [page, setPage] = useState(1)
-  const [limit, setLimit] = useState(8)
-  useEffect(() => {
-    if(query.page) {
-      let p = Number(query.page) >= 1 ? query.page : 1;
-      setPage(Number(p))
-    }
+export const  Pagination: FC<Pagination>  = ({next, prev, start, end, pageData}) => {
+  // console.log('end', end)
+	// console.log('start',  start)
+	// console.log('pageData',  pageData.count-1)
 
-    // if(query.limit) {
-    //   let l = Number(query.limit) >= 10 ? query.limit : 10;
-    //   setLimit(Number(l))
-    // }
-  },[query])
+  
+  // const router = useRouter()
+  // const { query, pathname } = router;
+  // const [page, setPage] = useState(1)
+  // const [limit, setLimit] = useState(8)
+  // useEffect(() => {
+  //   if(query.page) {
+  //     let p = Number(query.page) >= 1 ? query.page : 1;
+  //     setPage(Number(p))
+  //   }
 
-  const handlePagination = (pageIndex: number) => {
-		// if(pathname !== "/") return;
-		let p = pageIndex >= 1 ? pageIndex : 1;
-		router.replace(`?page=${p}&limit=${limit}`)
-		// console.log(pageIndex)
-	}
+  //   // if(query.limit) {
+  //   //   let l = Number(query.limit) >= 10 ? query.limit : 10;
+  //   //   setLimit(Number(l))
+  //   // }
+  // },[query])
+
+  // const handlePagination = (pageIndex: number) => {
+	// 	// if(pathname !== "/") return;
+	// 	let p = pageIndex >= 1 ? pageIndex : 1;
+	// 	router.replace(`?page=${p}&limit=${limit}`)
+	// 	// console.log(pageIndex)
+	// }
   return (
     <div className="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6">
       <div className="flex-1 flex justify-between sm:hidden">
@@ -170,15 +180,16 @@ export const  Pagination: FC<Pagination>  = () => {
       <div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
         <div>
           <p className="text-sm text-gray-700">
-            Showing <span className="font-medium">1</span> to <span className="font-medium">10</span> of{' '}
-            <span className="font-medium">97</span> results
+            Showing <span className="font-medium">1</span> to <span className="font-medium">{pageData.limit}</span> of{' '}
+            <span className="font-medium">{pageData.count}</span> results
           </p>
         </div>
         <div>
           <nav className="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
             <button
               className="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
-              onClick={() => handlePagination(page - 1)}
+              onClick={() => prev()}
+              disabled={end === 'arrayconnection:0'}
             >
               <span className="sr-only">Previous</span>
               <ChevronLeftIcon className="h-5 w-5" aria-hidden="true" />
@@ -226,7 +237,11 @@ export const  Pagination: FC<Pagination>  = () => {
             </a>
             <button
               className="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
-              onClick={() => handlePagination(page + 1)}
+              // onClick={() => handlePagination(page + 1)}
+              onClick={() => next()}
+              disabled={start === `arrayconnection:${pageData.count-1}`}
+              
+
             >
               <span className="sr-only">Next</span>
               <ChevronRightIcon className="h-5 w-5" aria-hidden="true" />
