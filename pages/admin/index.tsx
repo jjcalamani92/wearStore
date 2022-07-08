@@ -10,7 +10,6 @@ const PAGE_SIZE = 8;
 
 const AdminPage = () => {
 	const { site } = useContext(UiContext)
-
 	const [page, setPage] = useState(5)
 	const [first, setFirst] = useState<number | null>(page)
 	const [last, setLast] = useState<number | null>(null)

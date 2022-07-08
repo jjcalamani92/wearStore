@@ -180,8 +180,8 @@ export const  Pagination: FC<Pagination>  = ({next, prev, start, end, pageData})
       <div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
         <div>
           <p className="text-sm text-gray-700">
-            Showing <span className="font-medium">1</span> to <span className="font-medium">{pageData.limit}</span> of{' '}
-            <span className="font-medium">{pageData.count}</span> results
+            Showing <span className="font-medium">1</span> to <span className="font-medium">{pageData?.limit}</span> of{' '}
+            <span className="font-medium">{pageData?.count}</span> results
           </p>
         </div>
         <div>
@@ -239,7 +239,7 @@ export const  Pagination: FC<Pagination>  = ({next, prev, start, end, pageData})
               className="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
               // onClick={() => handlePagination(page + 1)}
               onClick={() => next()}
-              disabled={start === `arrayconnection:${pageData.count-1}`}
+              disabled={start === `arrayconnection:${pageData?.count-1}`}
               
 
             >
