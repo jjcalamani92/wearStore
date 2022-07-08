@@ -1,16 +1,26 @@
-import { FC, Key, ReactChild, ReactFragment, ReactPortal, useContext, useEffect, useState } from "react";
-import { PRODUCT_ALL } from '../../src/gql';
-import { Spinner04, TableProduct, Pagination01, LayoutItemListAdmin, HeadingTable, Pagination, } from "../../components/Components";
-import { Layout } from "../../components/Layout";
+import { FC, useContext, useEffect, useState } from "react";
+import Link from 'next/link';
+import { Layout, } from "../../../components/Layout";
+import { graphQLClientP } from "../../../src/graphQLClient";
+import { GetServerSideProps, GetStaticProps } from "next";
+import { Category, IMark, ISeo, Item, Section, Site } from "../../../src/interfaces";
+import { HeadingTable, LayoutMarkListAdmin, Spinner04, TableMark } from "../../../components/Components";
+import { MARKS } from "../../../src/gql";
+import { UiContext } from "../../../src/context";
+import { Wear } from "../../../src/interfaces/Wear";
+import { CategoryFilters } from "../../../components/categoryFilters";
 import { useQuery } from "@apollo/client";
-import { UiContext } from "../../src/context";
-import { PRODUCTS_PAGINATION } from "../../src/gql/wear";
+import { PRODUCTS_PAGINATION } from "../../../src/gql/wear";
+import { Pagination } from "../../../components";
 
-const PAGE_SIZE = 8;
 
-const AdminPage = () => {
-	const { site } = useContext(UiContext)
-	const [page, setPage] = useState(5)
+interface Props {
+  seo: ISeo
+	products: Wear[]
+}
+const AdminProduct:FC<Props> = ({seo, products}) => {
+	console.log(products)
+	const [page, setPage] = useState(15)
 	const [first, setFirst] = useState<number | null>(page)
 	const [last, setLast] = useState<number | null>(null)
 	const [before, setBefore] = useState(null)
@@ -51,30 +61,29 @@ const AdminPage = () => {
 	}
 	return (
 		<>
-			<Layout
-				title={site.title}
-				pageDescription={site.description}
-			// imageFullUrl={site.logo}
-			>
-				{
-					data?.listWearsWithCursor.page.edges.map((d:any) =>
-					(<h1 key={d.node._id}>{d.node.article.title}</h1>
-					))
-				}
-				<Pagination next={next} prev={prev} start={start} end={end} pageData={pageData}/>
-				{/* <HeadingTable title='Productos' href="/admin/products/new"/>
-				<TableProduct products={data.clothingsAll} />
-				{/* <GridProduct product={data.clothingsAll}/> */}
-				{/* <LayoutItemListAdmin products={data.clothingsAll}/> */}
-				{/* <Pagination01 setPage={setPage} page={page} length={data.clothingsAll.length} all={PAGE_SIZE} /> */}
-				{/* <LayoutAdmin>
-				{/*  */}
-				{/* </LayoutAdmin> */}
-			</Layout>
+		<Layout
+			title="{site.title}"
+			pageDescription="{site.description}"
+			imageFullUrl="{site.logo}"
+		>
+      <CategoryFilters edges = {data?.listWearsWithCursor.page.edges} />
+			<Pagination next={next} prev={prev} start={start} end={end} pageData={pageData}/>
+			{/* <HeadingTable title='Marcas' href="/admin/marks/new"/>
+			
+			<TableMark markAll={markAll} />
+      <LayoutMarkListAdmin marks={markAll} />  */}
+		</Layout>
 		</>
-
 	);
 };
 
+export const getServerSideProps:GetServerSideProps = async() => {
+  // const { markAll } = await graphQLClientP.request(MARKS, {site: process.env.API_SITE})
+	return {
+		props: {
+			products:[]
+		},
+	};
+}
 
-export default AdminPage;
+export default AdminProduct;

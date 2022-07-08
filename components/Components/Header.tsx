@@ -279,7 +279,7 @@ export const Header = () => {
                           <img alt="profile-pic" src={user?.image} className="w-8 h-8 rounded-md" />
                           <p className=" text-xs md:text-sm text-gray-800  leading-4 ml-2 capitalize">{user?.username}</p>
                         </div>
-                        <ul className="flex">
+                        {/* <ul className="flex">
                           <div className="ml-2" onClick={out}>
                             <a className="p-2 text-xs md:text-sm text-gray-400 hover:text-gray-500 items-center flex">
                               <span className="sr-only">Logout</span>
@@ -290,7 +290,7 @@ export const Header = () => {
                             </a>
                           </div>
 
-                        </ul>
+                        </ul> */}
                       </div>
                     </div>
                   </>
@@ -587,12 +587,12 @@ export const Header = () => {
                 {p[0] === 'admin'
                   ? <>
                     <div className="hidden lg:flex">
-                      <div className="w-full flex items-center justify-between px-6 pt-1 mb-1">
+                      <div className="w-full flex items-center justify-between">
                         <div className="flex items-center">
                           <img alt="profile-pic" src={user?.image} className="w-8 h-8 rounded-md" />
                           <p className=" text-gray-800 text-xs md:text-sm leading-4 ml-2 capitalize">{user?.username}</p>
                         </div>
-                        <ul className="flex">
+                        {/* <ul className="flex">
                           <div className="ml-2" onClick={out}>
                             <a className="p-2 text-gray-400 hover:text-gray-500 items-center flex">
                               <span className="sr-only">Logout</span>
@@ -603,7 +603,7 @@ export const Header = () => {
                             </a>
                           </div>
 
-                        </ul>
+                        </ul> */}
                       </div>
                     </div>
                   </>
