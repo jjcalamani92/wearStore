@@ -9,6 +9,8 @@ import { HeadingTable, LayoutItemsListAdmin } from '../../../../../components/Co
 import { HeadingAdmin } from '../../../../../components/Components/HeadingAdmin';
 import { useContext } from 'react';
 import { UiContext } from '../../../../../src/context';
+import { HeadingDashboard } from '../../../../../components';
+import { FilterSite } from '../../../../../components/filterSite';
 interface Props {
 	section: Section;
 	category: string
@@ -22,12 +24,14 @@ const ProductPage: NextPage<Props> = ({ section, category }) => {
 			title={site.title}
 			pageDescription={site.description}
 		>
-				<HeadingAdmin category={`${router.query.category}`} section={`${router.query.section}`}/>
+				{/* <HeadingAdmin category={`${router.query.category}`} section={`${router.query.section}`}/> */}
 				{
 					router.query.section === 'new'
 					? null
 					:
 					<>
+							<HeadingDashboard title="Items"/>
+							<FilterSite data={section.items} />
 							<HeadingTable
 								title='Items' 
 								href={`/admin/sites/${router.query.category}/${router.query.section}/new`}

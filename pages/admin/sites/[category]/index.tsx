@@ -11,6 +11,8 @@ import { TableSection } from '../../../../components/Components/table/TableSecti
 import { HeadingAdmin } from '../../../../components/Components/HeadingAdmin';
 import { UiContext } from '../../../../src/context';
 import { useContext } from 'react';
+import { HeadingDashboard } from '../../../../components';
+import { FilterSite } from '../../../../components/filterSite';
 interface Props {
 	category: Category;
 }
@@ -25,32 +27,35 @@ const ProductPage: NextPage<Props> = ({ category }) => {
 			pageDescription={site.description}
 			imageFullUrl={site.logo}
 		>
-
-				<HeadingAdmin category={`${router.query.category}`}/>
+				{/* <HeadingAdmin category={`${router.query.category}`}/> */}
 				{
 					router.query.category==='new'
 					?
-						null
+					null
 					:
 					<>
-					<HeadingTable 
+					<HeadingDashboard title='Secciones'/>
+					{/* <HeadingTable 
 						title='Secciones' 
 						href={`/admin/sites/${router.query.category}/new`}
-					/>
+						/> */}
+					<FilterSite data={category.sections}/>
 					
-					<TableSection sections={category.sections} category={category._id}/>
-					{/* <GridPages data={category.sections} category={category._id} /> */}
-					<LayoutSectionListAdmin data={category.sections} category={category._id}/>
+					{/* <TableSection sections={category.sections} category={category._id}/>
+					
+					<LayoutSectionListAdmin data={category.sections} category={category._id}/> */}
+					<HeadingDashboard title='Promociones'/>
+					<FilterSite data={category.featured}/>
 					
 					<HeadingTable 
 						title='Destacados' 
 						href={`/admin/sites/${router.query.category}/f/new`}
 					/>
 					
-					<TableFeatured featured={category.featured} category={category._id}/>
-					<LayoutFeaturedListAdmin data={category.featured} category={category._id}/>
+					{/* <TableFeatured featured={category.featured} category={category._id}/>
+					<LayoutFeaturedListAdmin data={category.featured} category={category._id}/>*/}
 
-					</>
+					</> 
 				}
 				<HeadingTable 
 						title={

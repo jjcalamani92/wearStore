@@ -25,6 +25,6 @@ export interface IMark {
 	name: string;
 	href: string;
 	imageSrc: string;
-	imageAlt?: string;
+	imageAlt: string;
 	description: string;
 	}

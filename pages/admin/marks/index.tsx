@@ -7,6 +7,8 @@ import { Category, IMark, ISeo, Item, Section, Site } from "../../../src/interfa
 import { HeadingTable, LayoutMarkListAdmin, TableMark } from "../../../components/Components";
 import { MARKS } from "../../../src/gql";
 import { UiContext } from "../../../src/context";
+import { HeadingDashboard } from "../../../components";
+import { FilterSite } from "../../../components/filterSite";
 
 
 interface Props {
@@ -22,7 +24,10 @@ const AdminPages:FC<Props> = ({seo, markAll}) => {
 			title={site.title}
 			pageDescription={site.description}
 			imageFullUrl={site.logo}
-		>
+		>	
+			<HeadingDashboard title="Marcas" />
+			<FilterSite data={markAll}/>
+
 			<HeadingTable title='Marcas' href="/admin/marks/new"/>
 			
 			<TableMark markAll={markAll} />

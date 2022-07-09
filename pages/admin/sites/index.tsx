@@ -7,6 +7,8 @@ import { Category, ISeo, Item, Section, Site } from "../../../src/interfaces";
 import { HeadingTable, LayoutCategoryListAdmin, FormSite, GridPages } from "../../../components/Components";
 import { TableCategory } from "../../../components/Components/table/TableCategory";
 import { FilterSite } from '../../../components/filterSite';
+import { HeadingDashboard } from "../../../components";
+import { useRouter } from "next/router";
 
 
 interface Props {
@@ -14,6 +16,7 @@ interface Props {
 	site: Site
 }
 const AdminPages:FC<Props> = ({seo, site}) => {
+
 	return (
 		<>
 			<Layout
@@ -21,6 +24,7 @@ const AdminPages:FC<Props> = ({seo, site}) => {
 			pageDescription={site.description}
 			imageFullUrl={site.logo}
 		>	
+				<HeadingDashboard title="Sitio" />
 				<FilterSite data={site.categories}/>
 				<HeadingTable title='Categorias' href="/admin/sites/new"/>
 				<TableCategory categories={site.categories} />

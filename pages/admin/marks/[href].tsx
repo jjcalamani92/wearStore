@@ -9,7 +9,7 @@ import { UiContext } from '../../../src/context';
 interface Props {
 	mark: IMark;
 }
-const client = new GraphQLClient(`${process.env.APIP_URL}/graphql`)
+const client = new GraphQLClient(`${process.env.APIPP_URL}/graphql`)
 const ProductPage: NextPage<Props> = ({ mark }) => {
 	const { site, toggleSideSearch, toggleSideCart } = useContext(UiContext)
 
