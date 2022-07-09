@@ -18,13 +18,14 @@ import { FC, Fragment, useState } from 'react'
 import { Dialog, Disclosure, Menu, Transition } from '@headlessui/react'
 import { XIcon } from '@heroicons/react/outline'
 import { ChevronDownIcon, FilterIcon, MinusSmIcon, PlusSmIcon, ViewGridIcon } from '@heroicons/react/solid'
-import { Card, Main } from './component'
+import { Card, Main, CardSite } from './component'
 import { GridProduct } from './gridProduct'
 import { Edges, Wear } from '../src/interfaces/Wear'
 import { CardComponent } from './Components/CardProduct'
 import { Spinner04 } from './Components'
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
+import { Section, Category, Featured, Item } from '../src/interfaces'
 
 const sortOptions = [
   { name: 'Most Popular', href: '#', current: true },
@@ -82,17 +83,16 @@ function classNames(...classes:string[]) {
   return classes.filter(Boolean).join(' ')
 }
 
-interface Props {
-  edges: Edges[]
-  loading: boolean
+interface FilterSite {
+  data: Category[] | Section[] | Featured[] | Item[];
 }
 
-export const CategoryFilters:FC<Props> = ({edges, loading}) => {
+export const FilterSite:FC<FilterSite> = ({data}) => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
   // const  { node } = edges
   const array = ['1', '2', '3', '4', '5','1', '2', '3', '4', '5','1', '2', '3', '4', '5',]
-  console.log(edges);
+  // console.log(edges);
   return (
     <Main>
       <div>
@@ -198,7 +198,7 @@ export const CategoryFilters:FC<Props> = ({edges, loading}) => {
 
         <main className="">
           <div className="relative z-10 flex items-baseline justify-between pb-6 border-b border-gray-200">
-            <h1 className="text-4xl font-extrabold tracking-tight text-gray-900">Productos</h1>
+            <h1 className="text-4xl font-extrabold tracking-tight text-gray-900">Sitio</h1>
 
             <div className="flex items-center">
               <Menu as="div" className="relative inline-block text-left">
@@ -320,25 +320,11 @@ export const CategoryFilters:FC<Props> = ({edges, loading}) => {
                 ))}
               </form>
               
-                {
-                  loading
-                    ?
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 col-span-5 gap-6">
-                      {array.map((edge, i) => (
-                        // <CardSkeleton key={i} />
-                        <div key={i}>
-                        <Skeleton width='100%' height={170}/>
-                        <Skeleton className='mt-2'/>
-                        </div>
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 col-span-5 gap-6">
+                      {data.map((d, i) => (
+                        <CardSite data={d} key={i} />
                         ))}
                     </div>
-                    :
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 col-span-5 gap-6">
-                      {edges?.map((edge, i) => (
-                        <Card article={edge.node.article} key={i} />
-                        ))}
-                    </div>
-              }
 
               
               {/* Product grid */}

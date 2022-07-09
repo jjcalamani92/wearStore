@@ -14,7 +14,7 @@ export const  Pagination: FC<Pagination>  = ({next, prev, start, end, pageData})
 
   return (
     <Main>
-      <div className="flex-1 flex justify-between sm:hidden">
+      <div className="flex-1 flex justify-between sm:hidden my-3">
         <a
           href="#"
           className="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
@@ -28,7 +28,7 @@ export const  Pagination: FC<Pagination>  = ({next, prev, start, end, pageData})
           Next
         </a>
       </div>
-      <div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
+      <div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between py-3">
         <div>
           <p className="text-sm text-gray-700">
             Showing <span className="font-medium">1</span> to <span className="font-medium">{pageData?.limit}</span> of{' '}

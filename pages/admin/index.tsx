@@ -1,6 +1,6 @@
 import { FC, Key, ReactChild, ReactFragment, ReactPortal, useContext, useEffect, useState } from "react";
 import { PRODUCT_ALL } from '../../src/gql';
-import { Spinner04, TableProduct, Pagination01, LayoutItemListAdmin, HeadingTable, Pagination, } from "../../components/Components";
+import { Spinner04, TableProduct, Pagination01, LayoutItemListAdmin, HeadingTable } from "../../components/Components";
 import { Layout } from "../../components/Layout";
 import { useQuery } from "@apollo/client";
 import { UiContext } from "../../src/context";

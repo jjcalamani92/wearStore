@@ -37,7 +37,7 @@ const AdminProduct:FC<Props> = ({seo, products}) => {
 		fetchPolicy: 'network-only',
 		onCompleted: () => console.log('called'),
 	});
-	if (loading) return <Spinner04 />;
+
 
 	// console.log(data)
 	// console.log(data?.listWearsWithCursor.page.edges)
@@ -66,7 +66,7 @@ const AdminProduct:FC<Props> = ({seo, products}) => {
 			pageDescription="{site.description}"
 			imageFullUrl="{site.logo}"
 		>
-      <CategoryFilters edges = {data?.listWearsWithCursor.page.edges} />
+      <CategoryFilters edges = {data?.listWearsWithCursor.page.edges} loading={loading}/>
 			<Pagination next={next} prev={prev} start={start} end={end} pageData={pageData}/>
 			{/* <HeadingTable title='Marcas' href="/admin/marks/new"/>
 			

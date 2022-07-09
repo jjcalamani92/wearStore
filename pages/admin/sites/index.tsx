@@ -6,6 +6,7 @@ import { GetStaticProps, GetServerSideProps } from 'next';
 import { Category, ISeo, Item, Section, Site } from "../../../src/interfaces";
 import { HeadingTable, LayoutCategoryListAdmin, FormSite, GridPages } from "../../../components/Components";
 import { TableCategory } from "../../../components/Components/table/TableCategory";
+import { FilterSite } from '../../../components/filterSite';
 
 
 interface Props {
@@ -19,7 +20,8 @@ const AdminPages:FC<Props> = ({seo, site}) => {
 			title={site.title}
 			pageDescription={site.description}
 			imageFullUrl={site.logo}
-		>
+		>	
+				<FilterSite data={site.categories}/>
 				<HeadingTable title='Categorias' href="/admin/sites/new"/>
 				<TableCategory categories={site.categories} />
 				

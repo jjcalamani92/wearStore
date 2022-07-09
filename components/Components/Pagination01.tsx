@@ -133,7 +133,7 @@ interface Pagination {
   pageData: any
 }
 
-export const  Pagination: FC<Pagination>  = ({next, prev, start, end, pageData}) => {
+export const  Pagination2: FC<Pagination>  = ({next, prev, start, end, pageData}) => {
   // console.log('end', end)
 	// console.log('start',  start)
 	// console.log('pageData',  pageData.count-1)
